@@ -251,7 +251,18 @@
   will-change: transform;
 }
 
-/* User transitions are now handled by react-spring animations */
+/* User transitions with native CSS animations */
+.story-viewer-transitioning {
+  transition: transform 0.15s ease-out;
+}
+
+.story-viewer-transition-left {
+  transform: translateX(-100%);
+}
+
+.story-viewer-transition-right {
+  transform: translateX(100%);
+}
 
 /* Header */
 .story-viewer-header {
@@ -618,6 +629,8 @@
   animation: spin 0.8s linear infinite;
 }
 
+
+
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -652,4 +665,4 @@
   will-change: transform;
 }
 
-/* Slide animations are now handled by react-spring in StoryViewer.tsx */
+/* Slide animations are now handled by native CSS transitions in StoryViewer.tsx */

@@ -1,5 +1,5 @@
-import { memo } from 'react';
-import { ProgressBar } from './ProgressBar';
+import { memo } from "react";
+import { ProgressBar } from "./ProgressBar";
 
 interface StoryProgressBarsProps {
   total: number;
@@ -14,7 +14,9 @@ export const StoryProgressBars = memo<StoryProgressBarsProps>(
         {Array.from({ length: total }).map((_, index) => (
           <ProgressBar
             key={index}
-            progress={index < currentIndex ? 1 : index === currentIndex ? progress : 0}
+            progress={
+              index < currentIndex ? 1 : index === currentIndex ? progress : 0
+            }
             isActive={index === currentIndex}
           />
         ))}
@@ -23,4 +25,4 @@ export const StoryProgressBars = memo<StoryProgressBarsProps>(
   }
 );
 
-StoryProgressBars.displayName = 'StoryProgressBars';
+StoryProgressBars.displayName = "StoryProgressBars";
