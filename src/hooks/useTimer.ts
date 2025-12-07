@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useCallback } from 'react';
+import { useEffect, useRef, useState, useCallback } from "react";
 
 export interface UseTimerOptions {
   duration: number;
@@ -23,17 +23,19 @@ export const useTimer = ({
   const [progress, setProgress] = useState(0);
   const [isPaused, setIsPaused] = useState(!autoStart);
   const [currentDuration, setCurrentDuration] = useState(duration);
-  
+
   const startTimeRef = useRef<number | null>(null);
   const accumulatedTimeRef = useRef(0);
   const rafRef = useRef<number | null>(null);
+  const updateProgressRef = useRef<() => void>();
 
   const updateProgress = useCallback(() => {
     if (!startTimeRef.current || isPaused) return;
 
-    const elapsed = Date.now() - startTimeRef.current + accumulatedTimeRef.current;
+    const elapsed =
+      Date.now() - startTimeRef.current + accumulatedTimeRef.current;
     const newProgress = Math.min(elapsed / currentDuration, 1);
-    
+
     setProgress(newProgress);
 
     if (newProgress >= 1) {
@@ -41,18 +43,21 @@ export const useTimer = ({
       return;
     }
 
-    rafRef.current = requestAnimationFrame(updateProgress);
+    rafRef.current = requestAnimationFrame(updateProgressRef.current!);
   }, [currentDuration, isPaused, onComplete]);
+
+  // Keep the ref updated with the latest function
+  updateProgressRef.current = updateProgress;
 
   const pause = useCallback(() => {
     if (isPaused) return;
-    
+
     if (startTimeRef.current) {
       accumulatedTimeRef.current += Date.now() - startTimeRef.current;
     }
-    
+
     setIsPaused(true);
-    
+
     if (rafRef.current) {
       cancelAnimationFrame(rafRef.current);
       rafRef.current = null;
@@ -61,16 +66,25 @@ export const useTimer = ({
 
   const resume = useCallback(() => {
     if (!isPaused) return;
-    
+
     startTimeRef.current = Date.now();
     setIsPaused(false);
   }, [isPaused]);
 
   const reset = useCallback(() => {
+    // Cancel any existing animation frame
+    if (rafRef.current) {
+      cancelAnimationFrame(rafRef.current);
+      rafRef.current = null;
+    }
+
     startTimeRef.current = Date.now();
     accumulatedTimeRef.current = 0;
     setProgress(0);
     setIsPaused(false);
+
+    // Force start animation frame
+    rafRef.current = requestAnimationFrame(updateProgressRef.current!);
   }, []);
 
   const setDuration = useCallback((ms: number) => {
@@ -81,7 +95,7 @@ export const useTimer = ({
   useEffect(() => {
     if (!isPaused) {
       startTimeRef.current = Date.now();
-      rafRef.current = requestAnimationFrame(updateProgress);
+      rafRef.current = requestAnimationFrame(updateProgressRef.current!);
     }
 
     return () => {
@@ -89,7 +103,7 @@ export const useTimer = ({
         cancelAnimationFrame(rafRef.current);
       }
     };
-  }, [isPaused, updateProgress]);
+  }, [isPaused]);
 
   // Cleanup on unmount
   useEffect(() => {

@@ -68,17 +68,28 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
     const handleNextRef = useRef<() => void>();
 
     const timer = useTimer({
-      duration: currentDurationRef.current,
+      duration: currentDurationRef.current || DEFAULT_DURATION,
       onComplete: () => handleNextRef.current?.(),
       autoStart: false,
     });
+
+    // Update timer duration when story changes
+    useEffect(() => {
+      const duration = currentStory?.duration || DEFAULT_DURATION;
+      timer.setDuration(duration);
+    }, [timer, currentStory?.duration]);
 
     // Navigation functions
     const handleNext = useCallback(() => {
       if (!currentUser) return;
 
       if (currentStoryIndex < totalStories - 1) {
-        setCurrentStoryIndex((prev) => prev + 1);
+        const nextIndex = currentStoryIndex + 1;
+        const nextStory = currentUser.stories[nextIndex];
+        const duration = nextStory?.duration || DEFAULT_DURATION;
+
+        setCurrentStoryIndex(nextIndex);
+        timer.setDuration(duration);
         timer.reset();
       } else if (currentUserIndex < users.length - 1) {
         // Show loading for next user
@@ -89,10 +100,17 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
           setIsTransitioning(true);
           setTransitionDirection("left");
           setTimeout(() => {
-            setCurrentUserIndex((prev) => prev + 1);
+            const nextUserIndex = currentUserIndex + 1;
+            const nextUser = users[nextUserIndex];
+            const firstStory = nextUser.stories[0];
+            const duration = firstStory?.duration || DEFAULT_DURATION;
+
+            setCurrentUserIndex(nextUserIndex);
             setCurrentStoryIndex(0);
             setIsTransitioning(false);
             setTransitionDirection(null);
+
+            timer.setDuration(duration);
             timer.reset();
           }, 150); // Match CSS transition duration
         }, 1000); // Simulate 1s loading for user data
@@ -104,7 +122,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       currentStoryIndex,
       totalStories,
       currentUserIndex,
-      users.length,
+      users,
       timer,
       onClose,
     ]);
@@ -113,7 +131,12 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       if (!currentUser) return;
 
       if (currentStoryIndex > 0) {
-        setCurrentStoryIndex((prev) => prev - 1);
+        const prevIndex = currentStoryIndex - 1;
+        const prevStory = currentUser.stories[prevIndex];
+        const duration = prevStory?.duration || DEFAULT_DURATION;
+
+        setCurrentStoryIndex(prevIndex);
+        timer.setDuration(duration);
         timer.reset();
       } else if (currentUserIndex > 0) {
         // Show loading for previous user
@@ -124,12 +147,18 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
           setIsTransitioning(true);
           setTransitionDirection("right");
           setTimeout(() => {
-            setCurrentUserIndex((prev) => prev - 1);
-            setCurrentStoryIndex(
-              users[currentUserIndex - 1].stories.length - 1
-            );
+            const prevUserIndex = currentUserIndex - 1;
+            const prevUser = users[prevUserIndex];
+            const lastStoryIndex = prevUser.stories.length - 1;
+            const lastStory = prevUser.stories[lastStoryIndex];
+            const duration = lastStory?.duration || DEFAULT_DURATION;
+
+            setCurrentUserIndex(prevUserIndex);
+            setCurrentStoryIndex(lastStoryIndex);
             setIsTransitioning(false);
             setTransitionDirection(null);
+
+            timer.setDuration(duration);
             timer.reset();
           }, 150); // Match CSS transition duration
         }, 1000); // Simulate 1s loading for user data
@@ -362,7 +391,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
           scrollPositionRef.current = window.scrollY;
           document.body.style.overflow = "hidden";
           // Start timer when opening story viewer
-          timer.reset();
+          timer.resume();
         }, 1500); // Simulate 1.5s loading time
       } else if (!isOpen) {
         hasStartedLoadingRef.current = false;

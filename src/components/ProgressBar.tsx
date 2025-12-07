@@ -1,4 +1,4 @@
-import { memo } from 'react';
+import { memo } from "react";
 
 interface ProgressBarProps {
   progress: number; // 0 to 1
@@ -27,4 +27,4 @@ export const ProgressBar = memo<ProgressBarProps>(({ progress, isActive }) => {
   );
 });
 
-ProgressBar.displayName = 'ProgressBar';
+ProgressBar.displayName = "ProgressBar";
