@@ -251,7 +251,7 @@
   will-change: transform;
 }
 
-/* User transition animations will be handled by slide classes below */
+/* User transitions are now handled by react-spring animations */
 
 /* Header */
 .story-viewer-header {
@@ -469,6 +469,44 @@
     width: 56px;
     height: 56px;
   }
+
+  .story-viewer-close {
+    width: 44px;
+    height: 44px;
+    font-size: 32px;
+  }
+
+  .story-viewer-user-info {
+    margin-top: 8px;
+  }
+
+  .story-viewer-avatar {
+    width: 32px;
+    height: 32px;
+  }
+
+  .story-viewer-username {
+    font-size: 13px;
+  }
+}
+
+/* Handle orientation changes */
+@media (orientation: landscape) and (max-height: 500px) {
+  .story-viewer-content {
+    max-height: 100vh;
+  }
+
+  .story-viewer-header {
+    padding: 12px;
+  }
+
+  .story-progress-bars-container {
+    height: 2px;
+  }
+
+  .story-progress-bar {
+    height: 2px;
+  }
 }
 
 @media (min-width: 769px) {
@@ -479,8 +517,20 @@
 }
 
 /* ========================================
-   ACCESSIBILITY
-   ======================================== */
+    ACCESSIBILITY
+    ======================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
 
 .story-avatar:focus,
 .story-viewer-close:focus,
@@ -580,14 +630,8 @@
 }
 
 /* ========================================
-   3D CUBE TRANSITION WITH TWO SIDES
-   ======================================== */
-
-.story-viewer {
-  perspective: 1500px;
-  perspective-origin: center center;
-  transform-style: preserve-3d;
-}
+    SMOOTH SLIDE TRANSITIONS
+    ======================================== */
 
 .story-viewer-slide {
   position: absolute;
@@ -595,81 +639,17 @@
   left: 0;
   right: 0;
   bottom: 0;
+  width: 100%;
+  height: 100%;
   display: flex;
   align-items: center;
   justify-content: center;
-  transform-style: preserve-3d;
-  backface-visibility: hidden;
   z-index: 10;
+  will-change: transform, opacity;
 }
 
 .story-viewer-content {
-  transform-style: preserve-3d;
-  backface-visibility: visible;
+  will-change: transform;
 }
 
-/* Current slide animations */
-.story-viewer-transition-left .slide-current {
-  animation: cubeRotateOutLeft 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-}
-
-.story-viewer-transition-right .slide-current {
-  animation: cubeRotateOutRight 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-}
-
-/* Next slide animations */
-.slide-next-left {
-  transform: translate3d(100%, 0, 0) rotateY(-90deg);
-  transform-origin: left center;
-  animation: cubeRotateInFromLeft 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-}
-
-.slide-next-right {
-  transform: translate3d(-100%, 0, 0) rotateY(90deg);
-  transform-origin: right center;
-  animation: cubeRotateInFromRight 0.4s cubic-bezier(0.55, 0.055, 0.675, 0.19) forwards;
-}
-
-@keyframes cubeRotateOutLeft {
-  0% {
-    transform: translate3d(0, 0, 0) rotateY(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(-100%, 0, 0) rotateY(90deg);
-    opacity: 0.3;
-  }
-}
-
-@keyframes cubeRotateOutRight {
-  0% {
-    transform: translate3d(0, 0, 0) rotateY(0deg);
-    opacity: 1;
-  }
-  100% {
-    transform: translate3d(100%, 0, 0) rotateY(-90deg);
-    opacity: 0.3;
-  }
-}
-
-@keyframes cubeRotateInFromLeft {
-  0% {
-    transform: translate3d(100%, 0, 0) rotateY(-90deg);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotateY(0deg);
-    opacity: 1;
-  }
-}
-
-@keyframes cubeRotateInFromRight {
-  0% {
-    transform: translate3d(-100%, 0, 0) rotateY(90deg);
-    opacity: 0.3;
-  }
-  100% {
-    transform: translate3d(0, 0, 0) rotateY(0deg);
-    opacity: 1;
-  }
-}
+/* Slide animations are now handled by react-spring in StoryViewer.tsx */
