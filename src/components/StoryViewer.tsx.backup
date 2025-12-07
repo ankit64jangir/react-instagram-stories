@@ -1,0 +1,262 @@
+import React, { useState, useEffect, useCallback, useMemo, useRef } from 'react';
+import { createPortal } from 'react-dom';
+import { User, StoryItem as StoryItemType, StoryItemControls } from '../types';
+import { useTimer } from '../hooks/useTimer';
+import { useGestures } from '../hooks/useGestures';
+import { useKeyboard } from '../hooks/useKeyboard';
+import { useFocusTrap } from '../hooks/useFocusTrap';
+import { usePageVisibility } from '../hooks/usePageVisibility';
+import { usePreloader } from '../hooks/usePreloader';
+import { StoryProgressBars } from './StoryProgressBars';
+import { StoryItem } from './StoryItem';
+
+interface StoryViewerProps {
+  users: User[];
+  initialUserIndex: number;
+  isOpen: boolean;
+  onClose: () => void;
+}
+
+const DEFAULT_DURATION = 5000;
+
+export const StoryViewer: React.FC<StoryViewerProps> = ({
+  users,
+  initialUserIndex,
+  isOpen,
+  onClose,
+}) => {
+  const [currentUserIndex, setCurrentUserIndex] = useState(initialUserIndex);
+  const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
+  const [userTransition, setUserTransition] = useState<'none' | 'left' | 'right'>('none');
+  const [isHovered, setIsHovered] = useState(false);
+  const [customPaused, setCustomPaused] = useState(false);
+  
+  const containerRef = useFocusTrap(isOpen);
+  const isPageVisible = usePageVisibility();
+  const { preloadStoryItem } = usePreloader();
+
+  const currentUser = users[currentUserIndex];
+  const currentStory = currentUser?.stories[currentStoryIndex];
+  const totalStories = currentUser?.stories.length || 0;
+
+  const currentDuration = currentStory?.duration || DEFAULT_DURATION;
+
+  // Create a ref to hold the timer
+  const timerRef = useRef<ReturnType<typeof useTimer>>(null as any);
+
+  // Define handleNext first
+  const handleNext = useCallback(() => {
+    if (currentStoryIndex < totalStories - 1) {
+      // Next story of current user
+      setCurrentStoryIndex((prev) => prev + 1);
+      timerRef.current?.reset();
+    } else if (currentUserIndex < users.length - 1) {
+      // Next user
+      setUserTransition('left');
+      setTimeout(() => {
+        setCurrentUserIndex((prev) => prev + 1);
+        setCurrentStoryIndex(0);
+        timerRef.current?.reset();
+        setUserTransition('none');
+      }, 300);
+    } else {
+      // End of all stories
+      onClose();
+    }
+  }, [currentStoryIndex, totalStories, currentUserIndex, users.length, onClose]);
+
+  // Timer for current story
+  const timer = useTimer({
+    duration: currentDuration,
+    autoStart: isOpen,
+    onComplete: handleNext,
+  });
+
+  // Store timer in ref
+  timerRef.current = timer;
+
+  // Keyboard handlers
+  useKeyboard({
+    onLeft: handlePrevious,
+    onRight: handleNext,
+    onSpace: handleTogglePause,
+    onEscape: onClose,
+    enabled: isOpen,
+  });
+
+  // Handle video duration detection
+  const handleDurationDetected = useCallback(
+    (duration: number) => {
+      if (!currentStory?.duration) {
+        timer.setDuration(duration);
+      }
+    },
+    [currentStory?.duration, timer]
+  );
+
+  // Handle load error - skip to next
+  const handleLoadError = useCallback(() => {
+    console.warn('Story item failed to load, skipping...');
+    setTimeout(handleNext, 500);
+  }, [handleNext]);
+
+  // Preload adjacent stories
+  useEffect(() => {
+    if (!isOpen || !currentUser) return;
+
+    const preloadAdjacent = async () => {
+      const itemsToPreload: StoryItemType[] = [];
+
+      // Next story
+      if (currentStoryIndex < totalStories - 1) {
+        itemsToPreload.push(currentUser.stories[currentStoryIndex + 1]);
+      }
+
+      // Previous story
+      if (currentStoryIndex > 0) {
+        itemsToPreload.push(currentUser.stories[currentStoryIndex - 1]);
+      }
+
+      // Next user's first story
+      if (currentStoryIndex === totalStories - 1 && currentUserIndex < users.length - 1) {
+        itemsToPreload.push(users[currentUserIndex + 1].stories[0]);
+      }
+
+      // Preload in background
+      for (const item of itemsToPreload) {
+        preloadStoryItem(item).catch(() => {});
+      }
+    };
+
+    preloadAdjacent();
+  }, [isOpen, currentUser, currentUserIndex, currentStoryIndex, totalStories, users, preloadStoryItem]);
+
+  // Reset on open
+  useEffect(() => {
+    if (isOpen) {
+      setCurrentUserIndex(initialUserIndex);
+      setCurrentStoryIndex(0);
+      timer.reset();
+    }
+  }, [isOpen, initialUserIndex]);
+
+  // Prevent body scroll when open
+  useEffect(() => {
+    if (isOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isOpen]);
+
+  if (!isOpen || !currentUser || !currentStory) {
+    return null;
+  }
+
+  // Determine which stories to render (current, prev, next for DOM efficiency)
+  const storiesToRender = useMemo(() => {
+    const stories: { index: number; story: StoryItemType; position: 'prev' | 'current' | 'next' }[] = [];
+
+    if (currentStoryIndex > 0) {
+      stories.push({
+        index: currentStoryIndex - 1,
+        story: currentUser.stories[currentStoryIndex - 1],
+        position: 'prev',
+      });
+    }
+
+    stories.push({
+      index: currentStoryIndex,
+      story: currentStory,
+      position: 'current',
+    });
+
+    if (currentStoryIndex < totalStories - 1) {
+      stories.push({
+        index: currentStoryIndex + 1,
+        story: currentUser.stories[currentStoryIndex + 1],
+        position: 'next',
+      });
+    }
+
+    return stories;
+  }, [currentUser, currentStory, currentStoryIndex, totalStories]);
+
+  const content = (
+    <div
+      className={`story-viewer ${userTransition !== 'none' ? `story-viewer-transition-${userTransition}` : ''}`}
+      ref={containerRef}
+      role="dialog"
+      aria-modal="true"
+      aria-label="Story viewer"
+      onMouseEnter={() => setIsHovered(true)}
+      onMouseLeave={() => setIsHovered(false)}
+      {...gestureHandlers}
+    >
+      <div className="story-viewer-overlay" onClick={onClose} />
+
+      <div className="story-viewer-content">
+        {/* Header */}
+        <div className="story-viewer-header">
+          <StoryProgressBars
+            total={totalStories}
+            currentIndex={currentStoryIndex}
+            progress={timer.progress}
+          />
+
+          <div className="story-viewer-user-info">
+            <img
+              src={currentUser.avatarUrl}
+              alt={currentUser.username}
+              className="story-viewer-avatar"
+            />
+            <span className="story-viewer-username">{currentUser.username}</span>
+          </div>
+
+          <button
+            className="story-viewer-close"
+            onClick={onClose}
+            aria-label="Close story viewer"
+          >
+            ×
+          </button>
+        </div>
+
+        {/* Story Items */}
+        <div className="story-viewer-items">
+          {storiesToRender.map(({ index, story, position }) => (
+            <div
+              key={`${currentUser.id}-${story.id}-${index}`}
+              className={`story-viewer-item-wrapper story-viewer-item-${position}`}
+              style={{
+                opacity: position === 'current' ? 1 : 0,
+                visibility: position === 'current' ? 'visible' : 'hidden',
+              }}
+            >
+              <StoryItem
+                item={story}
+                isActive={position === 'current'}
+                isPaused={isPaused}
+                onDurationDetected={handleDurationDetected}
+                onLoadError={handleLoadError}
+                controls={storyControls}
+              />
+            </div>
+          ))}
+        </div>
+
+        {/* Navigation hints */}
+        <div className="story-viewer-nav-hints">
+          <div className="story-viewer-nav-hint story-viewer-nav-hint-left" />
+          <div className="story-viewer-nav-hint story-viewer-nav-hint-right" />
+        </div>
+      </div>
+    </div>
+  );
+
+  return createPortal(content, document.body);
+};
