@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef, useState, useCallback } from 'react';
 import { StoryItem as StoryItemType, StoryItemControls } from '../types';
+import { PDPStory } from './PDPStory';
 
 interface StoryItemProps {
   item: StoryItemType;
@@ -173,6 +174,13 @@ export const StoryItem = memo<StoryItemProps>(
         return (
           <div className="story-item story-item-component">
             <Component {...controls} />
+          </div>
+        );
+
+      case 'pdp':
+        return (
+          <div className="story-item story-item-pdp">
+            <PDPStory vehicleData={item.vehicleData} />
           </div>
         );
 
