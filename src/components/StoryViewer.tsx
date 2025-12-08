@@ -20,13 +20,14 @@ interface StoryViewerProps {
   initialUserIndex: number;
   isOpen: boolean;
   onClose: () => void;
+  onStoryChange?: (userIndex: number, storyIndex: number) => void;
 }
 
 const DEFAULT_DURATION = 5000;
 const SWIPE_THRESHOLD = 60; // pixels
 
 export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
-  ({ users, initialUserIndex, isOpen, onClose }) => {
+  ({ users, initialUserIndex, isOpen, onClose, onStoryChange }) => {
     // State
     const [currentUserIndex, setCurrentUserIndex] = useState(initialUserIndex);
     const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
@@ -409,6 +410,13 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
     useEffect(() => {
       setCurrentStoryIndex(0);
     }, [currentUserIndex]);
+
+    // Notify parent of story changes
+    useEffect(() => {
+      if (onStoryChange && isOpen) {
+        onStoryChange(currentUserIndex, currentStoryIndex);
+      }
+    }, [currentUserIndex, currentStoryIndex, onStoryChange, isOpen]);
 
     // Handle load errors
     const handleLoadError = useCallback(() => {
