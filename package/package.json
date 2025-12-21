@@ -1,0 +1,49 @@
+{
+  "name": "react-instagram-stories",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "High-performance Instagram-style Stories component for React with Tailwind CSS support",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "type-check": "tsc --noEmit"
+  },
+  "keywords": [
+    "react",
+    "stories",
+    "instagram",
+    "component",
+    "performance",
+    "virtualized",
+    "tailwindcss"
+  ],
+  "author": "",
+  "license": "MIT",
+  "peerDependencies": {
+    "react": "^18.0.0",
+    "react-dom": "^18.0.0"
+  },
+  "optionalDependencies": {
+    "react-router-dom": "^7.10.1"
+  },
+  "devDependencies": {
+    "@rollup/plugin-commonjs": "^25.0.0",
+    "@rollup/plugin-node-resolve": "^15.0.0",
+    "@rollup/plugin-typescript": "^11.0.0",
+    "@types/react": "^18.2.0",
+    "@types/react-dom": "^18.2.0",
+    "rollup": "^4.0.0",
+    "rollup-plugin-dts": "^6.0.0",
+    "typescript": "^5.0.0"
+  },
+  "dependencies": {
+    "tslib": "^2.8.1"
+  }
+}

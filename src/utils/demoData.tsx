@@ -150,3199 +150,3140 @@ export const generateDemoUsers = (count: number = 50): User[] => {
 // Real data from CMS API
 const realData = [
   {
-    "id": 63,
-    "attributes": {
-      "createdAt": "2025-11-13T11:33:04.002Z",
-      "updatedAt": "2025-11-26T13:28:30.195Z",
-      "publishedAt": "2025-11-13T11:33:03.988Z",
-      "cities": [
-        "Bangalore"
-      ],
-      "profile": {
-        "id": 63,
-        "name": "Hot Deal On Scooters",
-        "avatar": {
-          "data": {
-            "id": 437,
-            "attributes": {
-              "name": "hot_deal_on_scooters.jpeg",
-              "alternativeText": null,
-              "caption": null,
-              "width": 1024,
-              "height": 1024,
-              "formats": {
-                "large": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/large_hot_deal_on_scooters_adeddbd9f4.jpeg",
-                  "hash": "large_hot_deal_on_scooters_adeddbd9f4",
-                  "mime": "image/jpeg",
-                  "name": "large_hot_deal_on_scooters.jpeg",
-                  "path": null,
-                  "size": 158.56,
-                  "width": 1000,
-                  "height": 1000,
-                  "sizeInBytes": 158564
+    id: 63,
+    attributes: {
+      createdAt: "2025-11-13T11:33:04.002Z",
+      updatedAt: "2025-11-26T13:28:30.195Z",
+      publishedAt: "2025-11-13T11:33:03.988Z",
+      cities: ["Bangalore"],
+      profile: {
+        id: 63,
+        name: "Hot Deal On Scooters",
+        avatar: {
+          data: {
+            id: 437,
+            attributes: {
+              name: "hot_deal_on_scooters.jpeg",
+              alternativeText: null,
+              caption: null,
+              width: 1024,
+              height: 1024,
+              formats: {
+                large: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/large_hot_deal_on_scooters_adeddbd9f4.jpeg",
+                  hash: "large_hot_deal_on_scooters_adeddbd9f4",
+                  mime: "image/jpeg",
+                  name: "large_hot_deal_on_scooters.jpeg",
+                  path: null,
+                  size: 158.56,
+                  width: 1000,
+                  height: 1000,
+                  sizeInBytes: 158564,
                 },
-                "small": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/small_hot_deal_on_scooters_adeddbd9f4.jpeg",
-                  "hash": "small_hot_deal_on_scooters_adeddbd9f4",
-                  "mime": "image/jpeg",
-                  "name": "small_hot_deal_on_scooters.jpeg",
-                  "path": null,
-                  "size": 36.67,
-                  "width": 500,
-                  "height": 500,
-                  "sizeInBytes": 36669
+                small: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/small_hot_deal_on_scooters_adeddbd9f4.jpeg",
+                  hash: "small_hot_deal_on_scooters_adeddbd9f4",
+                  mime: "image/jpeg",
+                  name: "small_hot_deal_on_scooters.jpeg",
+                  path: null,
+                  size: 36.67,
+                  width: 500,
+                  height: 500,
+                  sizeInBytes: 36669,
                 },
-                "medium": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/medium_hot_deal_on_scooters_adeddbd9f4.jpeg",
-                  "hash": "medium_hot_deal_on_scooters_adeddbd9f4",
-                  "mime": "image/jpeg",
-                  "name": "medium_hot_deal_on_scooters.jpeg",
-                  "path": null,
-                  "size": 85.29,
-                  "width": 750,
-                  "height": 750,
-                  "sizeInBytes": 85286
+                medium: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/medium_hot_deal_on_scooters_adeddbd9f4.jpeg",
+                  hash: "medium_hot_deal_on_scooters_adeddbd9f4",
+                  mime: "image/jpeg",
+                  name: "medium_hot_deal_on_scooters.jpeg",
+                  path: null,
+                  size: 85.29,
+                  width: 750,
+                  height: 750,
+                  sizeInBytes: 85286,
                 },
-                "thumbnail": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/thumbnail_hot_deal_on_scooters_adeddbd9f4.jpeg",
-                  "hash": "thumbnail_hot_deal_on_scooters_adeddbd9f4",
-                  "mime": "image/jpeg",
-                  "name": "thumbnail_hot_deal_on_scooters.jpeg",
-                  "path": null,
-                  "size": 6.28,
-                  "width": 156,
-                  "height": 156,
-                  "sizeInBytes": 6275
-                }
+                thumbnail: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/thumbnail_hot_deal_on_scooters_adeddbd9f4.jpeg",
+                  hash: "thumbnail_hot_deal_on_scooters_adeddbd9f4",
+                  mime: "image/jpeg",
+                  name: "thumbnail_hot_deal_on_scooters.jpeg",
+                  path: null,
+                  size: 6.28,
+                  width: 156,
+                  height: 156,
+                  sizeInBytes: 6275,
+                },
               },
-              "hash": "hot_deal_on_scooters_adeddbd9f4",
-              "ext": ".jpeg",
-              "mime": "image/jpeg",
-              "size": 172.63,
-              "url": "https://ik.imagekit.io/drivex/cms/hot_deal_on_scooters_adeddbd9f4.jpeg",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2025-11-13T11:19:08.841Z",
-              "updatedAt": "2025-11-13T11:19:08.841Z"
-            }
-          }
-        }
+              hash: "hot_deal_on_scooters_adeddbd9f4",
+              ext: ".jpeg",
+              mime: "image/jpeg",
+              size: 172.63,
+              url: "https://ik.imagekit.io/drivex/cms/hot_deal_on_scooters_adeddbd9f4.jpeg",
+              previewUrl: null,
+              provider: "aws-s3",
+              provider_metadata: null,
+              createdAt: "2025-11-13T11:19:08.841Z",
+              updatedAt: "2025-11-13T11:19:08.841Z",
+            },
+          },
+        },
       },
-      "stories": [
+      stories: [
         {
-          "id": 12088,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 352959,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12088,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 352959,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Yamaha",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Yamaha",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/352959/124720/inspection_report_3775.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "DL",
-              "monday_slots": [],
-              "no_of_challans": 12,
-              "pincode": 560076,
-              "saturday_slots": [
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/352959/124720/inspection_report_3775.pdf",
+              inspection_type: "L1",
+              kyc_type: "DL",
+              monday_slots: [],
+              no_of_challans: 12,
+              pincode: 560076,
+              saturday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "seller_id": 460183,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Bhaskar ",
-              "sunday_slots": [
+              seller_id: 460183,
+              seller_kyc_status: "Approved",
+              seller_name: "Bhaskar ",
+              sunday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "test_ride_address": "8th Phase, Kothnur, Bengaluru, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=16579495134867971896&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "Pavamana Nagar",
-              "thursday_slots": [],
-              "total_challan_amount": 4400,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "315056"
+              test_ride_address: "8th Phase, Kothnur, Bengaluru, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=16579495134867971896&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "Pavamana Nagar",
+              thursday_slots: [],
+              total_challan_amount: 4400,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "315056",
             },
-            "city": "Bangalore",
-            "colour": "Blue",
-            "createdOn": "2025-09-05 11:47:54",
-            "drivexAssured": false,
-            "geo_location": [
-              12.8689685,
-              77.5822034
-            ],
-            "geolocation": "12.8689685, 77.5822034",
-            "golden_mmv_id": 6518,
-            "id": "352959",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Blue",
+            createdOn: "2025-09-05 11:47:54",
+            drivexAssured: false,
+            geo_location: [12.8689685, 77.5822034],
+            geolocation: "12.8689685, 77.5822034",
+            golden_mmv_id: 6518,
+            id: "352959",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3775_left_47398eea438043d7.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3775_right_db202753a0da4772.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3775_front_a8f7b692fbb54b56.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3775_rear_d72c7dcbfb554fb8.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_3775_odometer_c92a458a1074481a.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_3775_odometer_c92a458a1074481a.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "113.00 cc",
-                "unit": "CC",
-                "value": 113
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "113.00 cc",
+                unit: "CC",
+                value: 113,
               },
-              "fuelTankCapacity": {
-                "displayValue": "5.20 litres",
-                "unit": "Litres",
-                "value": 5.2
+              fuelTankCapacity: {
+                displayValue: "5.20 litres",
+                unit: "Litres",
+                value: 5.2,
               },
-              "maxPower": {
-                "displayValue": "8.1 Nm @ 4500 rpm",
-                "unit": "Torque",
-                "value": "8.1 Nm @ 4500 rpm"
+              maxPower: {
+                displayValue: "8.1 Nm @ 4500 rpm",
+                unit: "Torque",
+                value: "8.1 Nm @ 4500 rpm",
               },
-              "topSpeed": {
-                "displayValue": "95 kmph",
-                "unit": "Kmph",
-                "value": 95
-              }
+              topSpeed: {
+                displayValue: "95 kmph",
+                unit: "Kmph",
+                value: 95,
+              },
             },
-            "kmDriven": {
-              "displayValue": "43,962",
-              "unit": "KM",
-              "value": 43962
+            kmDriven: {
+              displayValue: "43,962",
+              unit: "KM",
+              value: 43962,
             },
-            "locality": "J. P. Nagar",
-            "make_model": "Yamaha+Fascino 110",
-            "manufactureYear": 2016,
-            "modelName": "Fascino 110",
-            "objectID": "352959",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "43,962",
-                "unit": "KM",
-                "value": 43962
+            locality: "J. P. Nagar",
+            make_model: "Yamaha+Fascino 110",
+            manufactureYear: 2016,
+            modelName: "Fascino 110",
+            objectID: "352959",
+            overview: {
+              kmDriven: {
+                displayValue: "43,962",
+                unit: "KM",
+                value: 43962,
               },
-              "makeYear": {
-                "displayValue": 2016,
-                "unit": "Make year",
-                "value": 2016
+              makeYear: {
+                displayValue: 2016,
+                unit: "Make year",
+                value: 2016,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2016,
-                "unit": "Year",
-                "value": 2016
+              registrationYear: {
+                displayValue: 2016,
+                unit: "Year",
+                value: 2016,
               },
-              "rto": {
-                "displayValue": "KA51",
-                "unit": "RTO",
-                "value": "KA51"
-              }
+              rto: {
+                displayValue: "KA51",
+                unit: "RTO",
+                value: "KA51",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 91,
-            "price": {
-              "displayValue": "40,000",
-              "unit": "Rs",
-              "value": 40000
+            ownerShip: 1,
+            popularity: 91,
+            price: {
+              displayValue: "40,000",
+              unit: "Rs",
+              value: 40000,
             },
-            "retail_inventory_id": 3775,
-            "vehicleId": 352959,
-            "vehicleName": "Yamaha Fascino 110",
-            "vehicleType": "Scooter"
-          }
+            retail_inventory_id: 3775,
+            vehicleId: 352959,
+            vehicleName: "Yamaha Fascino 110",
+            vehicleType: "Scooter",
+          },
         },
         {
-          "id": 12090,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 376067,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12090,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 376067,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Hero",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Hero",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/376067/139171/inspection_report_6085.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [],
-              "no_of_challans": 2,
-              "pincode": 560015,
-              "saturday_slots": [
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/376067/139171/inspection_report_6085.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: [],
+              no_of_challans: 2,
+              pincode: 560015,
+              saturday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "seller_id": 486329,
-              "seller_kyc_status": "Approved",
-              "seller_name": "bhubalan ",
-              "sunday_slots": [
+              seller_id: 486329,
+              seller_kyc_status: "Approved",
+              seller_name: "bhubalan ",
+              sunday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "test_ride_address": "Kammagondahalli, Jalahalli, Bangalore, Karnataka 560015",
-              "test_ride_map_link": "https://maps.google.com/?q=Kammagondana+Halli+Main+Rd,+Kammagondahalli,+Jalahalli,+Bengaluru,+Karnataka+560015,+India&ftid=0x3bae22c520c97b5d:0xaf0f9d63f713d9ec&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA",
-              "test_ride_place_name": "Kammagondana Halli Main Road",
-              "thursday_slots": [],
-              "total_challan_amount": 500,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "339665"
+              test_ride_address:
+                "Kammagondahalli, Jalahalli, Bangalore, Karnataka 560015",
+              test_ride_map_link:
+                "https://maps.google.com/?q=Kammagondana+Halli+Main+Rd,+Kammagondahalli,+Jalahalli,+Bengaluru,+Karnataka+560015,+India&ftid=0x3bae22c520c97b5d:0xaf0f9d63f713d9ec&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAIYASAA",
+              test_ride_place_name: "Kammagondana Halli Main Road",
+              thursday_slots: [],
+              total_challan_amount: 500,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "339665",
             },
-            "city": "Bangalore",
-            "colour": "Other",
-            "createdOn": "2025-09-30 13:09:55",
-            "drivexAssured": false,
-            "geo_location": [
-              13.060754,
-              77.5312327
-            ],
-            "geolocation": "13.060754, 77.5312327",
-            "golden_mmv_id": 5183,
-            "id": "376067",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Other",
+            createdOn: "2025-09-30 13:09:55",
+            drivexAssured: false,
+            geo_location: [13.060754, 77.5312327],
+            geolocation: "13.060754, 77.5312327",
+            golden_mmv_id: 5183,
+            id: "376067",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6085_left_ea5fc3a594a64a32.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6085_right_eb657c886e614c37.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6085_front_cc06c521554343bb.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6085_rear_0ead2666b3dd4f55.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_6085_odometer_b28f080c002548cd.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_6085_odometer_b28f080c002548cd.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "110.00 cc",
-                "unit": "CC",
-                "value": 110
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "110.00 cc",
+                unit: "CC",
+                value: 110,
               },
-              "fuelTankCapacity": {
-                "displayValue": "5.30 litres",
-                "unit": "Litres",
-                "value": 5.3
+              fuelTankCapacity: {
+                displayValue: "5.30 litres",
+                unit: "Litres",
+                value: 5.3,
               },
-              "maxPower": {
-                "displayValue": "8.05 Nm @ 5500 rpm",
-                "unit": "Torque",
-                "value": "8.05 Nm @ 5500 rpm"
+              maxPower: {
+                displayValue: "8.05 Nm @ 5500 rpm",
+                unit: "Torque",
+                value: "8.05 Nm @ 5500 rpm",
               },
-              "topSpeed": {
-                "displayValue": "85 kmph",
-                "unit": "Kmph",
-                "value": 85
-              }
+              topSpeed: {
+                displayValue: "85 kmph",
+                unit: "Kmph",
+                value: 85,
+              },
             },
-            "kmDriven": {
-              "displayValue": "51,824",
-              "unit": "KM",
-              "value": 51824
+            kmDriven: {
+              displayValue: "51,824",
+              unit: "KM",
+              value: 51824,
             },
-            "locality": "Jalahalli",
-            "make_model": "Hero+Duet 110",
-            "manufactureYear": 2016,
-            "modelName": "Duet 110",
-            "objectID": "376067",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "51,824",
-                "unit": "KM",
-                "value": 51824
+            locality: "Jalahalli",
+            make_model: "Hero+Duet 110",
+            manufactureYear: 2016,
+            modelName: "Duet 110",
+            objectID: "376067",
+            overview: {
+              kmDriven: {
+                displayValue: "51,824",
+                unit: "KM",
+                value: 51824,
               },
-              "makeYear": {
-                "displayValue": 2016,
-                "unit": "Make year",
-                "value": 2016
+              makeYear: {
+                displayValue: 2016,
+                unit: "Make year",
+                value: 2016,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2016,
-                "unit": "Year",
-                "value": 2016
+              registrationYear: {
+                displayValue: 2016,
+                unit: "Year",
+                value: 2016,
               },
-              "rto": {
-                "displayValue": "KA04",
-                "unit": "RTO",
-                "value": "KA04"
-              }
+              rto: {
+                displayValue: "KA04",
+                unit: "RTO",
+                value: "KA04",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 41,
-            "price": {
-              "displayValue": "32,000",
-              "unit": "Rs",
-              "value": 32000
+            ownerShip: 1,
+            popularity: 41,
+            price: {
+              displayValue: "32,000",
+              unit: "Rs",
+              value: 32000,
             },
-            "retail_inventory_id": 6085,
-            "vehicleId": 376067,
-            "vehicleName": "Hero Duet 110 VX",
-            "vehicleType": "Scooter"
-          }
+            retail_inventory_id: 6085,
+            vehicleId: 376067,
+            vehicleName: "Hero Duet 110 VX",
+            vehicleType: "Scooter",
+          },
         },
         {
-          "id": 12092,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 400031,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12092,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 400031,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Hero",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Hero",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L0/c2c/400031/152805/inspection_report_7709.pdf",
-              "inspection_type": "L0",
-              "kyc_type": "PAN",
-              "monday_slots": [
-                "09:00-11:00"
-              ],
-              "no_of_challans": 0,
-              "pincode": 560057,
-              "saturday_slots": [],
-              "seller_id": 519213,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Jagadeesha",
-              "sunday_slots": [],
-              "test_ride_address": "Chokkasandra Main Road, near T-Dasarahalli, Chokkasandra, Peenya, Bengaluru, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=9129635268683364229&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "T-Dasarahalli, Chokkasandra",
-              "thursday_slots": [],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "365146"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L0/c2c/400031/152805/inspection_report_7709.pdf",
+              inspection_type: "L0",
+              kyc_type: "PAN",
+              monday_slots: ["09:00-11:00"],
+              no_of_challans: 0,
+              pincode: 560057,
+              saturday_slots: [],
+              seller_id: 519213,
+              seller_kyc_status: "Approved",
+              seller_name: "Jagadeesha",
+              sunday_slots: [],
+              test_ride_address:
+                "Chokkasandra Main Road, near T-Dasarahalli, Chokkasandra, Peenya, Bengaluru, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=9129635268683364229&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "T-Dasarahalli, Chokkasandra",
+              thursday_slots: [],
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "365146",
             },
-            "city": "Bangalore",
-            "colour": "Other",
-            "createdOn": "2025-10-27 02:06:29",
-            "drivexAssured": false,
-            "geo_location": [
-              13.0384478,
-              77.514028
-            ],
-            "geolocation": "13.0384478, 77.514028",
-            "golden_mmv_id": 5275,
-            "id": "400031",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Other",
+            createdOn: "2025-10-27 02:06:29",
+            drivexAssured: false,
+            geo_location: [13.0384478, 77.514028],
+            geolocation: "13.0384478, 77.514028",
+            golden_mmv_id: 5275,
+            id: "400031",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_7709_left_5c1e11ca_left_view.png",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_7709_right_815c8d79_right_view.png",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_7709_front_cbc6a5d9_front_view.png",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_7709_rear_1b1d8405_rear_view.png",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_7709_odometer_f3aa8131_odometer.png"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_7709_odometer_f3aa8131_odometer.png",
             ],
-            "inventory_category": "drivex_direct",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "110.00 cc",
-                "unit": "CC",
-                "value": 110
+            inventory_category: "drivex_direct",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "110.00 cc",
+                unit: "CC",
+                value: 110,
               },
-              "fuelTankCapacity": {
-                "displayValue": "5.30 litres",
-                "unit": "Litres",
-                "value": 5.3
+              fuelTankCapacity: {
+                displayValue: "5.30 litres",
+                unit: "Litres",
+                value: 5.3,
               },
-              "maxPower": {
-                "displayValue": "8.7 Nm @ 5500 rpm",
-                "unit": "Torque",
-                "value": "8.7 Nm @ 5500 rpm"
+              maxPower: {
+                displayValue: "8.7 Nm @ 5500 rpm",
+                unit: "Torque",
+                value: "8.7 Nm @ 5500 rpm",
               },
-              "topSpeed": {
-                "displayValue": "83 kmph",
-                "unit": "Kmph",
-                "value": 83
-              }
+              topSpeed: {
+                displayValue: "83 kmph",
+                unit: "Kmph",
+                value: 83,
+              },
             },
-            "kmDriven": {
-              "displayValue": "39,000",
-              "unit": "KM",
-              "value": 39000
+            kmDriven: {
+              displayValue: "39,000",
+              unit: "KM",
+              value: 39000,
             },
-            "locality": "Peenya",
-            "make_model": "Hero+Maestro Edge 110",
-            "manufactureYear": 2018,
-            "modelName": "Maestro Edge 110",
-            "objectID": "400031",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "39,000",
-                "unit": "KM",
-                "value": 39000
+            locality: "Peenya",
+            make_model: "Hero+Maestro Edge 110",
+            manufactureYear: 2018,
+            modelName: "Maestro Edge 110",
+            objectID: "400031",
+            overview: {
+              kmDriven: {
+                displayValue: "39,000",
+                unit: "KM",
+                value: 39000,
               },
-              "makeYear": {
-                "displayValue": 2018,
-                "unit": "Make year",
-                "value": 2018
+              makeYear: {
+                displayValue: 2018,
+                unit: "Make year",
+                value: 2018,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2018,
-                "unit": "Year",
-                "value": 2018
+              registrationYear: {
+                displayValue: 2018,
+                unit: "Year",
+                value: 2018,
               },
-              "rto": {
-                "displayValue": "KA05",
-                "unit": "RTO",
-                "value": "KA05"
-              }
+              rto: {
+                displayValue: "KA05",
+                unit: "RTO",
+                value: "KA05",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 133,
-            "price": {
-              "displayValue": "35,000",
-              "unit": "Rs",
-              "value": 35000
+            ownerShip: 1,
+            popularity: 133,
+            price: {
+              displayValue: "35,000",
+              unit: "Rs",
+              value: 35000,
             },
-            "retail_inventory_id": 7709,
-            "vehicleId": 400031,
-            "vehicleName": "Hero Maestro Edge 110 ZX",
-            "vehicleType": "Scooter"
-          }
-        }
-      ]
-    }
+            retail_inventory_id: 7709,
+            vehicleId: 400031,
+            vehicleName: "Hero Maestro Edge 110 ZX",
+            vehicleType: "Scooter",
+          },
+        },
+      ],
+    },
   },
   {
-    "id": 64,
-    "attributes": {
-      "createdAt": "2025-11-13T11:33:04.079Z",
-      "updatedAt": "2025-11-26T13:28:30.695Z",
-      "publishedAt": "2025-11-13T11:33:04.071Z",
-      "cities": [
-        "Bangalore"
-      ],
-      "profile": {
-        "id": 64,
-        "name": "Steal Deal Bikes",
-        "avatar": {
-          "data": {
-            "id": 438,
-            "attributes": {
-              "name": "steal_deal_bikes.jpeg",
-              "alternativeText": null,
-              "caption": null,
-              "width": 1024,
-              "height": 1024,
-              "formats": {
-                "large": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/large_steal_deal_bikes_96acbd7c3b.jpeg",
-                  "hash": "large_steal_deal_bikes_96acbd7c3b",
-                  "mime": "image/jpeg",
-                  "name": "large_steal_deal_bikes.jpeg",
-                  "path": null,
-                  "size": 164.82,
-                  "width": 1000,
-                  "height": 1000,
-                  "sizeInBytes": 164817
+    id: 64,
+    attributes: {
+      createdAt: "2025-11-13T11:33:04.079Z",
+      updatedAt: "2025-11-26T13:28:30.695Z",
+      publishedAt: "2025-11-13T11:33:04.071Z",
+      cities: ["Bangalore"],
+      profile: {
+        id: 64,
+        name: "Steal Deal Bikes",
+        avatar: {
+          data: {
+            id: 438,
+            attributes: {
+              name: "steal_deal_bikes.jpeg",
+              alternativeText: null,
+              caption: null,
+              width: 1024,
+              height: 1024,
+              formats: {
+                large: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/large_steal_deal_bikes_96acbd7c3b.jpeg",
+                  hash: "large_steal_deal_bikes_96acbd7c3b",
+                  mime: "image/jpeg",
+                  name: "large_steal_deal_bikes.jpeg",
+                  path: null,
+                  size: 164.82,
+                  width: 1000,
+                  height: 1000,
+                  sizeInBytes: 164817,
                 },
-                "small": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/small_steal_deal_bikes_96acbd7c3b.jpeg",
-                  "hash": "small_steal_deal_bikes_96acbd7c3b",
-                  "mime": "image/jpeg",
-                  "name": "small_steal_deal_bikes.jpeg",
-                  "path": null,
-                  "size": 36.73,
-                  "width": 500,
-                  "height": 500,
-                  "sizeInBytes": 36734
+                small: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/small_steal_deal_bikes_96acbd7c3b.jpeg",
+                  hash: "small_steal_deal_bikes_96acbd7c3b",
+                  mime: "image/jpeg",
+                  name: "small_steal_deal_bikes.jpeg",
+                  path: null,
+                  size: 36.73,
+                  width: 500,
+                  height: 500,
+                  sizeInBytes: 36734,
                 },
-                "medium": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/medium_steal_deal_bikes_96acbd7c3b.jpeg",
-                  "hash": "medium_steal_deal_bikes_96acbd7c3b",
-                  "mime": "image/jpeg",
-                  "name": "medium_steal_deal_bikes.jpeg",
-                  "path": null,
-                  "size": 86.02,
-                  "width": 750,
-                  "height": 750,
-                  "sizeInBytes": 86016
+                medium: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/medium_steal_deal_bikes_96acbd7c3b.jpeg",
+                  hash: "medium_steal_deal_bikes_96acbd7c3b",
+                  mime: "image/jpeg",
+                  name: "medium_steal_deal_bikes.jpeg",
+                  path: null,
+                  size: 86.02,
+                  width: 750,
+                  height: 750,
+                  sizeInBytes: 86016,
                 },
-                "thumbnail": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/thumbnail_steal_deal_bikes_96acbd7c3b.jpeg",
-                  "hash": "thumbnail_steal_deal_bikes_96acbd7c3b",
-                  "mime": "image/jpeg",
-                  "name": "thumbnail_steal_deal_bikes.jpeg",
-                  "path": null,
-                  "size": 5.95,
-                  "width": 156,
-                  "height": 156,
-                  "sizeInBytes": 5950
-                }
+                thumbnail: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/thumbnail_steal_deal_bikes_96acbd7c3b.jpeg",
+                  hash: "thumbnail_steal_deal_bikes_96acbd7c3b",
+                  mime: "image/jpeg",
+                  name: "thumbnail_steal_deal_bikes.jpeg",
+                  path: null,
+                  size: 5.95,
+                  width: 156,
+                  height: 156,
+                  sizeInBytes: 5950,
+                },
               },
-              "hash": "steal_deal_bikes_96acbd7c3b",
-              "ext": ".jpeg",
-              "mime": "image/jpeg",
-              "size": 180.55,
-              "url": "https://ik.imagekit.io/drivex/cms/steal_deal_bikes_96acbd7c3b.jpeg",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2025-11-13T11:19:09.130Z",
-              "updatedAt": "2025-11-13T11:19:09.130Z"
-            }
-          }
-        }
+              hash: "steal_deal_bikes_96acbd7c3b",
+              ext: ".jpeg",
+              mime: "image/jpeg",
+              size: 180.55,
+              url: "https://ik.imagekit.io/drivex/cms/steal_deal_bikes_96acbd7c3b.jpeg",
+              previewUrl: null,
+              provider: "aws-s3",
+              provider_metadata: null,
+              createdAt: "2025-11-13T11:19:09.130Z",
+              updatedAt: "2025-11-13T11:19:09.130Z",
+            },
+          },
+        },
       },
-      "stories": [
+      stories: [
         {
-          "id": 12094,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 281644,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12094,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 281644,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "TVS",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "TVS",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/281644/85744/inspection_report_355.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "Aadhaar",
-              "monday_slots": [],
-              "no_of_challans": 25,
-              "pincode": 560060,
-              "saturday_slots": [
-                "17:00-19:00",
-                "19:00-21:00"
-              ],
-              "seller_id": 390085,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Shiva Kumar s",
-              "sunday_slots": [
-                "17:00-19:00",
-                "19:00-21:00"
-              ],
-              "test_ride_address": "Saraswathi Bda Bda Sahyadri Apartment, Saraswathi Bda Apartment, 1, Harsha Layout Main Rd, Near, Kengeri, Bengaluru, Karnataka 560060, India",
-              "test_ride_map_link": "https://maps.google.com/?q=place_id:ChIJIwHI7t4-rjsRjanfhAZxI7s",
-              "thursday_slots": [],
-              "total_challan_amount": 12100,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "246287"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/281644/85744/inspection_report_355.pdf",
+              inspection_type: "L1",
+              kyc_type: "Aadhaar",
+              monday_slots: [],
+              no_of_challans: 25,
+              pincode: 560060,
+              saturday_slots: ["17:00-19:00", "19:00-21:00"],
+              seller_id: 390085,
+              seller_kyc_status: "Approved",
+              seller_name: "Shiva Kumar s",
+              sunday_slots: ["17:00-19:00", "19:00-21:00"],
+              test_ride_address:
+                "Saraswathi Bda Bda Sahyadri Apartment, Saraswathi Bda Apartment, 1, Harsha Layout Main Rd, Near, Kengeri, Bengaluru, Karnataka 560060, India",
+              test_ride_map_link:
+                "https://maps.google.com/?q=place_id:ChIJIwHI7t4-rjsRjanfhAZxI7s",
+              thursday_slots: [],
+              total_challan_amount: 12100,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "246287",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-07-17 11:32:26",
-            "drivexAssured": false,
-            "geo_location": [
-              12.9207689,
-              77.4894241
-            ],
-            "geolocation": "12.9207689,77.4894241",
-            "golden_mmv_id": 6439,
-            "id": "281644",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-07-17 11:32:26",
+            drivexAssured: false,
+            geo_location: [12.9207689, 77.4894241],
+            geolocation: "12.9207689,77.4894241",
+            golden_mmv_id: 6439,
+            id: "281644",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_355_left_a94418a2ed214c7b.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_355_right_6e847113fbcf4ebd.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_355_front_d15eba5556ec4b77.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_355_rear_9d017d427e574abd.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_355_odometer_2955a36a46614969.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_355_odometer_2955a36a46614969.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "110.00 cc",
-                "unit": "CC",
-                "value": 110
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "110.00 cc",
+                unit: "CC",
+                value: 110,
               },
-              "fuelTankCapacity": {
-                "displayValue": "5.00 litres",
-                "unit": "Litres",
-                "value": 5
+              fuelTankCapacity: {
+                displayValue: "5.00 litres",
+                unit: "Litres",
+                value: 5,
               },
-              "maxPower": {
-                "displayValue": "8.7 Nm @ 5500 rpm",
-                "unit": "Torque",
-                "value": "8.7 Nm @ 5500 rpm"
+              maxPower: {
+                displayValue: "8.7 Nm @ 5500 rpm",
+                unit: "Torque",
+                value: "8.7 Nm @ 5500 rpm",
               },
-              "topSpeed": {
-                "displayValue": "88 kmph",
-                "unit": "Kmph",
-                "value": 88
-              }
+              topSpeed: {
+                displayValue: "88 kmph",
+                unit: "Kmph",
+                value: 88,
+              },
             },
-            "kmDriven": {
-              "displayValue": "49,321",
-              "unit": "KM",
-              "value": 49321
+            kmDriven: {
+              displayValue: "49,321",
+              unit: "KM",
+              value: 49321,
             },
-            "locality": "Kengeri Satellite Town",
-            "make_model": "TVS+Star City 110",
-            "manufactureYear": 2016,
-            "modelName": "Star City 110",
-            "objectID": "281644",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "49,321",
-                "unit": "KM",
-                "value": 49321
+            locality: "Kengeri Satellite Town",
+            make_model: "TVS+Star City 110",
+            manufactureYear: 2016,
+            modelName: "Star City 110",
+            objectID: "281644",
+            overview: {
+              kmDriven: {
+                displayValue: "49,321",
+                unit: "KM",
+                value: 49321,
               },
-              "makeYear": {
-                "displayValue": 2016,
-                "unit": "Make year",
-                "value": 2016
+              makeYear: {
+                displayValue: 2016,
+                unit: "Make year",
+                value: 2016,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2017,
-                "unit": "Year",
-                "value": 2017
+              registrationYear: {
+                displayValue: 2017,
+                unit: "Year",
+                value: 2017,
               },
-              "rto": {
-                "displayValue": "KA41",
-                "unit": "RTO",
-                "value": "KA41"
-              }
+              rto: {
+                displayValue: "KA41",
+                unit: "RTO",
+                value: "KA41",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 35,
-            "price": {
-              "displayValue": "40,000",
-              "unit": "Rs",
-              "value": 40000
+            ownerShip: 1,
+            popularity: 35,
+            price: {
+              displayValue: "40,000",
+              unit: "Rs",
+              value: 40000,
             },
-            "retail_inventory_id": 355,
-            "vehicleId": 281644,
-            "vehicleName": "TVS Star City 110",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 355,
+            vehicleId: 281644,
+            vehicleName: "TVS Star City 110",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12099,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 350592,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12099,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 350592,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Honda",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Honda",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/350592/125963/inspection_report_4378.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [],
-              "no_of_challans": 0,
-              "pincode": 600078,
-              "saturday_slots": [
-                "09:00-11:00"
-              ],
-              "seller_id": 457942,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Balachandar ",
-              "sunday_slots": [
-                "09:00-11:00"
-              ],
-              "test_ride_address": "Chennai, Tamil Nadu",
-              "test_ride_map_link": "https://maps.google.com/?cid=5566131375091392734&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "K. K. Nagar",
-              "thursday_slots": [
-                "09:00-11:00",
-                "19:00-21:00"
-              ],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
-                "09:00-11:00",
-                "19:00-21:00"
-              ],
-              "zoho_buy_lead_id": "312592"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/350592/125963/inspection_report_4378.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: [],
+              no_of_challans: 0,
+              pincode: 600078,
+              saturday_slots: ["09:00-11:00"],
+              seller_id: 457942,
+              seller_kyc_status: "Approved",
+              seller_name: "Balachandar ",
+              sunday_slots: ["09:00-11:00"],
+              test_ride_address: "Chennai, Tamil Nadu",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=5566131375091392734&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "K. K. Nagar",
+              thursday_slots: ["09:00-11:00", "19:00-21:00"],
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: ["09:00-11:00", "19:00-21:00"],
+              zoho_buy_lead_id: "312592",
             },
-            "city": "Bangalore",
-            "colour": "Silver/Gray",
-            "createdOn": "2025-09-11 16:20:50",
-            "drivexAssured": false,
-            "geo_location": [
-              13.0410013,
-              80.1993919
-            ],
-            "geolocation": "13.0410013, 80.1993919",
-            "golden_mmv_id": 5523,
-            "id": "350592",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Silver/Gray",
+            createdOn: "2025-09-11 16:20:50",
+            drivexAssured: false,
+            geo_location: [13.0410013, 80.1993919],
+            geolocation: "13.0410013, 80.1993919",
+            golden_mmv_id: 5523,
+            id: "350592",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_4378_left_0f190dc277fb4989.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_4378_right_ceb351a891304762.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_4378_front_fe38eae299fd4c29.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_4378_rear_6aa8efe326bd4aa0.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_4378_odometer_10456b99cac445b6.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_4378_odometer_10456b99cac445b6.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "184.00 cc",
-                "unit": "CC",
-                "value": 184
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "184.00 cc",
+                unit: "CC",
+                value: 184,
               },
-              "fuelTankCapacity": {
-                "displayValue": "12.00 litres",
-                "unit": "Litres",
-                "value": 12
+              fuelTankCapacity: {
+                displayValue: "12.00 litres",
+                unit: "Litres",
+                value: 12,
               },
-              "maxPower": {
-                "displayValue": "16.1 Nm @ 6000 rpm",
-                "unit": "Torque",
-                "value": "16.1 Nm @ 6000 rpm"
+              maxPower: {
+                displayValue: "16.1 Nm @ 6000 rpm",
+                unit: "Torque",
+                value: "16.1 Nm @ 6000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "None kmph",
-                "unit": "Kmph"
-              }
+              topSpeed: {
+                displayValue: "None kmph",
+                unit: "Kmph",
+              },
             },
-            "kmDriven": {
-              "displayValue": "12,358",
-              "unit": "KM",
-              "value": 12358
+            kmDriven: {
+              displayValue: "12,358",
+              unit: "KM",
+              value: 12358,
             },
-            "locality": "K. K. Nagar",
-            "make_model": "Honda+Hornet 2.0 185",
-            "manufactureYear": 2020,
-            "modelName": "Hornet 2.0 185",
-            "objectID": "350592",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "12,358",
-                "unit": "KM",
-                "value": 12358
+            locality: "K. K. Nagar",
+            make_model: "Honda+Hornet 2.0 185",
+            manufactureYear: 2020,
+            modelName: "Hornet 2.0 185",
+            objectID: "350592",
+            overview: {
+              kmDriven: {
+                displayValue: "12,358",
+                unit: "KM",
+                value: 12358,
               },
-              "makeYear": {
-                "displayValue": 2020,
-                "unit": "Make year",
-                "value": 2020
+              makeYear: {
+                displayValue: 2020,
+                unit: "Make year",
+                value: 2020,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2021,
-                "unit": "Year",
-                "value": 2021
+              registrationYear: {
+                displayValue: 2021,
+                unit: "Year",
+                value: 2021,
               },
-              "rto": {
-                "displayValue": "TN09",
-                "unit": "RTO",
-                "value": "TN09"
-              }
+              rto: {
+                displayValue: "TN09",
+                unit: "RTO",
+                value: "TN09",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 37,
-            "price": {
-              "displayValue": "85,000",
-              "unit": "Rs",
-              "value": 85000
+            ownerShip: 1,
+            popularity: 37,
+            price: {
+              displayValue: "85,000",
+              unit: "Rs",
+              value: 85000,
             },
-            "retail_inventory_id": 4378,
-            "vehicleId": 350592,
-            "vehicleName": "Honda Hornet 2.0 185",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 4378,
+            vehicleId: 350592,
+            vehicleName: "Honda Hornet 2.0 185",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12097,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 277549,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12097,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 277549,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Hero",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Hero",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/277549/83261/inspection_report_294.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "Aadhaar",
-              "monday_slots": [],
-              "no_of_challans": 0,
-              "pincode": 560035,
-              "saturday_slots": [
-                "17:00-19:00",
-                "19:00-21:00"
-              ],
-              "seller_id": 386214,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Jithin",
-              "sunday_slots": [
-                "17:00-19:00",
-                "19:00-21:00"
-              ],
-              "test_ride_address": "129/2, near post office, Janatha Colony, Doddakannelli, Bengaluru, Karnataka 560035, India",
-              "test_ride_map_link": "https://maps.google.com/?q=place_id:ChIJk4gdcwATrjsRb_F98Lcq7LU",
-              "thursday_slots": [],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "242280"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/277549/83261/inspection_report_294.pdf",
+              inspection_type: "L1",
+              kyc_type: "Aadhaar",
+              monday_slots: [],
+              no_of_challans: 0,
+              pincode: 560035,
+              saturday_slots: ["17:00-19:00", "19:00-21:00"],
+              seller_id: 386214,
+              seller_kyc_status: "Approved",
+              seller_name: "Jithin",
+              sunday_slots: ["17:00-19:00", "19:00-21:00"],
+              test_ride_address:
+                "129/2, near post office, Janatha Colony, Doddakannelli, Bengaluru, Karnataka 560035, India",
+              test_ride_map_link:
+                "https://maps.google.com/?q=place_id:ChIJk4gdcwATrjsRb_F98Lcq7LU",
+              thursday_slots: [],
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "242280",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-07-17 11:31:15",
-            "drivexAssured": false,
-            "geo_location": [
-              12.9077478,
-              77.6966345
-            ],
-            "geolocation": "12.9077478,77.6966345",
-            "golden_mmv_id": 5377,
-            "id": "277549",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-07-17 11:31:15",
+            drivexAssured: false,
+            geo_location: [12.9077478, 77.6966345],
+            geolocation: "12.9077478,77.6966345",
+            golden_mmv_id: 5377,
+            id: "277549",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_294_left_b6e5ce09eefe4a76.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_294_right_da76bfc806d0444c.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_294_front_1fd2429ca05f4bcc.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_294_rear_e3292a15963c422b.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_294_odometer_885f9d8eb5734962.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_294_odometer_885f9d8eb5734962.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "125.00 cc",
-                "unit": "CC",
-                "value": 125
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "125.00 cc",
+                unit: "CC",
+                value: 125,
               },
-              "fuelTankCapacity": {
-                "displayValue": "10.00 litres",
-                "unit": "Litres",
-                "value": 10
+              fuelTankCapacity: {
+                displayValue: "10.00 litres",
+                unit: "Litres",
+                value: 10,
               },
-              "maxPower": {
-                "displayValue": "10.6 Nm @ 6000 rpm",
-                "unit": "Torque",
-                "value": "10.6 Nm @ 6000 rpm"
+              maxPower: {
+                displayValue: "10.6 Nm @ 6000 rpm",
+                unit: "Torque",
+                value: "10.6 Nm @ 6000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "94 kmph",
-                "unit": "Kmph",
-                "value": 94
-              }
+              topSpeed: {
+                displayValue: "94 kmph",
+                unit: "Kmph",
+                value: 94,
+              },
             },
-            "kmDriven": {
-              "displayValue": "13,195",
-              "unit": "KM",
-              "value": 13195
+            kmDriven: {
+              displayValue: "13,195",
+              unit: "KM",
+              value: 13195,
             },
-            "locality": "Doddakannelli",
-            "make_model": "Hero+Xtreme 125R",
-            "manufactureYear": 2024,
-            "modelName": "Xtreme 125R",
-            "objectID": "277549",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "13,195",
-                "unit": "KM",
-                "value": 13195
+            locality: "Doddakannelli",
+            make_model: "Hero+Xtreme 125R",
+            manufactureYear: 2024,
+            modelName: "Xtreme 125R",
+            objectID: "277549",
+            overview: {
+              kmDriven: {
+                displayValue: "13,195",
+                unit: "KM",
+                value: 13195,
               },
-              "makeYear": {
-                "displayValue": 2024,
-                "unit": "Make year",
-                "value": 2024
+              makeYear: {
+                displayValue: 2024,
+                unit: "Make year",
+                value: 2024,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2024,
-                "unit": "Year",
-                "value": 2024
+              registrationYear: {
+                displayValue: 2024,
+                unit: "Year",
+                value: 2024,
               },
-              "rto": {
-                "displayValue": "KA01",
-                "unit": "RTO",
-                "value": "KA01"
-              }
+              rto: {
+                displayValue: "KA01",
+                unit: "RTO",
+                value: "KA01",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 40,
-            "price": {
-              "displayValue": "90,000",
-              "unit": "Rs",
-              "value": 90000
+            ownerShip: 1,
+            popularity: 40,
+            price: {
+              displayValue: "90,000",
+              unit: "Rs",
+              value: 90000,
             },
-            "retail_inventory_id": 294,
-            "vehicleId": 277549,
-            "vehicleName": "Hero Xtreme 125R ABS",
-            "vehicleType": "Motorcycle"
-          }
-        }
-      ]
-    }
+            retail_inventory_id: 294,
+            vehicleId: 277549,
+            vehicleName: "Hero Xtreme 125R ABS",
+            vehicleType: "Motorcycle",
+          },
+        },
+      ],
+    },
   },
   {
-    "id": 65,
-    "attributes": {
-      "createdAt": "2025-11-13T11:33:04.143Z",
-      "updatedAt": "2025-11-26T13:28:30.869Z",
-      "publishedAt": "2025-11-13T11:33:04.130Z",
-      "cities": [
-        "Bangalore"
-      ],
-      "profile": {
-        "id": 65,
-        "name": "Fresh From Seller",
-        "avatar": {
-          "data": {
-            "id": 439,
-            "attributes": {
-              "name": "fresh_from_seller.jpeg",
-              "alternativeText": null,
-              "caption": null,
-              "width": 1024,
-              "height": 1024,
-              "formats": {
-                "large": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/large_fresh_from_seller_822071a9d5.jpeg",
-                  "hash": "large_fresh_from_seller_822071a9d5",
-                  "mime": "image/jpeg",
-                  "name": "large_fresh_from_seller.jpeg",
-                  "path": null,
-                  "size": 176.28,
-                  "width": 1000,
-                  "height": 1000,
-                  "sizeInBytes": 176281
+    id: 65,
+    attributes: {
+      createdAt: "2025-11-13T11:33:04.143Z",
+      updatedAt: "2025-11-26T13:28:30.869Z",
+      publishedAt: "2025-11-13T11:33:04.130Z",
+      cities: ["Bangalore"],
+      profile: {
+        id: 65,
+        name: "Fresh From Seller",
+        avatar: {
+          data: {
+            id: 439,
+            attributes: {
+              name: "fresh_from_seller.jpeg",
+              alternativeText: null,
+              caption: null,
+              width: 1024,
+              height: 1024,
+              formats: {
+                large: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/large_fresh_from_seller_822071a9d5.jpeg",
+                  hash: "large_fresh_from_seller_822071a9d5",
+                  mime: "image/jpeg",
+                  name: "large_fresh_from_seller.jpeg",
+                  path: null,
+                  size: 176.28,
+                  width: 1000,
+                  height: 1000,
+                  sizeInBytes: 176281,
                 },
-                "small": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/small_fresh_from_seller_822071a9d5.jpeg",
-                  "hash": "small_fresh_from_seller_822071a9d5",
-                  "mime": "image/jpeg",
-                  "name": "small_fresh_from_seller.jpeg",
-                  "path": null,
-                  "size": 35.91,
-                  "width": 500,
-                  "height": 500,
-                  "sizeInBytes": 35914
+                small: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/small_fresh_from_seller_822071a9d5.jpeg",
+                  hash: "small_fresh_from_seller_822071a9d5",
+                  mime: "image/jpeg",
+                  name: "small_fresh_from_seller.jpeg",
+                  path: null,
+                  size: 35.91,
+                  width: 500,
+                  height: 500,
+                  sizeInBytes: 35914,
                 },
-                "medium": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/medium_fresh_from_seller_822071a9d5.jpeg",
-                  "hash": "medium_fresh_from_seller_822071a9d5",
-                  "mime": "image/jpeg",
-                  "name": "medium_fresh_from_seller.jpeg",
-                  "path": null,
-                  "size": 87.64,
-                  "width": 750,
-                  "height": 750,
-                  "sizeInBytes": 87642
+                medium: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/medium_fresh_from_seller_822071a9d5.jpeg",
+                  hash: "medium_fresh_from_seller_822071a9d5",
+                  mime: "image/jpeg",
+                  name: "medium_fresh_from_seller.jpeg",
+                  path: null,
+                  size: 87.64,
+                  width: 750,
+                  height: 750,
+                  sizeInBytes: 87642,
                 },
-                "thumbnail": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/thumbnail_fresh_from_seller_822071a9d5.jpeg",
-                  "hash": "thumbnail_fresh_from_seller_822071a9d5",
-                  "mime": "image/jpeg",
-                  "name": "thumbnail_fresh_from_seller.jpeg",
-                  "path": null,
-                  "size": 5.72,
-                  "width": 156,
-                  "height": 156,
-                  "sizeInBytes": 5717
-                }
+                thumbnail: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/thumbnail_fresh_from_seller_822071a9d5.jpeg",
+                  hash: "thumbnail_fresh_from_seller_822071a9d5",
+                  mime: "image/jpeg",
+                  name: "thumbnail_fresh_from_seller.jpeg",
+                  path: null,
+                  size: 5.72,
+                  width: 156,
+                  height: 156,
+                  sizeInBytes: 5717,
+                },
               },
-              "hash": "fresh_from_seller_822071a9d5",
-              "ext": ".jpeg",
-              "mime": "image/jpeg",
-              "size": 194.88,
-              "url": "https://ik.imagekit.io/drivex/cms/fresh_from_seller_822071a9d5.jpeg",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2025-11-13T11:19:09.376Z",
-              "updatedAt": "2025-11-13T11:19:09.376Z"
-            }
-          }
-        }
+              hash: "fresh_from_seller_822071a9d5",
+              ext: ".jpeg",
+              mime: "image/jpeg",
+              size: 194.88,
+              url: "https://ik.imagekit.io/drivex/cms/fresh_from_seller_822071a9d5.jpeg",
+              previewUrl: null,
+              provider: "aws-s3",
+              provider_metadata: null,
+              createdAt: "2025-11-13T11:19:09.376Z",
+              updatedAt: "2025-11-13T11:19:09.376Z",
+            },
+          },
+        },
       },
-      "stories": [
+      stories: [
         {
-          "id": 12100,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 408815,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12100,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 408815,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Honda",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Honda",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/408815/159823/inspection_report_9892.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [],
-              "no_of_challans": 0,
-              "pincode": 560068,
-              "saturday_slots": [
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/408815/159823/inspection_report_9892.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: [],
+              no_of_challans: 0,
+              pincode: 560068,
+              saturday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "seller_id": 529528,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Rahul Krishnan",
-              "sunday_slots": [
+              seller_id: 529528,
+              seller_kyc_status: "Approved",
+              seller_name: "Rahul Krishnan",
+              sunday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "test_ride_address": "Silver County Road, Sai Meadows, Parappana Agrahara, Haralur, Bengaluru, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=2181557026855767671&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "SNN Raj Etternia",
-              "thursday_slots": [],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "374608"
+              test_ride_address:
+                "Silver County Road, Sai Meadows, Parappana Agrahara, Haralur, Bengaluru, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=2181557026855767671&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "SNN Raj Etternia",
+              thursday_slots: [],
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "374608",
             },
-            "city": "Bangalore",
-            "colour": "Blue",
-            "createdOn": "2025-11-24 07:39:43",
-            "drivexAssured": false,
-            "geo_location": [
-              12.8898795,
-              77.6677911
-            ],
-            "geolocation": "12.8898795, 77.6677911",
-            "golden_mmv_id": 5415,
-            "id": "408815",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Blue",
+            createdOn: "2025-11-24 07:39:43",
+            drivexAssured: false,
+            geo_location: [12.8898795, 77.6677911],
+            geolocation: "12.8898795, 77.6677911",
+            golden_mmv_id: 5415,
+            id: "408815",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9892_left_3694e52ca3c94232.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9892_right_c4eb99982ce44346.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9892_front_c0625e7da40b413d.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9892_rear_8f8516340ab4464d.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_9892_odometer_3a1c9288193f4781.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_9892_odometer_3a1c9288193f4781.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "110.00 cc",
-                "unit": "CC",
-                "value": 110
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "110.00 cc",
+                unit: "CC",
+                value: 110,
               },
-              "fuelTankCapacity": {
-                "displayValue": "5.30 litres",
-                "unit": "Litres",
-                "value": 5.3
+              fuelTankCapacity: {
+                displayValue: "5.30 litres",
+                unit: "Litres",
+                value: 5.3,
               },
-              "maxPower": {
-                "displayValue": "8.79 Nm @ 5250 rpm",
-                "unit": "Torque",
-                "value": "8.79 Nm @ 5250 rpm"
+              maxPower: {
+                displayValue: "8.79 Nm @ 5250 rpm",
+                unit: "Torque",
+                value: "8.79 Nm @ 5250 rpm",
               },
-              "topSpeed": {
-                "displayValue": "83 kmph",
-                "unit": "Kmph",
-                "value": 83
-              }
+              topSpeed: {
+                displayValue: "83 kmph",
+                unit: "Kmph",
+                value: 83,
+              },
             },
-            "kmDriven": {
-              "displayValue": "297",
-              "unit": "KM",
-              "value": 297
+            kmDriven: {
+              displayValue: "297",
+              unit: "KM",
+              value: 297,
             },
-            "locality": "Parappana Agrahara",
-            "make_model": "Honda+Activa 6G",
-            "manufactureYear": 2025,
-            "modelName": "Activa 6G",
-            "objectID": "408815",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "297",
-                "unit": "KM",
-                "value": 297
+            locality: "Parappana Agrahara",
+            make_model: "Honda+Activa 6G",
+            manufactureYear: 2025,
+            modelName: "Activa 6G",
+            objectID: "408815",
+            overview: {
+              kmDriven: {
+                displayValue: "297",
+                unit: "KM",
+                value: 297,
               },
-              "makeYear": {
-                "displayValue": 2025,
-                "unit": "Make year",
-                "value": 2025
+              makeYear: {
+                displayValue: 2025,
+                unit: "Make year",
+                value: 2025,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2025,
-                "unit": "Year",
-                "value": 2025
+              registrationYear: {
+                displayValue: 2025,
+                unit: "Year",
+                value: 2025,
               },
-              "rto": {
-                "displayValue": "KA01",
-                "unit": "RTO",
-                "value": "KA01"
-              }
+              rto: {
+                displayValue: "KA01",
+                unit: "RTO",
+                value: "KA01",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 7,
-            "price": {
-              "displayValue": "99,000",
-              "unit": "Rs",
-              "value": 99000
+            ownerShip: 1,
+            popularity: 7,
+            price: {
+              displayValue: "99,000",
+              unit: "Rs",
+              value: 99000,
             },
-            "retail_inventory_id": 9892,
-            "vehicleId": 408815,
-            "vehicleName": "Honda Activa 6G STD",
-            "vehicleType": "Scooter"
-          }
-        }
-      ]
-    }
+            retail_inventory_id: 9892,
+            vehicleId: 408815,
+            vehicleName: "Honda Activa 6G STD",
+            vehicleType: "Scooter",
+          },
+        },
+      ],
+    },
   },
   {
-    "id": 66,
-    "attributes": {
-      "createdAt": "2025-11-13T11:33:04.240Z",
-      "updatedAt": "2025-11-26T13:28:31.214Z",
-      "publishedAt": "2025-11-13T11:33:04.229Z",
-      "cities": [
-        "Bangalore"
-      ],
-      "profile": {
-        "id": 66,
-        "name": "Just Hit The Market",
-        "avatar": {
-          "data": {
-            "id": 440,
-            "attributes": {
-              "name": "just_hit_the_market.jpeg",
-              "alternativeText": null,
-              "caption": null,
-              "width": 1024,
-              "height": 1024,
-              "formats": {
-                "large": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/large_just_hit_the_market_ac180e3a5a.jpeg",
-                  "hash": "large_just_hit_the_market_ac180e3a5a",
-                  "mime": "image/jpeg",
-                  "name": "large_just_hit_the_market.jpeg",
-                  "path": null,
-                  "size": 196.58,
-                  "width": 1000,
-                  "height": 1000,
-                  "sizeInBytes": 196582
+    id: 66,
+    attributes: {
+      createdAt: "2025-11-13T11:33:04.240Z",
+      updatedAt: "2025-11-26T13:28:31.214Z",
+      publishedAt: "2025-11-13T11:33:04.229Z",
+      cities: ["Bangalore"],
+      profile: {
+        id: 66,
+        name: "Just Hit The Market",
+        avatar: {
+          data: {
+            id: 440,
+            attributes: {
+              name: "just_hit_the_market.jpeg",
+              alternativeText: null,
+              caption: null,
+              width: 1024,
+              height: 1024,
+              formats: {
+                large: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/large_just_hit_the_market_ac180e3a5a.jpeg",
+                  hash: "large_just_hit_the_market_ac180e3a5a",
+                  mime: "image/jpeg",
+                  name: "large_just_hit_the_market.jpeg",
+                  path: null,
+                  size: 196.58,
+                  width: 1000,
+                  height: 1000,
+                  sizeInBytes: 196582,
                 },
-                "small": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/small_just_hit_the_market_ac180e3a5a.jpeg",
-                  "hash": "small_just_hit_the_market_ac180e3a5a",
-                  "mime": "image/jpeg",
-                  "name": "small_just_hit_the_market.jpeg",
-                  "path": null,
-                  "size": 37.62,
-                  "width": 500,
-                  "height": 500,
-                  "sizeInBytes": 37622
+                small: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/small_just_hit_the_market_ac180e3a5a.jpeg",
+                  hash: "small_just_hit_the_market_ac180e3a5a",
+                  mime: "image/jpeg",
+                  name: "small_just_hit_the_market.jpeg",
+                  path: null,
+                  size: 37.62,
+                  width: 500,
+                  height: 500,
+                  sizeInBytes: 37622,
                 },
-                "medium": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/medium_just_hit_the_market_ac180e3a5a.jpeg",
-                  "hash": "medium_just_hit_the_market_ac180e3a5a",
-                  "mime": "image/jpeg",
-                  "name": "medium_just_hit_the_market.jpeg",
-                  "path": null,
-                  "size": 94.35,
-                  "width": 750,
-                  "height": 750,
-                  "sizeInBytes": 94353
+                medium: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/medium_just_hit_the_market_ac180e3a5a.jpeg",
+                  hash: "medium_just_hit_the_market_ac180e3a5a",
+                  mime: "image/jpeg",
+                  name: "medium_just_hit_the_market.jpeg",
+                  path: null,
+                  size: 94.35,
+                  width: 750,
+                  height: 750,
+                  sizeInBytes: 94353,
                 },
-                "thumbnail": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/thumbnail_just_hit_the_market_ac180e3a5a.jpeg",
-                  "hash": "thumbnail_just_hit_the_market_ac180e3a5a",
-                  "mime": "image/jpeg",
-                  "name": "thumbnail_just_hit_the_market.jpeg",
-                  "path": null,
-                  "size": 5.81,
-                  "width": 156,
-                  "height": 156,
-                  "sizeInBytes": 5812
-                }
+                thumbnail: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/thumbnail_just_hit_the_market_ac180e3a5a.jpeg",
+                  hash: "thumbnail_just_hit_the_market_ac180e3a5a",
+                  mime: "image/jpeg",
+                  name: "thumbnail_just_hit_the_market.jpeg",
+                  path: null,
+                  size: 5.81,
+                  width: 156,
+                  height: 156,
+                  sizeInBytes: 5812,
+                },
               },
-              "hash": "just_hit_the_market_ac180e3a5a",
-              "ext": ".jpeg",
-              "mime": "image/jpeg",
-              "size": 221.33,
-              "url": "https://ik.imagekit.io/drivex/cms/just_hit_the_market_ac180e3a5a.jpeg",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2025-11-13T11:19:09.764Z",
-              "updatedAt": "2025-11-13T11:19:09.764Z"
-            }
-          }
-        }
+              hash: "just_hit_the_market_ac180e3a5a",
+              ext: ".jpeg",
+              mime: "image/jpeg",
+              size: 221.33,
+              url: "https://ik.imagekit.io/drivex/cms/just_hit_the_market_ac180e3a5a.jpeg",
+              previewUrl: null,
+              provider: "aws-s3",
+              provider_metadata: null,
+              createdAt: "2025-11-13T11:19:09.764Z",
+              updatedAt: "2025-11-13T11:19:09.764Z",
+            },
+          },
+        },
       },
-      "stories": [
+      stories: [
         {
-          "id": 12103,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 120238,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12103,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 120238,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "TVS",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "TVS",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [
+            c2c: {
+              friday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "inspection_report_path": "Excel_files/inspection_report/L0/c2c/120238/165381/inspection_report_9962.pdf",
-              "inspection_type": "L0",
-              "kyc_type": "PAN",
-              "monday_slots": [],
-              "no_of_challans": 0,
-              "pincode": 560068,
-              "saturday_slots": [
+              inspection_report_path:
+                "Excel_files/inspection_report/L0/c2c/120238/165381/inspection_report_9962.pdf",
+              inspection_type: "L0",
+              kyc_type: "PAN",
+              monday_slots: [],
+              no_of_challans: 0,
+              pincode: 560068,
+              saturday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "seller_id": 219157,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Vin",
-              "sunday_slots": [
+              seller_id: 219157,
+              seller_kyc_status: "Approved",
+              seller_name: "Vin",
+              sunday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "test_ride_address": "Kudlu, Sai Meadows, Parappana Agrahara, Electronic City, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=16551728167470755926&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "Sai Meadows",
-              "thursday_slots": [
+              test_ride_address:
+                "Kudlu, Sai Meadows, Parappana Agrahara, Electronic City, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=16551728167470755926&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "Sai Meadows",
+              thursday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "zoho_buy_lead_id": "383520"
+              zoho_buy_lead_id: "383520",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-11-25 09:23:22",
-            "drivexAssured": false,
-            "geo_location": [
-              12.8895821,
-              77.6620014
-            ],
-            "geolocation": "12.8895821, 77.6620014",
-            "golden_mmv_id": 6401,
-            "id": "120238",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-11-25 09:23:22",
+            drivexAssured: false,
+            geo_location: [12.8895821, 77.6620014],
+            geolocation: "12.8895821, 77.6620014",
+            golden_mmv_id: 6401,
+            id: "120238",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9962_left_90910c1b_left_view.jpeg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9962_right_20759c48_right_view.jpeg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9962_front_c7231f98_front_view.jpeg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_9962_rear_14930610_rear_view.jpeg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_9962_odometer_29c06e4d_odometer.png"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_9962_odometer_29c06e4d_odometer.png",
             ],
-            "inventory_category": "drivex_direct",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "125.00 cc",
-                "unit": "CC",
-                "value": 125
+            inventory_category: "drivex_direct",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "125.00 cc",
+                unit: "CC",
+                value: 125,
               },
-              "fuelTankCapacity": {
-                "displayValue": "10.00 litres",
-                "unit": "Litres",
-                "value": 10
+              fuelTankCapacity: {
+                displayValue: "10.00 litres",
+                unit: "Litres",
+                value: 10,
               },
-              "maxPower": {
-                "displayValue": "11.2 Nm @ 6000 rpm",
-                "unit": "Torque",
-                "value": "11.2 Nm @ 6000 rpm"
+              maxPower: {
+                displayValue: "11.2 Nm @ 6000 rpm",
+                unit: "Torque",
+                value: "11.2 Nm @ 6000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "99 kmph",
-                "unit": "Kmph",
-                "value": 99
-              }
+              topSpeed: {
+                displayValue: "99 kmph",
+                unit: "Kmph",
+                value: 99,
+              },
             },
-            "kmDriven": {
-              "displayValue": "20,000",
-              "unit": "KM",
-              "value": 20000
+            kmDriven: {
+              displayValue: "20,000",
+              unit: "KM",
+              value: 20000,
             },
-            "locality": "Parappana Agrahara",
-            "make_model": "TVS+Raider 125",
-            "manufactureYear": 2023,
-            "modelName": "Raider 125",
-            "objectID": "120238",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "20,000",
-                "unit": "KM",
-                "value": 20000
+            locality: "Parappana Agrahara",
+            make_model: "TVS+Raider 125",
+            manufactureYear: 2023,
+            modelName: "Raider 125",
+            objectID: "120238",
+            overview: {
+              kmDriven: {
+                displayValue: "20,000",
+                unit: "KM",
+                value: 20000,
               },
-              "makeYear": {
-                "displayValue": 2023,
-                "unit": "Make year",
-                "value": 2023
+              makeYear: {
+                displayValue: 2023,
+                unit: "Make year",
+                value: 2023,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2023,
-                "unit": "Year",
-                "value": 2023
+              registrationYear: {
+                displayValue: 2023,
+                unit: "Year",
+                value: 2023,
               },
-              "rto": {
-                "displayValue": "KA01",
-                "unit": "RTO",
-                "value": "KA01"
-              }
+              rto: {
+                displayValue: "KA01",
+                unit: "RTO",
+                value: "KA01",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 31,
-            "price": {
-              "displayValue": "85,000",
-              "unit": "Rs",
-              "value": 85000
+            ownerShip: 1,
+            popularity: 31,
+            price: {
+              displayValue: "85,000",
+              unit: "Rs",
+              value: 85000,
             },
-            "retail_inventory_id": 9962,
-            "vehicleId": 120238,
-            "vehicleName": "TVS Raider 125 Disc",
-            "vehicleType": "Motorcycle"
-          }
-        }
-      ]
-    }
+            retail_inventory_id: 9962,
+            vehicleId: 120238,
+            vehicleName: "TVS Raider 125 Disc",
+            vehicleType: "Motorcycle",
+          },
+        },
+      ],
+    },
   },
   {
-    "id": 67,
-    "attributes": {
-      "createdAt": "2025-11-13T11:33:04.335Z",
-      "updatedAt": "2025-11-26T13:28:31.695Z",
-      "publishedAt": "2025-11-13T11:33:04.318Z",
-      "cities": [
-        "Bangalore"
-      ],
-      "profile": {
-        "id": 67,
-        "name": "Worth A Look",
-        "avatar": {
-          "data": {
-            "id": 442,
-            "attributes": {
-              "name": "worth_a_look.jpeg",
-              "alternativeText": null,
-              "caption": null,
-              "width": 1024,
-              "height": 1024,
-              "formats": {
-                "large": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/large_worth_a_look_6481b00fac.jpeg",
-                  "hash": "large_worth_a_look_6481b00fac",
-                  "mime": "image/jpeg",
-                  "name": "large_worth_a_look.jpeg",
-                  "path": null,
-                  "size": 248.31,
-                  "width": 1000,
-                  "height": 1000,
-                  "sizeInBytes": 248311
+    id: 67,
+    attributes: {
+      createdAt: "2025-11-13T11:33:04.335Z",
+      updatedAt: "2025-11-26T13:28:31.695Z",
+      publishedAt: "2025-11-13T11:33:04.318Z",
+      cities: ["Bangalore"],
+      profile: {
+        id: 67,
+        name: "Worth A Look",
+        avatar: {
+          data: {
+            id: 442,
+            attributes: {
+              name: "worth_a_look.jpeg",
+              alternativeText: null,
+              caption: null,
+              width: 1024,
+              height: 1024,
+              formats: {
+                large: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/large_worth_a_look_6481b00fac.jpeg",
+                  hash: "large_worth_a_look_6481b00fac",
+                  mime: "image/jpeg",
+                  name: "large_worth_a_look.jpeg",
+                  path: null,
+                  size: 248.31,
+                  width: 1000,
+                  height: 1000,
+                  sizeInBytes: 248311,
                 },
-                "small": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/small_worth_a_look_6481b00fac.jpeg",
-                  "hash": "small_worth_a_look_6481b00fac",
-                  "mime": "image/jpeg",
-                  "name": "small_worth_a_look.jpeg",
-                  "path": null,
-                  "size": 36.27,
-                  "width": 500,
-                  "height": 500,
-                  "sizeInBytes": 36271
+                small: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/small_worth_a_look_6481b00fac.jpeg",
+                  hash: "small_worth_a_look_6481b00fac",
+                  mime: "image/jpeg",
+                  name: "small_worth_a_look.jpeg",
+                  path: null,
+                  size: 36.27,
+                  width: 500,
+                  height: 500,
+                  sizeInBytes: 36271,
                 },
-                "medium": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/medium_worth_a_look_6481b00fac.jpeg",
-                  "hash": "medium_worth_a_look_6481b00fac",
-                  "mime": "image/jpeg",
-                  "name": "medium_worth_a_look.jpeg",
-                  "path": null,
-                  "size": 107.82,
-                  "width": 750,
-                  "height": 750,
-                  "sizeInBytes": 107824
+                medium: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/medium_worth_a_look_6481b00fac.jpeg",
+                  hash: "medium_worth_a_look_6481b00fac",
+                  mime: "image/jpeg",
+                  name: "medium_worth_a_look.jpeg",
+                  path: null,
+                  size: 107.82,
+                  width: 750,
+                  height: 750,
+                  sizeInBytes: 107824,
                 },
-                "thumbnail": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/thumbnail_worth_a_look_6481b00fac.jpeg",
-                  "hash": "thumbnail_worth_a_look_6481b00fac",
-                  "mime": "image/jpeg",
-                  "name": "thumbnail_worth_a_look.jpeg",
-                  "path": null,
-                  "size": 5.19,
-                  "width": 156,
-                  "height": 156,
-                  "sizeInBytes": 5189
-                }
+                thumbnail: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/thumbnail_worth_a_look_6481b00fac.jpeg",
+                  hash: "thumbnail_worth_a_look_6481b00fac",
+                  mime: "image/jpeg",
+                  name: "thumbnail_worth_a_look.jpeg",
+                  path: null,
+                  size: 5.19,
+                  width: 156,
+                  height: 156,
+                  sizeInBytes: 5189,
+                },
               },
-              "hash": "worth_a_look_6481b00fac",
-              "ext": ".jpeg",
-              "mime": "image/jpeg",
-              "size": 277.67,
-              "url": "https://ik.imagekit.io/drivex/cms/worth_a_look_6481b00fac.jpeg",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2025-11-13T11:19:10.190Z",
-              "updatedAt": "2025-11-13T11:19:10.190Z"
-            }
-          }
-        }
+              hash: "worth_a_look_6481b00fac",
+              ext: ".jpeg",
+              mime: "image/jpeg",
+              size: 277.67,
+              url: "https://ik.imagekit.io/drivex/cms/worth_a_look_6481b00fac.jpeg",
+              previewUrl: null,
+              provider: "aws-s3",
+              provider_metadata: null,
+              createdAt: "2025-11-13T11:19:10.190Z",
+              updatedAt: "2025-11-13T11:19:10.190Z",
+            },
+          },
+        },
       },
-      "stories": [
+      stories: [
         {
-          "id": 12104,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 289486,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12104,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 289486,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Bajaj",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Bajaj",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [
+            c2c: {
+              friday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/289486/90560/inspection_report_77.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "Aadhaar",
-              "monday_slots": [
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/289486/90560/inspection_report_77.pdf",
+              inspection_type: "L1",
+              kyc_type: "Aadhaar",
+              monday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "no_of_challans": 3,
-              "pincode": 560016,
-              "saturday_slots": [],
-              "seller_id": 397245,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Ferooz ",
-              "sunday_slots": [],
-              "test_ride_address": "ground floor, Shyam Complex, 548, Chinmaya Mission Hospital Rd, Stage 1, Indiranagar, Bengaluru, Karnataka 560038, India",
-              "test_ride_map_link": "https://maps.google.com/?q=place_id:ChIJa0XIcacWrjsRhwZCuhsUkxI",
-              "thursday_slots": [
+              no_of_challans: 3,
+              pincode: 560016,
+              saturday_slots: [],
+              seller_id: 397245,
+              seller_kyc_status: "Approved",
+              seller_name: "Ferooz ",
+              sunday_slots: [],
+              test_ride_address:
+                "ground floor, Shyam Complex, 548, Chinmaya Mission Hospital Rd, Stage 1, Indiranagar, Bengaluru, Karnataka 560038, India",
+              test_ride_map_link:
+                "https://maps.google.com/?q=place_id:ChIJa0XIcacWrjsRhwZCuhsUkxI",
+              thursday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "total_challan_amount": 1500,
-              "tuesday_slots": [
+              total_challan_amount: 1500,
+              tuesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "zoho_buy_lead_id": "253323"
+              zoho_buy_lead_id: "253323",
             },
-            "city": "Bangalore",
-            "colour": "Green",
-            "createdOn": "2025-07-15 12:20:57",
-            "drivexAssured": false,
-            "geo_location": [
-              12.9950286,
-              77.68308789999999
-            ],
-            "geolocation": "12.9950286,77.68308789999999",
-            "golden_mmv_id": 4747,
-            "id": "289486",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Green",
+            createdOn: "2025-07-15 12:20:57",
+            drivexAssured: false,
+            geo_location: [12.9950286, 77.68308789999999],
+            geolocation: "12.9950286,77.68308789999999",
+            golden_mmv_id: 4747,
+            id: "289486",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_77_left_bd80cda9dde948ac.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_77_right_22e80aa9cec94f65.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_77_front_0b97a09a4b704226.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_77_rear_24c987f2b4e94293.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_77_odometer_bac28c23f11f4275.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_77_odometer_bac28c23f11f4275.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "373.00 cc",
-                "unit": "CC",
-                "value": 373
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "373.00 cc",
+                unit: "CC",
+                value: 373,
               },
-              "fuelTankCapacity": {
-                "displayValue": "13.00 litres",
-                "unit": "Litres",
-                "value": 13
+              fuelTankCapacity: {
+                displayValue: "13.00 litres",
+                unit: "Litres",
+                value: 13,
               },
-              "maxPower": {
-                "displayValue": "35 Nm @ 6500 rpm",
-                "unit": "Torque",
-                "value": "35 Nm @ 6500 rpm"
+              maxPower: {
+                displayValue: "35 Nm @ 6500 rpm",
+                unit: "Torque",
+                value: "35 Nm @ 6500 rpm",
               },
-              "topSpeed": {
-                "displayValue": "148 kmph",
-                "unit": "Kmph",
-                "value": 148
-              }
+              topSpeed: {
+                displayValue: "148 kmph",
+                unit: "Kmph",
+                value: 148,
+              },
             },
-            "kmDriven": {
-              "displayValue": "26,070",
-              "unit": "KM",
-              "value": 26070
+            kmDriven: {
+              displayValue: "26,070",
+              unit: "KM",
+              value: 26070,
             },
-            "locality": "Mahadevapura",
-            "make_model": "Bajaj+Dominar 400",
-            "manufactureYear": 2019,
-            "modelName": "Dominar 400",
-            "objectID": "289486",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "26,070",
-                "unit": "KM",
-                "value": 26070
+            locality: "Mahadevapura",
+            make_model: "Bajaj+Dominar 400",
+            manufactureYear: 2019,
+            modelName: "Dominar 400",
+            objectID: "289486",
+            overview: {
+              kmDriven: {
+                displayValue: "26,070",
+                unit: "KM",
+                value: 26070,
               },
-              "makeYear": {
-                "displayValue": 2019,
-                "unit": "Make year",
-                "value": 2019
+              makeYear: {
+                displayValue: 2019,
+                unit: "Make year",
+                value: 2019,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2019,
-                "unit": "Year",
-                "value": 2019
+              registrationYear: {
+                displayValue: 2019,
+                unit: "Year",
+                value: 2019,
               },
-              "rto": {
-                "displayValue": "KA01",
-                "unit": "RTO",
-                "value": "KA01"
-              }
+              rto: {
+                displayValue: "KA01",
+                unit: "RTO",
+                value: "KA01",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 25,
-            "price": {
-              "displayValue": "2,30,000",
-              "unit": "Rs",
-              "value": 230000
+            ownerShip: 1,
+            popularity: 25,
+            price: {
+              displayValue: "2,30,000",
+              unit: "Rs",
+              value: 230000,
             },
-            "retail_inventory_id": 77,
-            "vehicleId": 289486,
-            "vehicleName": "Bajaj Dominar 400",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 77,
+            vehicleId: 289486,
+            vehicleName: "Bajaj Dominar 400",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12105,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 280682,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12105,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 280682,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "KTM",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "KTM",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [
+            c2c: {
+              friday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/280682/84557/inspection_report_90.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "Aadhaar",
-              "monday_slots": [
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/280682/84557/inspection_report_90.pdf",
+              inspection_type: "L1",
+              kyc_type: "Aadhaar",
+              monday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "no_of_challans": 0,
-              "pincode": 560076,
-              "saturday_slots": [],
-              "seller_id": 389248,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Shreyas",
-              "sunday_slots": [],
-              "test_ride_address": "Sri Lakshmi Nivas, 162, 3rd Main Rd, Nrupathunga Nagar, Navodaya Nagar, Poornima Nagar, Arekere, Bengaluru, Kothnur, Karnataka 560076, India",
-              "test_ride_map_link": "https://maps.google.com/?q=place_id:ChIJk22i4EkVrjsRWP9PHsHEWqM",
-              "thursday_slots": [
+              no_of_challans: 0,
+              pincode: 560076,
+              saturday_slots: [],
+              seller_id: 389248,
+              seller_kyc_status: "Approved",
+              seller_name: "Shreyas",
+              sunday_slots: [],
+              test_ride_address:
+                "Sri Lakshmi Nivas, 162, 3rd Main Rd, Nrupathunga Nagar, Navodaya Nagar, Poornima Nagar, Arekere, Bengaluru, Kothnur, Karnataka 560076, India",
+              test_ride_map_link:
+                "https://maps.google.com/?q=place_id:ChIJk22i4EkVrjsRWP9PHsHEWqM",
+              thursday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "total_challan_amount": 0,
-              "tuesday_slots": [
+              total_challan_amount: 0,
+              tuesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "zoho_buy_lead_id": "245395"
+              zoho_buy_lead_id: "245395",
             },
-            "city": "Bangalore",
-            "colour": "White",
-            "createdOn": "2025-07-15 12:21:09",
-            "drivexAssured": false,
-            "geo_location": [
-              12.8833429,
-              77.584552
-            ],
-            "geolocation": "12.8833429,77.584552",
-            "golden_mmv_id": 5752,
-            "id": "280682",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "White",
+            createdOn: "2025-07-15 12:21:09",
+            drivexAssured: false,
+            geo_location: [12.8833429, 77.584552],
+            geolocation: "12.8833429,77.584552",
+            golden_mmv_id: 5752,
+            id: "280682",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_90_left_0dd324377d454f62.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_90_right_49526f78c18e4e49.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_90_front_04d6800b26854680.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_90_rear_ef54e699142a409a.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_90_odometer_79a8e615e2484342.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_90_odometer_79a8e615e2484342.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "373.00 cc",
-                "unit": "CC",
-                "value": 373
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "373.00 cc",
+                unit: "CC",
+                value: 373,
               },
-              "fuelTankCapacity": {
-                "displayValue": "14.50 litres",
-                "unit": "Litres",
-                "value": 14.5
+              fuelTankCapacity: {
+                displayValue: "14.50 litres",
+                unit: "Litres",
+                value: 14.5,
               },
-              "maxPower": {
-                "displayValue": "35 Nm @ 7,000 rpm",
-                "unit": "Torque",
-                "value": "35 Nm @ 7,000 rpm"
+              maxPower: {
+                displayValue: "35 Nm @ 7,000 rpm",
+                unit: "Torque",
+                value: "35 Nm @ 7,000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "170 kmph",
-                "unit": "Kmph",
-                "value": 170
-              }
+              topSpeed: {
+                displayValue: "170 kmph",
+                unit: "Kmph",
+                value: 170,
+              },
             },
-            "kmDriven": {
-              "displayValue": "11,494",
-              "unit": "KM",
-              "value": 11494
+            kmDriven: {
+              displayValue: "11,494",
+              unit: "KM",
+              value: 11494,
             },
-            "locality": "Arekere",
-            "make_model": "KTM+Adventure 390",
-            "manufactureYear": 2021,
-            "modelName": "Adventure 390",
-            "objectID": "280682",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "11,494",
-                "unit": "KM",
-                "value": 11494
+            locality: "Arekere",
+            make_model: "KTM+Adventure 390",
+            manufactureYear: 2021,
+            modelName: "Adventure 390",
+            objectID: "280682",
+            overview: {
+              kmDriven: {
+                displayValue: "11,494",
+                unit: "KM",
+                value: 11494,
               },
-              "makeYear": {
-                "displayValue": 2021,
-                "unit": "Make year",
-                "value": 2021
+              makeYear: {
+                displayValue: 2021,
+                unit: "Make year",
+                value: 2021,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2021,
-                "unit": "Year",
-                "value": 2021
+              registrationYear: {
+                displayValue: 2021,
+                unit: "Year",
+                value: 2021,
               },
-              "rto": {
-                "displayValue": "KA05",
-                "unit": "RTO",
-                "value": "KA05"
-              }
+              rto: {
+                displayValue: "KA05",
+                unit: "RTO",
+                value: "KA05",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 17,
-            "price": {
-              "displayValue": "3,50,000",
-              "unit": "Rs",
-              "value": 350000
+            ownerShip: 1,
+            popularity: 17,
+            price: {
+              displayValue: "3,50,000",
+              unit: "Rs",
+              value: 350000,
             },
-            "retail_inventory_id": 90,
-            "vehicleId": 280682,
-            "vehicleName": "KTM Adventure 390",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 90,
+            vehicleId: 280682,
+            vehicleName: "KTM Adventure 390",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12106,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 378121,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12106,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 378121,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "TVS",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "TVS",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/378121/146248/inspection_report_6787.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [],
-              "no_of_challans": 2,
-              "pincode": 560100,
-              "saturday_slots": [
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/378121/146248/inspection_report_6787.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: [],
+              no_of_challans: 2,
+              pincode: 560100,
+              saturday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "seller_id": 489211,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Sabbir Ahmed Laskar",
-              "sunday_slots": [
+              seller_id: 489211,
+              seller_kyc_status: "Approved",
+              seller_name: "Sabbir Ahmed Laskar",
+              sunday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "test_ride_address": "Siraj Layout, Shikaripalya, Electronic City, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?q=4th+Cross,+Siraj+Layout,+Shikaripalya,+Electronic+City,+Karnataka+560105,+India&ftid=0x3bae6c7c2c9ce895:0xc7e1f7b8861789ce&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "4th Cross",
-              "thursday_slots": [],
-              "total_challan_amount": 500,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "341848"
+              test_ride_address:
+                "Siraj Layout, Shikaripalya, Electronic City, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?q=4th+Cross,+Siraj+Layout,+Shikaripalya,+Electronic+City,+Karnataka+560105,+India&ftid=0x3bae6c7c2c9ce895:0xc7e1f7b8861789ce&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "4th Cross",
+              thursday_slots: [],
+              total_challan_amount: 500,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "341848",
             },
-            "city": "Bangalore",
-            "colour": "Red",
-            "createdOn": "2025-10-15 05:32:22",
-            "drivexAssured": false,
-            "geo_location": [
-              12.8312313,
-              77.6595831
-            ],
-            "geolocation": "12.8312313, 77.6595831",
-            "golden_mmv_id": 6401,
-            "id": "378121",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Red",
+            createdOn: "2025-10-15 05:32:22",
+            drivexAssured: false,
+            geo_location: [12.8312313, 77.6595831],
+            geolocation: "12.8312313, 77.6595831",
+            golden_mmv_id: 6401,
+            id: "378121",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6787_left_4eee3ca8ab9f4200.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6787_right_269dd0ae832540b8.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6787_front_1e6a9d8fbd9a4619.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_6787_rear_d91b5137502546d2.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_6787_odometer_aee15ec13ba64d23.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_6787_odometer_aee15ec13ba64d23.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "125.00 cc",
-                "unit": "CC",
-                "value": 125
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "125.00 cc",
+                unit: "CC",
+                value: 125,
               },
-              "fuelTankCapacity": {
-                "displayValue": "10.00 litres",
-                "unit": "Litres",
-                "value": 10
+              fuelTankCapacity: {
+                displayValue: "10.00 litres",
+                unit: "Litres",
+                value: 10,
               },
-              "maxPower": {
-                "displayValue": "11.2 Nm @ 6000 rpm",
-                "unit": "Torque",
-                "value": "11.2 Nm @ 6000 rpm"
+              maxPower: {
+                displayValue: "11.2 Nm @ 6000 rpm",
+                unit: "Torque",
+                value: "11.2 Nm @ 6000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "99 kmph",
-                "unit": "Kmph",
-                "value": 99
-              }
+              topSpeed: {
+                displayValue: "99 kmph",
+                unit: "Kmph",
+                value: 99,
+              },
             },
-            "kmDriven": {
-              "displayValue": "55,644",
-              "unit": "KM",
-              "value": 55644
+            kmDriven: {
+              displayValue: "55,644",
+              unit: "KM",
+              value: 55644,
             },
-            "locality": "Electronic City",
-            "make_model": "TVS+Raider 125",
-            "manufactureYear": 2023,
-            "modelName": "Raider 125",
-            "objectID": "378121",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "55,644",
-                "unit": "KM",
-                "value": 55644
+            locality: "Electronic City",
+            make_model: "TVS+Raider 125",
+            manufactureYear: 2023,
+            modelName: "Raider 125",
+            objectID: "378121",
+            overview: {
+              kmDriven: {
+                displayValue: "55,644",
+                unit: "KM",
+                value: 55644,
               },
-              "makeYear": {
-                "displayValue": 2023,
-                "unit": "Make year",
-                "value": 2023
+              makeYear: {
+                displayValue: 2023,
+                unit: "Make year",
+                value: 2023,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2023,
-                "unit": "Year",
-                "value": 2023
+              registrationYear: {
+                displayValue: 2023,
+                unit: "Year",
+                value: 2023,
               },
-              "rto": {
-                "displayValue": "KA51",
-                "unit": "RTO",
-                "value": "KA51"
-              }
+              rto: {
+                displayValue: "KA51",
+                unit: "RTO",
+                value: "KA51",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 31,
-            "price": {
-              "displayValue": "55,000",
-              "unit": "Rs",
-              "value": 55000
+            ownerShip: 1,
+            popularity: 31,
+            price: {
+              displayValue: "55,000",
+              unit: "Rs",
+              value: 55000,
             },
-            "retail_inventory_id": 6787,
-            "vehicleId": 378121,
-            "vehicleName": "TVS Raider 125 Disc",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 6787,
+            vehicleId: 378121,
+            vehicleName: "TVS Raider 125 Disc",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12107,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 335683,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12107,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 335683,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Royal Enfield",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Royal Enfield",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/335683/113551/inspection_report_2602.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [
-                "15:00-17:00",
-                "17:00-19:00"
-              ],
-              "no_of_challans": 4,
-              "pincode": 560061,
-              "saturday_slots": [],
-              "seller_id": 442742,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Suhas ",
-              "sunday_slots": [],
-              "test_ride_address": "Near ಶ್ರೀ ಚೈತನ್ಯ ಸ್ಕೂಲ್, HMS Layout, Arehalli, Chikkalasandra, Bengaluru, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=14381940721603746423&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "SLV Platinum",
-              "thursday_slots": [],
-              "total_challan_amount": 1000,
-              "tuesday_slots": [
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/335683/113551/inspection_report_2602.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: ["15:00-17:00", "17:00-19:00"],
+              no_of_challans: 4,
+              pincode: 560061,
+              saturday_slots: [],
+              seller_id: 442742,
+              seller_kyc_status: "Approved",
+              seller_name: "Suhas ",
+              sunday_slots: [],
+              test_ride_address:
+                "Near ಶ್ರೀ ಚೈತನ್ಯ ಸ್ಕೂಲ್, HMS Layout, Arehalli, Chikkalasandra, Bengaluru, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=14381940721603746423&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "SLV Platinum",
+              thursday_slots: [],
+              total_challan_amount: 1000,
+              tuesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "zoho_buy_lead_id": "297161"
+              zoho_buy_lead_id: "297161",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-08-20 11:16:40",
-            "drivexAssured": false,
-            "geo_location": [
-              12.9132073,
-              77.5411187
-            ],
-            "geolocation": "12.9132073, 77.5411187",
-            "golden_mmv_id": 6004,
-            "id": "335683",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-08-20 11:16:40",
+            drivexAssured: false,
+            geo_location: [12.9132073, 77.5411187],
+            geolocation: "12.9132073, 77.5411187",
+            golden_mmv_id: 6004,
+            id: "335683",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_2602_left_fb5e58b5b71b4005.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_2602_right_ef424a8417e44fe8.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_2602_front_32d2e18a142f41df.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_2602_rear_a780efde82064d84.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_2602_odometer_f079ec2fe4f34648.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_2602_odometer_f079ec2fe4f34648.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "346.00 cc",
-                "unit": "CC",
-                "value": 346
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "346.00 cc",
+                unit: "CC",
+                value: 346,
               },
-              "fuelTankCapacity": {
-                "displayValue": "13.50 litres",
-                "unit": "Litres",
-                "value": 13.5
+              fuelTankCapacity: {
+                displayValue: "13.50 litres",
+                unit: "Litres",
+                value: 13.5,
               },
-              "maxPower": {
-                "displayValue": "27 Nm @ 4000 rpm",
-                "unit": "Torque",
-                "value": "27 Nm @ 4000 rpm"
+              maxPower: {
+                displayValue: "27 Nm @ 4000 rpm",
+                unit: "Torque",
+                value: "27 Nm @ 4000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "120 kmph",
-                "unit": "Kmph",
-                "value": 120
-              }
+              topSpeed: {
+                displayValue: "120 kmph",
+                unit: "Kmph",
+                value: 120,
+              },
             },
-            "kmDriven": {
-              "displayValue": "7,820",
-              "unit": "KM",
-              "value": 7820
+            kmDriven: {
+              displayValue: "7,820",
+              unit: "KM",
+              value: 7820,
             },
-            "locality": "Uttarahalli Hobli",
-            "make_model": "Royal Enfield+Classic 350",
-            "manufactureYear": 2023,
-            "modelName": "Classic 350",
-            "objectID": "335683",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "7,820",
-                "unit": "KM",
-                "value": 7820
+            locality: "Uttarahalli Hobli",
+            make_model: "Royal Enfield+Classic 350",
+            manufactureYear: 2023,
+            modelName: "Classic 350",
+            objectID: "335683",
+            overview: {
+              kmDriven: {
+                displayValue: "7,820",
+                unit: "KM",
+                value: 7820,
               },
-              "makeYear": {
-                "displayValue": 2023,
-                "unit": "Make year",
-                "value": 2023
+              makeYear: {
+                displayValue: 2023,
+                unit: "Make year",
+                value: 2023,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2023,
-                "unit": "Year",
-                "value": 2023
+              registrationYear: {
+                displayValue: 2023,
+                unit: "Year",
+                value: 2023,
               },
-              "rto": {
-                "displayValue": "KA01",
-                "unit": "RTO",
-                "value": "KA01"
-              }
+              rto: {
+                displayValue: "KA01",
+                unit: "RTO",
+                value: "KA01",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 23,
-            "price": {
-              "displayValue": "2,20,000",
-              "unit": "Rs",
-              "value": 220000
+            ownerShip: 1,
+            popularity: 23,
+            price: {
+              displayValue: "2,20,000",
+              unit: "Rs",
+              value: 220000,
             },
-            "retail_inventory_id": 2602,
-            "vehicleId": 335683,
-            "vehicleName": "Royal Enfield Classic 350 Fireball",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 2602,
+            vehicleId: 335683,
+            vehicleName: "Royal Enfield Classic 350 Fireball",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12108,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 347427,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12108,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 347427,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Suzuki",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Suzuki",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/347427/120412/inspection_report_3419.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [
-                "09:00-11:00"
-              ],
-              "no_of_challans": 0,
-              "pincode": 560062,
-              "saturday_slots": [],
-              "seller_id": 454879,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Mohan",
-              "sunday_slots": [],
-              "test_ride_address": "Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=14180983268851417171&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLGdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "Vajarahalli",
-              "thursday_slots": [],
-              "total_challan_amount": 0,
-              "tuesday_slots": [
-                "09:00-11:00"
-              ],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
-                "09:00-11:00"
-              ],
-              "zoho_buy_lead_id": "309279"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/347427/120412/inspection_report_3419.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: ["09:00-11:00"],
+              no_of_challans: 0,
+              pincode: 560062,
+              saturday_slots: [],
+              seller_id: 454879,
+              seller_kyc_status: "Approved",
+              seller_name: "Mohan",
+              sunday_slots: [],
+              test_ride_address: "Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=14180983268851417171&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLGdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "Vajarahalli",
+              thursday_slots: [],
+              total_challan_amount: 0,
+              tuesday_slots: ["09:00-11:00"],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: ["09:00-11:00"],
+              zoho_buy_lead_id: "309279",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-08-31 15:09:26",
-            "drivexAssured": false,
-            "geo_location": [
-              12.870127199999999,
-              77.5433122
-            ],
-            "geolocation": "12.870127199999999, 77.5433122",
-            "golden_mmv_id": 6167,
-            "id": "347427",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-08-31 15:09:26",
+            drivexAssured: false,
+            geo_location: [12.870127199999999, 77.5433122],
+            geolocation: "12.870127199999999, 77.5433122",
+            golden_mmv_id: 6167,
+            id: "347427",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3419_left_8bb3e275c4064538.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3419_right_5b08388604e94a5a.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3419_front_111c1c7078c945b9.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_3419_rear_d96f37e84885470e.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_3419_odometer_1e19c25a94f64548.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_3419_odometer_1e19c25a94f64548.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "249.00 cc",
-                "unit": "CC",
-                "value": 249
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "249.00 cc",
+                unit: "CC",
+                value: 249,
               },
-              "fuelTankCapacity": {
-                "displayValue": "12.00 litres",
-                "unit": "Litres",
-                "value": 12
+              fuelTankCapacity: {
+                displayValue: "12.00 litres",
+                unit: "Litres",
+                value: 12,
               },
-              "maxPower": {
-                "displayValue": "22.2 Nm @ 7300 rpm",
-                "unit": "Torque",
-                "value": "22.2 Nm @ 7300 rpm"
+              maxPower: {
+                displayValue: "22.2 Nm @ 7300 rpm",
+                unit: "Torque",
+                value: "22.2 Nm @ 7300 rpm",
               },
-              "topSpeed": {
-                "displayValue": "None kmph",
-                "unit": "Kmph"
-              }
+              topSpeed: {
+                displayValue: "None kmph",
+                unit: "Kmph",
+              },
             },
-            "kmDriven": {
-              "displayValue": "4,567",
-              "unit": "KM",
-              "value": 4567
+            kmDriven: {
+              displayValue: "4,567",
+              unit: "KM",
+              value: 4567,
             },
-            "locality": "Bangalore City Municipal Corporation Layout",
-            "make_model": "Suzuki+Gixxer SF 250",
-            "manufactureYear": 2020,
-            "modelName": "Gixxer SF 250",
-            "objectID": "347427",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "4,567",
-                "unit": "KM",
-                "value": 4567
+            locality: "Bangalore City Municipal Corporation Layout",
+            make_model: "Suzuki+Gixxer SF 250",
+            manufactureYear: 2020,
+            modelName: "Gixxer SF 250",
+            objectID: "347427",
+            overview: {
+              kmDriven: {
+                displayValue: "4,567",
+                unit: "KM",
+                value: 4567,
               },
-              "makeYear": {
-                "displayValue": 2020,
-                "unit": "Make year",
-                "value": 2020
+              makeYear: {
+                displayValue: 2020,
+                unit: "Make year",
+                value: 2020,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2020,
-                "unit": "Year",
-                "value": 2020
+              registrationYear: {
+                displayValue: 2020,
+                unit: "Year",
+                value: 2020,
               },
-              "rto": {
-                "displayValue": "KA05",
-                "unit": "RTO",
-                "value": "KA05"
-              }
+              rto: {
+                displayValue: "KA05",
+                unit: "RTO",
+                value: "KA05",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 16,
-            "price": {
-              "displayValue": "1,60,000",
-              "unit": "Rs",
-              "value": 160000
+            ownerShip: 1,
+            popularity: 16,
+            price: {
+              displayValue: "1,60,000",
+              unit: "Rs",
+              value: 160000,
             },
-            "retail_inventory_id": 3419,
-            "vehicleId": 347427,
-            "vehicleName": "Suzuki Gixxer SF 250 ABS",
-            "vehicleType": "Motorcycle"
-          }
-        }
-      ]
-    }
+            retail_inventory_id: 3419,
+            vehicleId: 347427,
+            vehicleName: "Suzuki Gixxer SF 250 ABS",
+            vehicleType: "Motorcycle",
+          },
+        },
+      ],
+    },
   },
   {
-    "id": 68,
-    "attributes": {
-      "createdAt": "2025-11-13T11:33:04.413Z",
-      "updatedAt": "2025-11-26T13:28:32.211Z",
-      "publishedAt": "2025-11-13T11:33:04.405Z",
-      "cities": [
-        "Bangalore"
-      ],
-      "profile": {
-        "id": 68,
-        "name": "Ride In Style",
-        "avatar": {
-          "data": {
-            "id": 441,
-            "attributes": {
-              "name": "ride_in_style.jpeg",
-              "alternativeText": null,
-              "caption": null,
-              "width": 1024,
-              "height": 1024,
-              "formats": {
-                "large": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/large_ride_in_style_a1f9c06d69.jpeg",
-                  "hash": "large_ride_in_style_a1f9c06d69",
-                  "mime": "image/jpeg",
-                  "name": "large_ride_in_style.jpeg",
-                  "path": null,
-                  "size": 196.1,
-                  "width": 1000,
-                  "height": 1000,
-                  "sizeInBytes": 196096
+    id: 68,
+    attributes: {
+      createdAt: "2025-11-13T11:33:04.413Z",
+      updatedAt: "2025-11-26T13:28:32.211Z",
+      publishedAt: "2025-11-13T11:33:04.405Z",
+      cities: ["Bangalore"],
+      profile: {
+        id: 68,
+        name: "Ride In Style",
+        avatar: {
+          data: {
+            id: 441,
+            attributes: {
+              name: "ride_in_style.jpeg",
+              alternativeText: null,
+              caption: null,
+              width: 1024,
+              height: 1024,
+              formats: {
+                large: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/large_ride_in_style_a1f9c06d69.jpeg",
+                  hash: "large_ride_in_style_a1f9c06d69",
+                  mime: "image/jpeg",
+                  name: "large_ride_in_style.jpeg",
+                  path: null,
+                  size: 196.1,
+                  width: 1000,
+                  height: 1000,
+                  sizeInBytes: 196096,
                 },
-                "small": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/small_ride_in_style_a1f9c06d69.jpeg",
-                  "hash": "small_ride_in_style_a1f9c06d69",
-                  "mime": "image/jpeg",
-                  "name": "small_ride_in_style.jpeg",
-                  "path": null,
-                  "size": 36.18,
-                  "width": 500,
-                  "height": 500,
-                  "sizeInBytes": 36176
+                small: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/small_ride_in_style_a1f9c06d69.jpeg",
+                  hash: "small_ride_in_style_a1f9c06d69",
+                  mime: "image/jpeg",
+                  name: "small_ride_in_style.jpeg",
+                  path: null,
+                  size: 36.18,
+                  width: 500,
+                  height: 500,
+                  sizeInBytes: 36176,
                 },
-                "medium": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/medium_ride_in_style_a1f9c06d69.jpeg",
-                  "hash": "medium_ride_in_style_a1f9c06d69",
-                  "mime": "image/jpeg",
-                  "name": "medium_ride_in_style.jpeg",
-                  "path": null,
-                  "size": 96.32,
-                  "width": 750,
-                  "height": 750,
-                  "sizeInBytes": 96321
+                medium: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/medium_ride_in_style_a1f9c06d69.jpeg",
+                  hash: "medium_ride_in_style_a1f9c06d69",
+                  mime: "image/jpeg",
+                  name: "medium_ride_in_style.jpeg",
+                  path: null,
+                  size: 96.32,
+                  width: 750,
+                  height: 750,
+                  sizeInBytes: 96321,
                 },
-                "thumbnail": {
-                  "ext": ".jpeg",
-                  "url": "https://ik.imagekit.io/drivex/cms/thumbnail_ride_in_style_a1f9c06d69.jpeg",
-                  "hash": "thumbnail_ride_in_style_a1f9c06d69",
-                  "mime": "image/jpeg",
-                  "name": "thumbnail_ride_in_style.jpeg",
-                  "path": null,
-                  "size": 5.29,
-                  "width": 156,
-                  "height": 156,
-                  "sizeInBytes": 5288
-                }
+                thumbnail: {
+                  ext: ".jpeg",
+                  url: "https://ik.imagekit.io/drivex/cms/thumbnail_ride_in_style_a1f9c06d69.jpeg",
+                  hash: "thumbnail_ride_in_style_a1f9c06d69",
+                  mime: "image/jpeg",
+                  name: "thumbnail_ride_in_style.jpeg",
+                  path: null,
+                  size: 5.29,
+                  width: 156,
+                  height: 156,
+                  sizeInBytes: 5288,
+                },
               },
-              "hash": "ride_in_style_a1f9c06d69",
-              "ext": ".jpeg",
-              "mime": "image/jpeg",
-              "size": 244.27,
-              "url": "https://ik.imagekit.io/drivex/cms/ride_in_style_a1f9c06d69.jpeg",
-              "previewUrl": null,
-              "provider": "aws-s3",
-              "provider_metadata": null,
-              "createdAt": "2025-11-13T11:19:10.089Z",
-              "updatedAt": "2025-11-13T11:19:10.089Z"
-            }
-          }
-        }
+              hash: "ride_in_style_a1f9c06d69",
+              ext: ".jpeg",
+              mime: "image/jpeg",
+              size: 244.27,
+              url: "https://ik.imagekit.io/drivex/cms/ride_in_style_a1f9c06d69.jpeg",
+              previewUrl: null,
+              provider: "aws-s3",
+              provider_metadata: null,
+              createdAt: "2025-11-13T11:19:10.089Z",
+              updatedAt: "2025-11-13T11:19:10.089Z",
+            },
+          },
+        },
       },
-      "stories": [
+      stories: [
         {
-          "id": 12110,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 29855,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12110,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 29855,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Suzuki",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Suzuki",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/29855/82890/inspection_report_408.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "Aadhaar",
-              "monday_slots": [],
-              "no_of_challans": 0,
-              "pincode": 560077,
-              "saturday_slots": [
-                "17:00-19:00",
-                "19:00-21:00"
-              ],
-              "seller_id": 383035,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Paulson",
-              "sunday_slots": [
-                "17:00-19:00",
-                "19:00-21:00"
-              ],
-              "test_ride_address": "#136/1, Kowdenahalli Village KR Puram Hobli, East, Kalkere Main Rd, Bengaluru, Karnataka 560016",
-              "test_ride_map_link": "dx1.in/qTHVjs3",
-              "test_ride_place_name": "DriveX - VOC - TC Palya 1",
-              "thursday_slots": [],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "239188"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/29855/82890/inspection_report_408.pdf",
+              inspection_type: "L1",
+              kyc_type: "Aadhaar",
+              monday_slots: [],
+              no_of_challans: 0,
+              pincode: 560077,
+              saturday_slots: ["17:00-19:00", "19:00-21:00"],
+              seller_id: 383035,
+              seller_kyc_status: "Approved",
+              seller_name: "Paulson",
+              sunday_slots: ["17:00-19:00", "19:00-21:00"],
+              test_ride_address:
+                "#136/1, Kowdenahalli Village KR Puram Hobli, East, Kalkere Main Rd, Bengaluru, Karnataka 560016",
+              test_ride_map_link: "dx1.in/qTHVjs3",
+              test_ride_place_name: "DriveX - VOC - TC Palya 1",
+              thursday_slots: [],
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "239188",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-07-17 11:33:19",
-            "drivexAssured": false,
-            "geo_location": [
-              13.02202222787213,
-              77.67885501978841
-            ],
-            "geolocation": "13.02202222787213, 77.67885501978841",
-            "golden_mmv_id": 6204,
-            "id": "29855",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-07-17 11:33:19",
+            drivexAssured: false,
+            geo_location: [13.02202222787213, 77.67885501978841],
+            geolocation: "13.02202222787213, 77.67885501978841",
+            golden_mmv_id: 6204,
+            id: "29855",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_408_left_c0578ea494744943.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_408_right_43b95c1352ff43ec.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_408_front_970856e73c7641a6.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_408_rear_5f05f00d08b54836.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_408_odometer_ccd37a4f1126478f.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_408_odometer_ccd37a4f1126478f.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "249.00 cc",
-                "unit": "CC",
-                "value": 249
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "249.00 cc",
+                unit: "CC",
+                value: 249,
               },
-              "fuelTankCapacity": {
-                "displayValue": "12.00 litres",
-                "unit": "Litres",
-                "value": 12
+              fuelTankCapacity: {
+                displayValue: "12.00 litres",
+                unit: "Litres",
+                value: 12,
               },
-              "maxPower": {
-                "displayValue": "22 Nm @ 6500 rpm",
-                "unit": "Torque",
-                "value": "22 Nm @ 6500 rpm"
+              maxPower: {
+                displayValue: "22 Nm @ 6500 rpm",
+                unit: "Torque",
+                value: "22 Nm @ 6500 rpm",
               },
-              "topSpeed": {
-                "displayValue": "130 kmph",
-                "unit": "Kmph",
-                "value": 130
-              }
+              topSpeed: {
+                displayValue: "130 kmph",
+                unit: "Kmph",
+                value: 130,
+              },
             },
-            "kmDriven": {
-              "displayValue": "16,821",
-              "unit": "KM",
-              "value": 16821
+            kmDriven: {
+              displayValue: "16,821",
+              unit: "KM",
+              value: 16821,
             },
-            "locality": "TC Palya 1",
-            "make_model": "Suzuki+V Strom SX",
-            "manufactureYear": 2022,
-            "modelName": "V Strom SX",
-            "objectID": "29855",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "16,821",
-                "unit": "KM",
-                "value": 16821
+            locality: "TC Palya 1",
+            make_model: "Suzuki+V Strom SX",
+            manufactureYear: 2022,
+            modelName: "V Strom SX",
+            objectID: "29855",
+            overview: {
+              kmDriven: {
+                displayValue: "16,821",
+                unit: "KM",
+                value: 16821,
               },
-              "makeYear": {
-                "displayValue": 2022,
-                "unit": "Make year",
-                "value": 2022
+              makeYear: {
+                displayValue: 2022,
+                unit: "Make year",
+                value: 2022,
               },
-              "ownership": {
-                "displayValue": "2",
-                "unit": "Owner",
-                "value": 2
+              ownership: {
+                displayValue: "2",
+                unit: "Owner",
+                value: 2,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2022,
-                "unit": "Year",
-                "value": 2022
+              registrationYear: {
+                displayValue: 2022,
+                unit: "Year",
+                value: 2022,
               },
-              "rto": {
-                "displayValue": "KA53",
-                "unit": "RTO",
-                "value": "KA53"
-              }
+              rto: {
+                displayValue: "KA53",
+                unit: "RTO",
+                value: "KA53",
+              },
             },
-            "ownerShip": 2,
-            "popularity": 8,
-            "price": {
-              "displayValue": "1,55,000",
-              "unit": "Rs",
-              "value": 155000
+            ownerShip: 2,
+            popularity: 8,
+            price: {
+              displayValue: "1,55,000",
+              unit: "Rs",
+              value: 155000,
             },
-            "retail_inventory_id": 408,
-            "vehicleId": 29855,
-            "vehicleName": "Suzuki V Strom SX Standard",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 408,
+            vehicleId: 29855,
+            vehicleName: "Suzuki V Strom SX Standard",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12112,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 285127,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12112,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 285127,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Royal Enfield",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Royal Enfield",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [
+            c2c: {
+              friday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/285127/86978/inspection_report_87.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "Aadhaar",
-              "monday_slots": [
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/285127/86978/inspection_report_87.pdf",
+              inspection_type: "L1",
+              kyc_type: "Aadhaar",
+              monday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "no_of_challans": 1,
-              "pincode": 560038,
-              "saturday_slots": [],
-              "seller_id": 393252,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Raman kapoor",
-              "sunday_slots": [],
-              "test_ride_address": "ground floor, Shyam Complex, 548, Chinmaya Mission Hospital Rd, Stage 1, Indiranagar, Bengaluru, Karnataka 560038, India",
-              "test_ride_map_link": "https://maps.google.com/?q=place_id:ChIJa0XIcacWrjsRhwZCuhsUkxI",
-              "thursday_slots": [
+              no_of_challans: 1,
+              pincode: 560038,
+              saturday_slots: [],
+              seller_id: 393252,
+              seller_kyc_status: "Approved",
+              seller_name: "Raman kapoor",
+              sunday_slots: [],
+              test_ride_address:
+                "ground floor, Shyam Complex, 548, Chinmaya Mission Hospital Rd, Stage 1, Indiranagar, Bengaluru, Karnataka 560038, India",
+              test_ride_map_link:
+                "https://maps.google.com/?q=place_id:ChIJa0XIcacWrjsRhwZCuhsUkxI",
+              thursday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "total_challan_amount": 500,
-              "tuesday_slots": [
+              total_challan_amount: 500,
+              tuesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [
                 "09:00-11:00",
                 "11:00-13:00",
                 "13:00-15:00",
                 "15:00-17:00",
                 "17:00-19:00",
-                "19:00-21:00"
+                "19:00-21:00",
               ],
-              "zoho_buy_lead_id": "249452"
+              zoho_buy_lead_id: "249452",
             },
-            "city": "Bangalore",
-            "colour": "Blue",
-            "createdOn": "2025-07-15 12:21:09",
-            "drivexAssured": false,
-            "geo_location": [
-              12.9779562,
-              77.6372684
-            ],
-            "geolocation": "12.9779562,77.6372684",
-            "golden_mmv_id": 6070,
-            "id": "285127",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Blue",
+            createdOn: "2025-07-15 12:21:09",
+            drivexAssured: false,
+            geo_location: [12.9779562, 77.6372684],
+            geolocation: "12.9779562,77.6372684",
+            golden_mmv_id: 6070,
+            id: "285127",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_87_left_6629d2214b824823.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_87_right_a73e7e44bc314659.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_87_front_82587ce0f7864a2c.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_87_rear_04a69e4c05bc41f5.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_87_odometer_b2a377bfe6754a04.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_87_odometer_b2a377bfe6754a04.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "648.00 cc",
-                "unit": "CC",
-                "value": 648
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "648.00 cc",
+                unit: "CC",
+                value: 648,
               },
-              "fuelTankCapacity": {
-                "displayValue": "13.70 litres",
-                "unit": "Litres",
-                "value": 13.7
+              fuelTankCapacity: {
+                displayValue: "13.70 litres",
+                unit: "Litres",
+                value: 13.7,
               },
-              "maxPower": {
-                "displayValue": "52 Nm @ 5250 rpm",
-                "unit": "Torque",
-                "value": "52 Nm @ 5250 rpm"
+              maxPower: {
+                displayValue: "52 Nm @ 5250 rpm",
+                unit: "Torque",
+                value: "52 Nm @ 5250 rpm",
               },
-              "topSpeed": {
-                "displayValue": "170 kmph",
-                "unit": "Kmph",
-                "value": 170
-              }
+              topSpeed: {
+                displayValue: "170 kmph",
+                unit: "Kmph",
+                value: 170,
+              },
             },
-            "kmDriven": {
-              "displayValue": "2,282",
-              "unit": "KM",
-              "value": 2282
+            kmDriven: {
+              displayValue: "2,282",
+              unit: "KM",
+              value: 2282,
             },
-            "locality": "Indiranagar",
-            "make_model": "Royal Enfield+Interceptor 650",
-            "manufactureYear": 2022,
-            "modelName": "Interceptor 650",
-            "objectID": "285127",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "2,282",
-                "unit": "KM",
-                "value": 2282
+            locality: "Indiranagar",
+            make_model: "Royal Enfield+Interceptor 650",
+            manufactureYear: 2022,
+            modelName: "Interceptor 650",
+            objectID: "285127",
+            overview: {
+              kmDriven: {
+                displayValue: "2,282",
+                unit: "KM",
+                value: 2282,
               },
-              "makeYear": {
-                "displayValue": 2022,
-                "unit": "Make year",
-                "value": 2022
+              makeYear: {
+                displayValue: 2022,
+                unit: "Make year",
+                value: 2022,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2022,
-                "unit": "Year",
-                "value": 2022
+              registrationYear: {
+                displayValue: 2022,
+                unit: "Year",
+                value: 2022,
               },
-              "rto": {
-                "displayValue": "KA05",
-                "unit": "RTO",
-                "value": "KA05"
-              }
+              rto: {
+                displayValue: "KA05",
+                unit: "RTO",
+                value: "KA05",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 70,
-            "price": {
-              "displayValue": "3,00,000",
-              "unit": "Rs",
-              "value": 300000
+            ownerShip: 1,
+            popularity: 70,
+            price: {
+              displayValue: "3,00,000",
+              unit: "Rs",
+              value: 300000,
             },
-            "retail_inventory_id": 87,
-            "vehicleId": 285127,
-            "vehicleName": "Royal Enfield Interceptor 650",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 87,
+            vehicleId: 285127,
+            vehicleName: "Royal Enfield Interceptor 650",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12113,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 326873,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12113,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 326873,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "Royal Enfield",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "Royal Enfield",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L0/c2c/326873/107175/inspection_report_1986.pdf",
-              "inspection_type": "L0",
-              "kyc_type": "PAN",
-              "monday_slots": [
-                "17:00-19:00"
-              ],
-              "no_of_challans": 4,
-              "pincode": 560068,
-              "saturday_slots": [],
-              "seller_id": 432228,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Sharath",
-              "sunday_slots": [],
-              "test_ride_address": "Maruthi Layout, Hongasandra, Bengaluru, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=16131934314354172525&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "Pragathi Nagar",
-              "thursday_slots": [],
-              "total_challan_amount": 1000,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [],
-              "zoho_buy_lead_id": "288706"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L0/c2c/326873/107175/inspection_report_1986.pdf",
+              inspection_type: "L0",
+              kyc_type: "PAN",
+              monday_slots: ["17:00-19:00"],
+              no_of_challans: 4,
+              pincode: 560068,
+              saturday_slots: [],
+              seller_id: 432228,
+              seller_kyc_status: "Approved",
+              seller_name: "Sharath",
+              sunday_slots: [],
+              test_ride_address:
+                "Maruthi Layout, Hongasandra, Bengaluru, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=16131934314354172525&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "Pragathi Nagar",
+              thursday_slots: [],
+              total_challan_amount: 1000,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: [],
+              zoho_buy_lead_id: "288706",
             },
-            "city": "Bangalore",
-            "colour": "Black",
-            "createdOn": "2025-08-10 13:04:53",
-            "drivexAssured": false,
-            "geo_location": [
-              12.8935092,
-              77.62264619999999
-            ],
-            "geolocation": "12.8935092, 77.62264619999999",
-            "golden_mmv_id": 6004,
-            "id": "326873",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Black",
+            createdOn: "2025-08-10 13:04:53",
+            drivexAssured: false,
+            geo_location: [12.8935092, 77.62264619999999],
+            geolocation: "12.8935092, 77.62264619999999",
+            golden_mmv_id: 6004,
+            id: "326873",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1986_left_1ff1f673_left_view.jpeg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1986_right_55e17afb_right_view.jpeg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1986_front_c53b0b46_front_view.jpeg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1986_rear_4457fbfb_rear_view.jpeg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_1986_odometer_ac81ab3e_odometer.jpeg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_1986_odometer_ac81ab3e_odometer.jpeg",
             ],
-            "inventory_category": "drivex_direct",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "346.00 cc",
-                "unit": "CC",
-                "value": 346
+            inventory_category: "drivex_direct",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "346.00 cc",
+                unit: "CC",
+                value: 346,
               },
-              "fuelTankCapacity": {
-                "displayValue": "13.50 litres",
-                "unit": "Litres",
-                "value": 13.5
+              fuelTankCapacity: {
+                displayValue: "13.50 litres",
+                unit: "Litres",
+                value: 13.5,
               },
-              "maxPower": {
-                "displayValue": "28 Nm @ 4000 rpm",
-                "unit": "Torque",
-                "value": "28 Nm @ 4000 rpm"
+              maxPower: {
+                displayValue: "28 Nm @ 4000 rpm",
+                unit: "Torque",
+                value: "28 Nm @ 4000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "120 kmph",
-                "unit": "Kmph",
-                "value": 120
-              }
+              topSpeed: {
+                displayValue: "120 kmph",
+                unit: "Kmph",
+                value: 120,
+              },
             },
-            "kmDriven": {
-              "displayValue": "22,534",
-              "unit": "KM",
-              "value": 22534
+            kmDriven: {
+              displayValue: "22,534",
+              unit: "KM",
+              value: 22534,
             },
-            "locality": "Hongasandra",
-            "make_model": "Royal Enfield+Classic 350",
-            "manufactureYear": 2020,
-            "modelName": "Classic 350",
-            "objectID": "326873",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "22,534",
-                "unit": "KM",
-                "value": 22534
+            locality: "Hongasandra",
+            make_model: "Royal Enfield+Classic 350",
+            manufactureYear: 2020,
+            modelName: "Classic 350",
+            objectID: "326873",
+            overview: {
+              kmDriven: {
+                displayValue: "22,534",
+                unit: "KM",
+                value: 22534,
               },
-              "makeYear": {
-                "displayValue": 2020,
-                "unit": "Make year",
-                "value": 2020
+              makeYear: {
+                displayValue: 2020,
+                unit: "Make year",
+                value: 2020,
               },
-              "ownership": {
-                "displayValue": "1",
-                "unit": "Owner",
-                "value": 1
+              ownership: {
+                displayValue: "1",
+                unit: "Owner",
+                value: 1,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2020,
-                "unit": "Year",
-                "value": 2020
+              registrationYear: {
+                displayValue: 2020,
+                unit: "Year",
+                value: 2020,
               },
-              "rto": {
-                "displayValue": "KA51",
-                "unit": "RTO",
-                "value": "KA51"
-              }
+              rto: {
+                displayValue: "KA51",
+                unit: "RTO",
+                value: "KA51",
+              },
             },
-            "ownerShip": 1,
-            "popularity": 446,
-            "price": {
-              "displayValue": "1,50,000",
-              "unit": "Rs",
-              "value": 150000
+            ownerShip: 1,
+            popularity: 446,
+            price: {
+              displayValue: "1,50,000",
+              unit: "Rs",
+              value: 150000,
             },
-            "retail_inventory_id": 1986,
-            "vehicleId": 326873,
-            "vehicleName": "Royal Enfield Classic 350",
-            "vehicleType": "Motorcycle"
-          }
+            retail_inventory_id: 1986,
+            vehicleId: 326873,
+            vehicleName: "Royal Enfield Classic 350",
+            vehicleType: "Motorcycle",
+          },
         },
         {
-          "id": 12114,
-          "__component": "story.pdp-story",
-          "type": "PDP",
-          "uid": null,
-          "vehicleId": 315043,
-          "vehicleData": {
-            "availabilityStatus": "Published",
-            "basic_warranty_period": {
-              "unit": "months",
-              "value": 0
+          id: 12114,
+          __component: "story.pdp-story",
+          type: "PDP",
+          uid: null,
+          vehicleId: 315043,
+          vehicleData: {
+            availabilityStatus: "Published",
+            basic_warranty_period: {
+              unit: "months",
+              value: 0,
             },
-            "brand": "KTM",
-            "buy_back": {
-              "year_1": {
-                "unit": "Rs"
+            brand: "KTM",
+            buy_back: {
+              year_1: {
+                unit: "Rs",
               },
-              "year_2": {
-                "unit": "Rs"
-              }
+              year_2: {
+                unit: "Rs",
+              },
             },
-            "c2c": {
-              "friday_slots": [],
-              "inspection_report_path": "Excel_files/inspection_report/L1/c2c/315043/104690/inspection_report_1132.pdf",
-              "inspection_type": "L1",
-              "kyc_type": "PAN",
-              "monday_slots": [],
-              "no_of_challans": 0,
-              "pincode": 560068,
-              "saturday_slots": [],
-              "seller_id": 412986,
-              "seller_kyc_status": "Approved",
-              "seller_name": "Rakesh",
-              "sunday_slots": [],
-              "test_ride_address": "Hosur Road, Bommanahalli, Bengaluru, Karnataka",
-              "test_ride_map_link": "https://maps.google.com/?cid=741541990539172774&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
-              "test_ride_place_name": "Prashanth Hospital",
-              "thursday_slots": [],
-              "total_challan_amount": 0,
-              "tuesday_slots": [],
-              "vehicle_kyc_status": "Approved",
-              "wednesday_slots": [
-                "11:00-13:00"
-              ],
-              "zoho_buy_lead_id": "277120"
+            c2c: {
+              friday_slots: [],
+              inspection_report_path:
+                "Excel_files/inspection_report/L1/c2c/315043/104690/inspection_report_1132.pdf",
+              inspection_type: "L1",
+              kyc_type: "PAN",
+              monday_slots: [],
+              no_of_challans: 0,
+              pincode: 560068,
+              saturday_slots: [],
+              seller_id: 412986,
+              seller_kyc_status: "Approved",
+              seller_name: "Rakesh",
+              sunday_slots: [],
+              test_ride_address:
+                "Hosur Road, Bommanahalli, Bengaluru, Karnataka",
+              test_ride_map_link:
+                "https://maps.google.com/?cid=741541990539172774&g_mp=CiVnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLkdldFBsYWNlEAAYASAA",
+              test_ride_place_name: "Prashanth Hospital",
+              thursday_slots: [],
+              total_challan_amount: 0,
+              tuesday_slots: [],
+              vehicle_kyc_status: "Approved",
+              wednesday_slots: ["11:00-13:00"],
+              zoho_buy_lead_id: "277120",
             },
-            "city": "Bangalore",
-            "colour": "Orange",
-            "createdOn": "2025-07-30 01:30:38",
-            "drivexAssured": false,
-            "geo_location": [
-              12.9065634,
-              77.6287203
-            ],
-            "geolocation": "12.9065634, 77.6287203",
-            "golden_mmv_id": 5756,
-            "id": "315043",
-            "imagePaths": [
+            city: "Bangalore",
+            colour: "Orange",
+            createdOn: "2025-07-30 01:30:38",
+            drivexAssured: false,
+            geo_location: [12.9065634, 77.6287203],
+            geolocation: "12.9065634, 77.6287203",
+            golden_mmv_id: 5756,
+            id: "315043",
+            imagePaths: [
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1132_left_94bf0bd5509d4523.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1132_right_c2fc287f1593445f.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1132_front_98d043622c4e42ea.jpg",
               "https://ik.imagekit.io/drivex/vehicle_images/direct_1132_rear_4527dd93ef594f19.jpg",
-              "https://ik.imagekit.io/drivex/vehicle_images/direct_1132_odometer_3bf80479c09e49ca.jpg"
+              "https://ik.imagekit.io/drivex/vehicle_images/direct_1132_odometer_3bf80479c09e49ca.jpg",
             ],
-            "inventory_category": "drivex_direct_plus",
-            "inventory_type": "c2c",
-            "is_eligible_for_buy_back": false,
-            "is_eligible_for_extended_warranty": false,
-            "keyHighlights": {
-              "engineCapacity": {
-                "displayValue": "200.00 cc",
-                "unit": "CC",
-                "value": 200
+            inventory_category: "drivex_direct_plus",
+            inventory_type: "c2c",
+            is_eligible_for_buy_back: false,
+            is_eligible_for_extended_warranty: false,
+            keyHighlights: {
+              engineCapacity: {
+                displayValue: "200.00 cc",
+                unit: "CC",
+                value: 200,
               },
-              "fuelTankCapacity": {
-                "displayValue": "13.50 litres",
-                "unit": "Litres",
-                "value": 13.5
+              fuelTankCapacity: {
+                displayValue: "13.50 litres",
+                unit: "Litres",
+                value: 13.5,
               },
-              "maxPower": {
-                "displayValue": "19.2 Nm @ 8,000 rpm",
-                "unit": "Torque",
-                "value": "19.2 Nm @ 8,000 rpm"
+              maxPower: {
+                displayValue: "19.2 Nm @ 8,000 rpm",
+                unit: "Torque",
+                value: "19.2 Nm @ 8,000 rpm",
               },
-              "topSpeed": {
-                "displayValue": "136 kmph",
-                "unit": "Kmph",
-                "value": 136
-              }
+              topSpeed: {
+                displayValue: "136 kmph",
+                unit: "Kmph",
+                value: 136,
+              },
             },
-            "kmDriven": {
-              "displayValue": "12,840",
-              "unit": "KM",
-              "value": 12840
+            kmDriven: {
+              displayValue: "12,840",
+              unit: "KM",
+              value: 12840,
             },
-            "locality": "Bommanahalli",
-            "make_model": "KTM+Duke 200",
-            "manufactureYear": 2020,
-            "modelName": "Duke 200",
-            "objectID": "315043",
-            "overview": {
-              "kmDriven": {
-                "displayValue": "12,840",
-                "unit": "KM",
-                "value": 12840
+            locality: "Bommanahalli",
+            make_model: "KTM+Duke 200",
+            manufactureYear: 2020,
+            modelName: "Duke 200",
+            objectID: "315043",
+            overview: {
+              kmDriven: {
+                displayValue: "12,840",
+                unit: "KM",
+                value: 12840,
               },
-              "makeYear": {
-                "displayValue": 2020,
-                "unit": "Make year",
-                "value": 2020
+              makeYear: {
+                displayValue: 2020,
+                unit: "Make year",
+                value: 2020,
               },
-              "ownership": {
-                "displayValue": "2",
-                "unit": "Owner",
-                "value": 2
+              ownership: {
+                displayValue: "2",
+                unit: "Owner",
+                value: 2,
               },
-              "rcStatus": {
-                "displayValue": "Not Available",
-                "unit": "RC"
+              rcStatus: {
+                displayValue: "Not Available",
+                unit: "RC",
               },
-              "registrationYear": {
-                "displayValue": 2020,
-                "unit": "Year",
-                "value": 2020
+              registrationYear: {
+                displayValue: 2020,
+                unit: "Year",
+                value: 2020,
               },
-              "rto": {
-                "displayValue": "KA51",
-                "unit": "RTO",
-                "value": "KA51"
-              }
+              rto: {
+                displayValue: "KA51",
+                unit: "RTO",
+                value: "KA51",
+              },
             },
-            "ownerShip": 2,
-            "popularity": 66,
-            "price": {
-              "displayValue": "1,35,000",
-              "unit": "Rs",
-              "value": 135000
+            ownerShip: 2,
+            popularity: 66,
+            price: {
+              displayValue: "1,35,000",
+              unit: "Rs",
+              value: 135000,
             },
-            "retail_inventory_id": 1132,
-            "vehicleId": 315043,
-            "vehicleName": "KTM Duke 200",
-            "vehicleType": "Motorcycle"
-          }
-        }
-      ]
-    }
-  }
+            retail_inventory_id: 1132,
+            vehicleId: 315043,
+            vehicleName: "KTM Duke 200",
+            vehicleType: "Motorcycle",
+          },
+        },
+      ],
+    },
+  },
 ];
 
 // Transform the real data into User[] format
@@ -3353,7 +3294,7 @@ export const demoUsers: User[] = realData.map((userData) => ({
   hasUnreadStories: true,
   stories: userData.attributes.stories.map((story) => ({
     id: `story-${story.id}`,
-    type: 'pdp' as const,
+    type: "pdp" as const,
     vehicleId: story.vehicleId,
     vehicleData: story.vehicleData,
     duration: 8000,
