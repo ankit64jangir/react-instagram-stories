@@ -1,6 +1,6 @@
 {
   "name": "instagram-stories-react",
-  "version": "1.0.0",
+  "version": "2.0.0",
   "description": "High-performance Instagram-style Stories component for React",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
