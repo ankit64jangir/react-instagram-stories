@@ -16,9 +16,11 @@ export const Stories: React.FC<StoriesProps> = ({ users }) => {
   const [viewerState, setViewerState] = useState<{
     isOpen: boolean;
     userIndex: number;
+    storyIndex: number;
   }>({
     isOpen: false,
     userIndex: 0,
+    storyIndex: 0,
   });
 
   const scrollPositionRef = useRef(0);
@@ -31,6 +33,7 @@ export const Stories: React.FC<StoriesProps> = ({ users }) => {
         setViewerState({
           isOpen: true,
           userIndex: indices.userIndex,
+          storyIndex: indices.storyIndex,
         });
       }
     }
@@ -43,6 +46,7 @@ export const Stories: React.FC<StoriesProps> = ({ users }) => {
     setViewerState({
       isOpen: true,
       userIndex,
+      storyIndex: 0,
     });
 
     // Update URL with first story ID of the user
@@ -57,6 +61,7 @@ export const Stories: React.FC<StoriesProps> = ({ users }) => {
     setViewerState({
       isOpen: false,
       userIndex: 0,
+      storyIndex: 0,
     });
 
     // Restore scroll position
@@ -83,6 +88,7 @@ export const Stories: React.FC<StoriesProps> = ({ users }) => {
       <StoryViewer
         users={users}
         initialUserIndex={viewerState.userIndex}
+        initialStoryIndex={viewerState.storyIndex}
         isOpen={viewerState.isOpen}
         onClose={handleCloseViewer}
         onStoryChange={handleStoryChange}

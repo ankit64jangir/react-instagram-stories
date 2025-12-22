@@ -1,6 +1,6 @@
 import { ComponentType } from 'react';
 
-export type StoryItemType = 'image' | 'video' | 'text' | 'component' | 'pdp';
+export type StoryItemType = 'image' | 'video' | 'text' | 'custom_component';
 
 export interface StoryItemMetadata {
   [key: string]: any;
@@ -43,8 +43,8 @@ export interface TextStoryItem extends BaseStoryItem {
   duration?: number; // default 5000ms
 }
 
-export interface ComponentStoryItem extends BaseStoryItem {
-  type: 'component';
+export interface CustomComponentStoryItem extends BaseStoryItem {
+  type: 'custom_component';
   component: ComponentType<StoryItemControls>;
   duration?: number;
 }
@@ -176,14 +176,9 @@ export interface VehicleData {
   vehicleType: string;
 }
 
-export interface PDPStoryItem extends BaseStoryItem {
-  type: 'pdp';
-  vehicleId: number;
-  vehicleData: VehicleData;
-  duration?: number; // default 5000ms
-}
 
-export type StoryItem = ImageStoryItem | VideoStoryItem | TextStoryItem | ComponentStoryItem | PDPStoryItem;
+
+export type StoryItem = ImageStoryItem | VideoStoryItem | TextStoryItem | CustomComponentStoryItem;
 
 export interface User {
   id: string;

@@ -1,6 +1,5 @@
-import { memo, useEffect, useRef, useState, useCallback } from 'react';
-import { StoryItem as StoryItemType, StoryItemControls } from '../types';
-import { PDPStory } from './PDPStory';
+import { memo, useEffect, useRef, useState, useCallback } from "react";
+import { StoryItem as StoryItemType, StoryItemControls } from "../types";
 
 interface StoryItemProps {
   item: StoryItemType;
@@ -19,7 +18,7 @@ export const StoryItem = memo<StoryItemProps>(
 
     // Handle video playback
     useEffect(() => {
-      if (item.type !== 'video' || !videoRef.current || !isActive) return;
+      if (item.type !== "video" || !videoRef.current || !isActive) return;
 
       const video = videoRef.current;
 
@@ -31,7 +30,7 @@ export const StoryItem = memo<StoryItemProps>(
             await video.play();
           }
         } catch (error) {
-          console.warn('Video play failed:', error);
+          console.warn("Video play failed:", error);
         }
       };
 
@@ -40,7 +39,7 @@ export const StoryItem = memo<StoryItemProps>(
 
     // Detect video duration
     useEffect(() => {
-      if (item.type !== 'video' || !videoRef.current) return;
+      if (item.type !== "video" || !videoRef.current) return;
 
       const video = videoRef.current;
 
@@ -54,8 +53,8 @@ export const StoryItem = memo<StoryItemProps>(
         setIsLoading(false);
       };
 
-      video.addEventListener('loadedmetadata', handleLoadedMetadata);
-      video.addEventListener('canplay', handleCanPlay);
+      video.addEventListener("loadedmetadata", handleLoadedMetadata);
+      video.addEventListener("canplay", handleCanPlay);
 
       // Check if metadata already loaded
       if (video.readyState >= 1) {
@@ -68,14 +67,14 @@ export const StoryItem = memo<StoryItemProps>(
       }
 
       return () => {
-        video.removeEventListener('loadedmetadata', handleLoadedMetadata);
-        video.removeEventListener('canplay', handleCanPlay);
+        video.removeEventListener("loadedmetadata", handleLoadedMetadata);
+        video.removeEventListener("canplay", handleCanPlay);
       };
     }, [item.type, onDurationDetected]);
 
     // Sync video progress with timer for more accurate progress bar
     useEffect(() => {
-      if (item.type !== 'video' || !videoRef.current || !isActive) return;
+      if (item.type !== "video" || !videoRef.current || !isActive) return;
 
       const video = videoRef.current;
       let rafId: number;
@@ -108,15 +107,13 @@ export const StoryItem = memo<StoryItemProps>(
     if (hasError) {
       return (
         <div className="story-item story-item-error">
-          <div className="story-item-error-message">
-            Failed to load content
-          </div>
+          <div className="story-item-error-message">Failed to load content</div>
         </div>
       );
     }
 
     switch (item.type) {
-      case 'image':
+      case "image":
         return (
           <div className="story-item story-item-image">
             {isLoading && (
@@ -126,7 +123,7 @@ export const StoryItem = memo<StoryItemProps>(
             )}
             <img
               src={item.src}
-              alt={item.alt || 'Story image'}
+              alt={item.alt || "Story image"}
               onError={handleError}
               onLoad={handleImageLoad}
               draggable={false}
@@ -135,7 +132,7 @@ export const StoryItem = memo<StoryItemProps>(
           </div>
         );
 
-      case 'video':
+      case "video":
         return (
           <div className="story-item story-item-video">
             {isLoading && (
@@ -156,31 +153,24 @@ export const StoryItem = memo<StoryItemProps>(
           </div>
         );
 
-      case 'text':
+      case "text":
         return (
           <div
             className="story-item story-item-text"
             style={{
-              backgroundColor: item.backgroundColor || '#000',
-              color: item.textColor || '#fff',
+              backgroundColor: item.backgroundColor || "#000",
+              color: item.textColor || "#fff",
             }}
           >
             <div className="story-item-text-content">{item.text}</div>
           </div>
         );
 
-      case 'component':
+      case "custom_component":
         const Component = item.component;
         return (
           <div className="story-item story-item-component">
             <Component {...controls} />
-          </div>
-        );
-
-      case 'pdp':
-        return (
-          <div className="story-item story-item-pdp">
-            <PDPStory vehicleData={item.vehicleData} />
           </div>
         );
 
@@ -190,4 +180,4 @@ export const StoryItem = memo<StoryItemProps>(
   }
 );
 
-StoryItem.displayName = 'StoryItem';
+StoryItem.displayName = "StoryItem";

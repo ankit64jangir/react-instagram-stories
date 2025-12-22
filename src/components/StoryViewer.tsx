@@ -18,6 +18,7 @@ import { StoryItem } from "./StoryItem";
 interface StoryViewerProps {
   users: User[];
   initialUserIndex: number;
+  initialStoryIndex?: number;
   isOpen: boolean;
   onClose: () => void;
   onStoryChange?: (userIndex: number, storyIndex: number) => void;
@@ -27,11 +28,20 @@ const DEFAULT_DURATION = 5000;
 const SWIPE_THRESHOLD = 60; // pixels
 
 export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
-  ({ users, initialUserIndex, isOpen, onClose, onStoryChange }) => {
+  ({ users, initialUserIndex, initialStoryIndex, isOpen, onClose, onStoryChange }) => {
     // State
     const [currentUserIndex, setCurrentUserIndex] = useState(initialUserIndex);
-    const [currentStoryIndex, setCurrentStoryIndex] = useState(0);
+    const [currentStoryIndex, setCurrentStoryIndex] = useState(initialStoryIndex ?? 0);
     const [isPaused, setIsPaused] = useState(false);
+
+    // Update indices when initial props change
+    useEffect(() => {
+      setCurrentUserIndex(initialUserIndex);
+    }, [initialUserIndex]);
+
+    useEffect(() => {
+      setCurrentStoryIndex(initialStoryIndex ?? 0);
+    }, [initialStoryIndex]);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [transitionDirection, setTransitionDirection] = useState<
       "left" | "right" | null
@@ -386,6 +396,10 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       if (isOpen && !hasStartedLoadingRef.current) {
         hasStartedLoadingRef.current = true;
         setIsLoading(true);
+        // Preload current story
+        if (currentStory) {
+          preloadStoryItem(currentStory);
+        }
         // Simulate API call to fetch user stories
         setTimeout(() => {
           setIsLoading(false);
@@ -405,11 +419,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         document.body.style.overflow = "";
       };
     }, [isOpen, timer]);
-
-    // Reset on user change
-    useEffect(() => {
-      setCurrentStoryIndex(0);
-    }, [currentUserIndex]);
 
     // Notify parent of story changes
     useEffect(() => {

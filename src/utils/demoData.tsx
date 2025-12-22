@@ -1,5 +1,6 @@
 import { User, StoryItemControls } from "../types";
 import React from "react";
+import { PDPStory } from "../example/PDPStory";
 
 // Sample interactive poll component for demonstration
 export const PollComponent: React.FC<StoryItemControls> = ({
@@ -92,7 +93,7 @@ export const generateDemoUsers = (count: number = 50): User[] => {
       avatarUrl: `https://i.pravatar.cc/150?img=${i % 70}`,
       hasUnreadStories: hasUnread,
       stories: Array.from({ length: storyCount }, (_, storyIdx) => {
-        const type = ["image", "video", "text", "component"][
+        const type = ["image", "video", "text", "custom_component"][
           Math.floor(Math.random() * 100) % 4
         ];
 
@@ -133,10 +134,10 @@ export const generateDemoUsers = (count: number = 50): User[] => {
           };
         }
 
-        // component type
+        // custom_component type
         return {
           id: `story-${i}-${storyIdx}`,
-          type: "component" as const,
+          type: "custom_component" as const,
           component: PollComponent,
           duration: 10000,
         };
@@ -3292,11 +3293,10 @@ export const demoUsers: User[] = realData.map((userData) => ({
   username: userData.attributes.profile.name,
   avatarUrl: userData.attributes.profile.avatar.data.attributes.url,
   hasUnreadStories: true,
-  stories: userData.attributes.stories.map((story) => ({
-    id: `story-${story.id}`,
-    type: "pdp" as const,
-    vehicleId: story.vehicleId,
-    vehicleData: story.vehicleData,
-    duration: 8000,
-  })),
+   stories: userData.attributes.stories.map((story) => ({
+     id: `story-${story.id}`,
+     type: "custom_component" as const,
+     component: ({}) => <PDPStory vehicleData={story.vehicleData} />,
+     duration: 8000,
+   })),
 }));
