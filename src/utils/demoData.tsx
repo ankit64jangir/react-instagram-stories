@@ -1,6 +1,7 @@
 import { User, StoryItemControls } from "../types";
 import React from "react";
 import { PDPStory } from "../example/PDPStory";
+import { GridStory } from "../example/GridStory";
 
 // Sample interactive poll component for demonstration
 export const PollComponent: React.FC<StoryItemControls> = ({
@@ -3288,15 +3289,31 @@ const realData = [
 ];
 
 // Transform the real data into User[] format
-export const demoUsers: User[] = realData.map((userData) => ({
-  id: `user-${userData.id}`,
-  username: userData.attributes.profile.name,
-  avatarUrl: userData.attributes.profile.avatar.data.attributes.url,
-  hasUnreadStories: true,
-   stories: userData.attributes.stories.map((story) => ({
-     id: `story-${story.id}`,
-     type: "custom_component" as const,
-     component: ({}) => <PDPStory vehicleData={story.vehicleData} />,
-     duration: 8000,
-   })),
-}));
+export const demoUsers: User[] = [
+  ...realData.map((userData) => ({
+    id: `user-${userData.id}`,
+    username: userData.attributes.profile.name,
+    avatarUrl: userData.attributes.profile.avatar.data.attributes.url,
+    hasUnreadStories: true,
+    stories: userData.attributes.stories.map((story) => ({
+      id: `story-${story.id}`,
+      type: "custom_component" as const,
+      component: ({}) => <PDPStory vehicleData={story.vehicleData} />,
+      duration: 8000,
+    })),
+  })),
+  {
+    id: 'custom-user',
+    username: 'Grid Master',
+    avatarUrl: 'https://i.pravatar.cc/150?img=100',
+    hasUnreadStories: true,
+    stories: [
+      {
+        id: 'grid-story-1',
+        type: 'custom_component' as const,
+        component: GridStory,
+        duration: 10000,
+      }
+    ]
+  }
+];
