@@ -42,6 +42,7 @@ export const PollComponent: React.FC<StoryItemControls> = ({
         justifyContent: "center",
         height: "100%",
         padding: "20px",
+        width: "100%",
         background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
       }}
     >
@@ -136,6 +137,7 @@ export const QuizComponent: React.FC<StoryItemControls> = ({
         justifyContent: "center",
         height: "100%",
         padding: "20px",
+        width: "100%",
         background: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
       }}
     >
@@ -271,6 +273,7 @@ export const CountdownComponent: React.FC<StoryItemControls> = () => {
         justifyContent: "center",
         height: "100%",
         padding: "20px",
+        width: "100%",
         background: "linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)",
       }}
     >
@@ -412,6 +415,7 @@ export const SliderComponent: React.FC<StoryItemControls> = ({
         justifyContent: "center",
         height: "100%",
         padding: "20px",
+        width: "100%",
         background: "linear-gradient(135deg, #11998e 0%, #38ef7d 100%)",
       }}
     >
