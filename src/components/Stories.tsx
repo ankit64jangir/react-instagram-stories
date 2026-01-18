@@ -7,9 +7,10 @@ import { findStoryIndices } from '../utils/storyHelpers';
 
 interface StoriesProps {
   users: User[];
+  closeNavigateTo?: string;
 }
 
-export const Stories: React.FC<StoriesProps> = ({ users }) => {
+export const Stories: React.FC<StoriesProps> = ({ users, closeNavigateTo = '/' }) => {
   const { storyId } = useParams<{ storyId?: string }>();
   const navigate = useNavigate();
 
@@ -70,8 +71,8 @@ export const Stories: React.FC<StoriesProps> = ({ users }) => {
     });
 
     // Clear URL
-    navigate('/', { replace: true });
-  }, [navigate]);
+    navigate(closeNavigateTo, { replace: true });
+  }, [navigate, closeNavigateTo]);
 
   const handleStoryChange = useCallback((userIndex: number, storyIndex: number) => {
     const user = users[userIndex];
