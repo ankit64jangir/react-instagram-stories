@@ -1,7 +1,7 @@
 import React, { useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Play, Hand, Keyboard, Zap, Image, Smartphone, Eye } from 'lucide-react';
+import { Play, Hand, Keyboard, Zap, Image, Smartphone, Eye, BarChart, Layers, Code, Users, Clock, Globe } from 'lucide-react';
 
 // Shader Background Component
 function ShaderBackground() {
@@ -479,6 +479,206 @@ function FeaturesSection() {
   );
 }
 
+const performanceFeatures: FeatureType[] = [
+  {
+    title: 'Virtualized Rendering',
+    icon: BarChart,
+    description: 'Only renders visible stories, supporting 1000+ users smoothly',
+  },
+  {
+    title: 'Smart Preloading',
+    icon: Layers,
+    description: 'Automatically preloads next stories for seamless transitions',
+  },
+  {
+    title: 'Optimized Animations',
+    icon: Clock,
+    description: '60fps smooth animations using hardware acceleration',
+  },
+  {
+    title: 'Zero Dependencies',
+    icon: Code,
+    description: 'Lightweight bundle with no external runtime dependencies',
+  },
+];
+
+function PerformanceSection() {
+  return (
+    <section className="bg-slate-50 py-16 md:py-32">
+      <div className="mx-auto w-full max-w-5xl space-y-8 px-4">
+        <AnimatedContainer className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-wide text-slate-900 md:text-4xl lg:text-5xl xl:font-extrabold">
+            Performance Optimized
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm tracking-wide md:text-base">
+            Built from the ground up for speed and efficiency. Handle thousands of
+            stories without breaking a sweat.
+          </p>
+        </AnimatedContainer>
+
+        <AnimatedContainer
+          delay={0.4}
+          className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
+        >
+          {performanceFeatures.map((feature, i) => (
+            <FeatureCard key={i} feature={feature} className="bg-slate-50" />
+          ))}
+        </AnimatedContainer>
+      </div>
+    </section>
+  );
+}
+
+const contentTypes: FeatureType[] = [
+  {
+    title: 'Images',
+    icon: Image,
+    description: 'Support for any image format with automatic aspect ratio handling',
+  },
+  {
+    title: 'Videos',
+    icon: Globe,
+    description: 'Auto-playing videos with audio support and buffering detection',
+  },
+  {
+    title: 'Text',
+    icon: Code,
+    description: 'Beautiful text overlays with customizable colors and backgrounds',
+  },
+  {
+    title: 'Custom Components',
+    icon: Layers,
+    description: 'Embed any React component for polls, quizzes, products, and more',
+  },
+];
+
+function ContentTypesSection() {
+  return (
+    <section className="bg-gradient-to-b from-slate-50 to-purple-50 py-16 md:py-32">
+      <div className="mx-auto w-full max-w-5xl space-y-8 px-4">
+        <AnimatedContainer className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-wide text-slate-900 md:text-4xl lg:text-5xl xl:font-extrabold">
+            Rich Content Types
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm tracking-wide md:text-base">
+            Support for any content type you can imagine. From simple images to
+            interactive experiences.
+          </p>
+        </AnimatedContainer>
+
+        <AnimatedContainer
+          delay={0.4}
+          className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
+        >
+          {contentTypes.map((feature, i) => (
+            <FeatureCard key={i} feature={feature} className="bg-white" />
+          ))}
+        </AnimatedContainer>
+      </div>
+    </section>
+  );
+}
+
+const customComponentFeatures: FeatureType[] = [
+  {
+    title: 'Full Control',
+    icon: Code,
+    description: 'Pass custom components with full access to pause, resume, and navigation controls',
+  },
+  {
+    title: 'Interactive Polls',
+    icon: Users,
+    description: 'Create engaging polls that collect user responses in real-time',
+  },
+  {
+    title: 'Product Showcases',
+    icon: Globe,
+    description: 'Display products with buy buttons and detailed information cards',
+  },
+  {
+    title: 'Dynamic Content',
+    icon: BarChart,
+    description: 'Render any React component - quizzes, countdowns, forms, and more',
+  },
+];
+
+function CustomComponentsSection() {
+  return (
+    <section className="bg-gradient-to-b from-purple-50 to-pink-50 py-16 md:py-32">
+      <div className="mx-auto w-full max-w-5xl space-y-8 px-4">
+        <AnimatedContainer className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-wide text-slate-900 md:text-4xl lg:text-5xl xl:font-extrabold">
+            Custom Components
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm tracking-wide md:text-base">
+            Extend the story experience with custom React components. Build polls,
+            quizzes, product showcases, and more.
+          </p>
+        </AnimatedContainer>
+
+        <AnimatedContainer
+          delay={0.4}
+          className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
+        >
+          {customComponentFeatures.map((feature, i) => (
+            <FeatureCard key={i} feature={feature} className="bg-white" />
+          ))}
+        </AnimatedContainer>
+      </div>
+    </section>
+  );
+}
+
+const accessibilityFeatures: FeatureType[] = [
+  {
+    title: 'Keyboard Navigation',
+    icon: Keyboard,
+    description: 'Complete keyboard support with arrow keys, space, and escape',
+  },
+  {
+    title: 'Screen Reader Ready',
+    icon: Eye,
+    description: 'ARIA labels and semantic HTML for accessibility tools',
+  },
+  {
+    title: 'Reduced Motion',
+    icon: Clock,
+    description: 'Respects user preferences for reduced motion animations',
+  },
+  {
+    title: 'Focus Management',
+    icon: Users,
+    description: 'Proper focus handling for keyboard and screen reader users',
+  },
+];
+
+function AccessibilitySection() {
+  return (
+    <section className="bg-gradient-to-b from-pink-50 to-orange-50 py-16 md:py-32">
+      <div className="mx-auto w-full max-w-5xl space-y-8 px-4">
+        <AnimatedContainer className="mx-auto max-w-3xl text-center">
+          <h2 className="text-3xl font-bold tracking-wide text-slate-900 md:text-4xl lg:text-5xl xl:font-extrabold">
+            Accessible by Default
+          </h2>
+          <p className="text-slate-600 mt-4 text-sm tracking-wide md:text-base">
+            Built with accessibility in mind. Everyone can enjoy your stories,
+            regardless of how they interact.
+          </p>
+        </AnimatedContainer>
+
+        <AnimatedContainer
+          delay={0.4}
+          className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
+        >
+          {accessibilityFeatures.map((feature, i) => (
+            <FeatureCard key={i} feature={feature} className="bg-white" />
+          ))}
+        </AnimatedContainer>
+      </div>
+    </section>
+  );
+}
+
 // CTA Section
 function CTASection() {
   const navigate = useNavigate();
@@ -529,6 +729,10 @@ export const Home: React.FC = () => {
     <div className="min-h-screen">
       <HeroSection />
       <FeaturesSection />
+      <PerformanceSection />
+      <ContentTypesSection />
+      <CustomComponentsSection />
+      <AccessibilitySection />
       <CTASection />
       <Footer />
     </div>
