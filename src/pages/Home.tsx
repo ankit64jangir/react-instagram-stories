@@ -241,7 +241,7 @@ function HeroSection() {
             <button
               onClick={() =>
                 window.open(
-                  'https://github.com/anthropics/instagram-stories-react',
+                  'https://github.com/ankit64jangir/react-instagram-stories',
                   '_blank'
                 )
               }
