@@ -84,6 +84,16 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       autoStart: false,
     });
 
+    // Handle video buffering
+    const handleBufferingChange = useCallback((buffering: boolean) => {
+      if (buffering) {
+        timer.pause();
+      } else if (!isPaused) {
+        // Only resume if not manually paused
+        timer.resume();
+      }
+    }, [timer, isPaused]);
+
     // Update timer duration when story changes
     useEffect(() => {
       const duration = currentStory?.duration || DEFAULT_DURATION;
@@ -106,7 +116,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         // Show loading for next user
         setIsUserLoading(true);
         setTimeout(() => {
-          setIsUserLoading(false);
           // Transition to next user with slide animation
           setIsTransitioning(true);
           setTransitionDirection("left");
@@ -120,6 +129,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
             setCurrentStoryIndex(0);
             setIsTransitioning(false);
             setTransitionDirection(null);
+            setIsUserLoading(false); // Hide loading after indices are updated
 
             timer.setDuration(duration);
             timer.reset();
@@ -153,7 +163,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         // Show loading for previous user
         setIsUserLoading(true);
         setTimeout(() => {
-          setIsUserLoading(false);
           // Transition to previous user with slide animation
           setIsTransitioning(true);
           setTransitionDirection("right");
@@ -168,6 +177,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
             setCurrentStoryIndex(lastStoryIndex);
             setIsTransitioning(false);
             setTransitionDirection(null);
+            setIsUserLoading(false); // Hide loading after indices are updated
 
             timer.setDuration(duration);
             timer.reset();
@@ -278,7 +288,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
             // Swipe right - previous user
             setIsUserLoading(true);
             setTimeout(() => {
-              setIsUserLoading(false);
               setIsTransitioning(true);
               setTransitionDirection("right");
               setTimeout(() => {
@@ -288,6 +297,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
                 );
                 setIsTransitioning(false);
                 setTransitionDirection(null);
+                setIsUserLoading(false); // Hide loading after indices are updated
                 timer.reset();
               }, 150);
             }, 1000);
@@ -295,7 +305,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
             // Swipe left - next user
             setIsUserLoading(true);
             setTimeout(() => {
-              setIsUserLoading(false);
               setIsTransitioning(true);
               setTransitionDirection("left");
               setTimeout(() => {
@@ -303,6 +312,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
                 setCurrentStoryIndex(0);
                 setIsTransitioning(false);
                 setTransitionDirection(null);
+                setIsUserLoading(false); // Hide loading after indices are updated
                 timer.reset();
               }, 150);
             }, 1000);
@@ -522,6 +532,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
                   timerRef.current?.setDuration(duration)
                 }
                 onLoadError={handleLoadError}
+                onBufferingChange={handleBufferingChange}
                 controls={storyControls}
               />
             )}

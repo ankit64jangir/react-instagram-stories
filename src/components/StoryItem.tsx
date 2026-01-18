@@ -7,11 +7,12 @@ interface StoryItemProps {
   isPaused: boolean;
   onDurationDetected?: (duration: number) => void;
   onLoadError?: () => void;
+  onBufferingChange?: (isBuffering: boolean) => void;
   controls: StoryItemControls;
 }
 
 export const StoryItem = memo<StoryItemProps>(
-  ({ item, isActive, isPaused, onDurationDetected, onLoadError, controls }) => {
+  ({ item, isActive, isPaused, onDurationDetected, onLoadError, onBufferingChange, controls }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [hasError, setHasError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -71,6 +72,38 @@ export const StoryItem = memo<StoryItemProps>(
         video.removeEventListener("canplay", handleCanPlay);
       };
     }, [item.type, onDurationDetected]);
+
+    // Handle video buffering states
+    useEffect(() => {
+      if (item.type !== "video" || !videoRef.current || !isActive) return;
+
+      const video = videoRef.current;
+
+      const handleWaiting = () => {
+        // Video is buffering
+        onBufferingChange?.(true);
+      };
+
+      const handlePlaying = () => {
+        // Video resumed after buffering
+        onBufferingChange?.(false);
+      };
+
+      const handleStalled = () => {
+        // Video stalled due to network issues
+        onBufferingChange?.(true);
+      };
+
+      video.addEventListener("waiting", handleWaiting);
+      video.addEventListener("playing", handlePlaying);
+      video.addEventListener("stalled", handleStalled);
+
+      return () => {
+        video.removeEventListener("waiting", handleWaiting);
+        video.removeEventListener("playing", handlePlaying);
+        video.removeEventListener("stalled", handleStalled);
+      };
+    }, [item.type, isActive, onBufferingChange]);
 
     // Sync video progress with timer for more accurate progress bar
     useEffect(() => {
@@ -143,7 +176,6 @@ export const StoryItem = memo<StoryItemProps>(
             <video
               ref={videoRef}
               src={item.src}
-              muted
               playsInline
               loop={false}
               onError={handleError}
