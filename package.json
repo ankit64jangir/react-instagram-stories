@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "framer-motion": "^12.26.2",
-    "react-router-dom": "^7.10.1"
+    "react-router-dom": "^7.10.1",
+    "tailwindcss-animate": "^1.0.7"
   }
 }
