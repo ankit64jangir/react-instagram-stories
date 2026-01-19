@@ -10,19 +10,8 @@ export default defineConfig({
     },
   },
   build: {
-    lib: {
-      entry: 'src/index.tsx',
-      name: 'InstagramStories',
-      fileName: (format) => `instagram-stories.${format}.js`,
-    },
-    rollupOptions: {
-      external: ['react', 'react-dom'],
-      output: {
-        globals: {
-          react: 'React',
-          'react-dom': 'ReactDOM',
-        },
-      },
-    },
+    outDir: 'dist',
+    emptyOutDir: true,
+    sourcemap: true,
   },
 });
