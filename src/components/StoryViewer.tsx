@@ -25,7 +25,6 @@ interface StoryViewerProps {
 }
 
 const DEFAULT_DURATION = 5000;
-const SWIPE_THRESHOLD = 60; // pixels
 
 export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
   ({ users, initialUserIndex, initialStoryIndex, isOpen, onClose, onStoryChange }) => {
@@ -268,83 +267,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       }
     }, []);
 
-    const handlePointerUp = useCallback(
-      (event: React.PointerEvent) => {
-        if (!touchStartRef.current) return;
-
-        const deltaX = event.clientX - touchStartRef.current.x;
-        const deltaY = event.clientY - touchStartRef.current.y;
-
-        // Check for swipe gestures
-        const isHorizontalSwipe = Math.abs(deltaX) > SWIPE_THRESHOLD;
-        const isVerticalSwipe = Math.abs(deltaY) > 80;
-
-        if (isVerticalSwipe && deltaY > 0) {
-          // Swipe down - close
-          handleClose();
-        } else if (isHorizontalSwipe) {
-          // Horizontal swipe - navigate users with loading
-          if (deltaX > 0 && currentUserIndex > 0) {
-            // Swipe right - previous user
-            setIsUserLoading(true);
-            setTimeout(() => {
-              setIsTransitioning(true);
-              setTransitionDirection("right");
-              setTimeout(() => {
-                setCurrentUserIndex((prev) => prev - 1);
-                setCurrentStoryIndex(
-                  users[currentUserIndex - 1].stories.length - 1
-                );
-                setIsTransitioning(false);
-                setTransitionDirection(null);
-                setIsUserLoading(false); // Hide loading after indices are updated
-                timer.reset();
-              }, 150);
-            }, 1000);
-          } else if (deltaX < 0 && currentUserIndex < users.length - 1) {
-            // Swipe left - next user
-            setIsUserLoading(true);
-            setTimeout(() => {
-              setIsTransitioning(true);
-              setTransitionDirection("left");
-              setTimeout(() => {
-                setCurrentUserIndex((prev) => prev + 1);
-                setCurrentStoryIndex(0);
-                setIsTransitioning(false);
-                setTransitionDirection(null);
-                setIsUserLoading(false); // Hide loading after indices are updated
-                timer.reset();
-              }, 150);
-            }, 1000);
-          }
-        } else if (!isDraggingRef.current) {
-          // This was a tap, not a drag
-          // Convert pointer event to mouse event for handleTap
-          const mouseEvent = {
-            ...event,
-            target: event.target,
-            currentTarget: event.currentTarget,
-            clientX: event.clientX,
-            clientY: event.clientY,
-          } as React.MouseEvent;
-          handleTap(mouseEvent);
-        }
-
-        // Reset
-        touchStartRef.current = null;
-        isDraggingRef.current = false;
-        handleResume();
-      },
-      [
-        currentUserIndex,
-        users.length,
-        handleClose,
-        timer,
-        handleResume,
-        handleTap,
-      ]
-    );
-
     // Keyboard support
     useKeyboard({
       onLeft: handlePrevious,
@@ -388,7 +310,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       // Limit concurrent preloads
       const preloadPromises = itemsToPreload
         .slice(0, 3)
-        .map((item) => preloadStoryItem(item).catch(() => {}));
+        .map((item) => preloadStoryItem(item).catch(() => { }));
 
       Promise.all(preloadPromises);
     }, [
@@ -478,15 +400,13 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
 
         <div
           ref={focusTrapRef}
-          className={`story-viewer-content ${
-            isTransitioning
-              ? `story-viewer-transitioning story-viewer-transition-${transitionDirection}`
-              : ""
-          }`}
+          className={`story-viewer-content ${isTransitioning
+            ? `story-viewer-transitioning story-viewer-transition-${transitionDirection}`
+            : ""
+            }`}
           onClick={handleTap}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
-          onPointerUp={handlePointerUp}
           onMouseEnter={handlePause}
           onMouseLeave={handleResume}
         >

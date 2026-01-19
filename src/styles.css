@@ -242,7 +242,7 @@
   position: relative;
   width: 100%;
   max-width: 500px;
-  height: 100vh;
+  height: 100dvh;
   max-height: 900px;
   z-index: 2;
   display: flex;
@@ -473,7 +473,7 @@
 
   .story-viewer-content {
     max-width: 100%;
-    max-height: 100vh;
+    max-height: 100dvh; 
   }
 
   .story-avatar-image-wrapper {
@@ -504,7 +504,7 @@
 /* Handle orientation changes */
 @media (orientation: landscape) and (max-height: 500px) {
   .story-viewer-content {
-    max-height: 100vh;
+    max-height: 100dvh;
   }
 
   .story-viewer-header {
