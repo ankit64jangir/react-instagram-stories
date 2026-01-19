@@ -634,7 +634,7 @@ Contributions welcome! Open an issue or PR.
 
 ## 📄 License
 
-MIT © Ankit Jangir
+MIT © [Ankit Jangir](https://github.com/ankit64jangir)
 
 ## 📞 Support
 
