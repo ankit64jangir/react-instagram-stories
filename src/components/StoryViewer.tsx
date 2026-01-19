@@ -486,7 +486,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
           onClick={handleTap}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
-          // onPointerUp={handlePointerUp}
+          onPointerUp={handlePointerUp}
           onMouseEnter={handlePause}
           onMouseLeave={handleResume}
         >

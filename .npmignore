@@ -1,0 +1,33 @@
+# Source files (except what's in dist/)
+src/
+!dist/
+
+# Config files
+tsconfig.json
+tsconfig.node.json
+tsup.config.ts
+vite.config.ts
+tailwind.config.js
+postcss.config.js
+
+# Development files
+node_modules/
+.git/
+.gitignore
+.DS_Store
+
+# Demo/Test files
+index.html
+test-standalone.html
+public/
+
+# Documentation (except README)
+package/
+
+# Build artifacts from Vite (not NPM package build)
+*.local
+*.log
+
+# IDE
+.vscode/
+.idea/
