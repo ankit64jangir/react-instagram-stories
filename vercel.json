@@ -1,5 +1,5 @@
 {
-  "buildCommand": "npm run build:demo",
+  "buildCommand": "npm run build:demo && cp public/sitemap.xml dist/ && cp public/robots.txt dist/",
   "outputDirectory": "dist",
   "framework": "vite",
   "rewrites": [

@@ -16,7 +16,8 @@
     "react",
     "stories",
     "instagram",
-    "instagram-stories"
+    "instagram-stories",
+    "instagram-story"
   ],
   "type": "module",
   "main": "./dist/index.js",
