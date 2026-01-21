@@ -1,59 +1,50 @@
-import { useRef, useCallback } from 'react';
+import { useRef, useCallback, useState } from 'react';
 
-export interface UseGesturesOptions {
-  onSwipeLeft?: () => void;
-  onSwipeRight?: () => void;
-  onSwipeDown?: () => void;
-  onTapLeft?: () => void;
-  onTapRight?: () => void;
-  onLongPressStart?: () => void;
-  onLongPressEnd?: () => void;
-  longPressDelay?: number;
-  swipeThreshold?: number;
+export interface DragState {
+  isDragging: boolean;
+  deltaY: number;
+  progress: number; // 0-1 for how far the dismiss gesture has gone
 }
 
-export const useGestures = ({
-  onSwipeLeft,
-  onSwipeRight,
-  onSwipeDown,
-  onTapLeft,
-  onTapRight,
-  onLongPressStart,
-  onLongPressEnd,
-  longPressDelay = 500,
-  swipeThreshold = 50,
-}: UseGesturesOptions) => {
-  const touchStartRef = useRef<{ x: number; y: number; time: number } | null>(null);
-  const longPressTimerRef = useRef<number | null>(null);
-  const isLongPressRef = useRef(false);
+export interface UseGesturesOptions {
+  onSwipeDown?: () => void;
+  dismissThreshold?: number; // How far to drag before dismissing (in pixels)
+}
 
-  const clearLongPressTimer = useCallback(() => {
-    if (longPressTimerRef.current) {
-      clearTimeout(longPressTimerRef.current);
-      longPressTimerRef.current = null;
-    }
+/**
+ * Hook for swipe-down-to-close gesture with drag tracking.
+ * Only handles vertical swipe down - other interactions handled elsewhere.
+ */
+export const useGestures = ({
+  onSwipeDown,
+  dismissThreshold = 150,
+}: UseGesturesOptions) => {
+  const [dragState, setDragState] = useState<DragState>({
+    isDragging: false,
+    deltaY: 0,
+    progress: 0,
+  });
+
+  const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+  const isDraggingVerticalRef = useRef(false);
+
+  const resetDragState = useCallback(() => {
+    setDragState({
+      isDragging: false,
+      deltaY: 0,
+      progress: 0,
+    });
+    isDraggingVerticalRef.current = false;
   }, []);
 
-  const handleTouchStart = useCallback(
-    (e: React.TouchEvent) => {
-      const touch = e.touches[0];
-      touchStartRef.current = {
-        x: touch.clientX,
-        y: touch.clientY,
-        time: Date.now(),
-      };
-
-      isLongPressRef.current = false;
-
-      // Start long press timer
-      clearLongPressTimer();
-      longPressTimerRef.current = window.setTimeout(() => {
-        isLongPressRef.current = true;
-        onLongPressStart?.();
-      }, longPressDelay);
-    },
-    [onLongPressStart, longPressDelay, clearLongPressTimer]
-  );
+  const handleTouchStart = useCallback((e: React.TouchEvent) => {
+    const touch = e.touches[0];
+    touchStartRef.current = {
+      x: touch.clientX,
+      y: touch.clientY,
+    };
+    isDraggingVerticalRef.current = false;
+  }, []);
 
   const handleTouchMove = useCallback(
     (e: React.TouchEvent) => {
@@ -63,117 +54,43 @@ export const useGestures = ({
       const deltaX = touch.clientX - touchStartRef.current.x;
       const deltaY = touch.clientY - touchStartRef.current.y;
 
-      // If moved significantly, cancel long press
-      if (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10) {
-        clearLongPressTimer();
+      // Determine if this is a vertical drag (only on first significant movement)
+      if (!isDraggingVerticalRef.current && (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10)) {
+        // Only track as vertical drag if moving more vertically than horizontally AND moving down
+        isDraggingVerticalRef.current = Math.abs(deltaY) > Math.abs(deltaX) && deltaY > 0;
+      }
+
+      // Update drag state for vertical drags (swipe down to close)
+      if (isDraggingVerticalRef.current && deltaY > 0) {
+        const progress = Math.min(deltaY / dismissThreshold, 1);
+        setDragState({
+          isDragging: true,
+          deltaY,
+          progress,
+        });
       }
     },
-    [clearLongPressTimer]
+    [dismissThreshold]
   );
 
-  const handleTouchEnd = useCallback(
-    (e: React.TouchEvent) => {
-      clearLongPressTimer();
+  const handleTouchEnd = useCallback(() => {
+    if (!touchStartRef.current) return;
 
-      if (isLongPressRef.current) {
-        isLongPressRef.current = false;
-        onLongPressEnd?.();
-        touchStartRef.current = null;
-        return;
-      }
+    // Check if we should dismiss (swipe down past threshold)
+    if (isDraggingVerticalRef.current && dragState.deltaY > dismissThreshold * 0.5) {
+      onSwipeDown?.();
+    }
 
-      if (!touchStartRef.current) return;
-
-      const touch = e.changedTouches[0];
-      const deltaX = touch.clientX - touchStartRef.current.x;
-      const deltaY = touch.clientY - touchStartRef.current.y;
-      const deltaTime = Date.now() - touchStartRef.current.time;
-
-      // Swipe detection
-      if (Math.abs(deltaX) > swipeThreshold && deltaTime < 300) {
-        if (deltaX > 0) {
-          onSwipeRight?.();
-        } else {
-          onSwipeLeft?.();
-        }
-      } else if (deltaY > swipeThreshold && deltaTime < 300) {
-        onSwipeDown?.();
-      } else if (Math.abs(deltaX) < 10 && Math.abs(deltaY) < 10) {
-        // Tap detection
-        const target = e.target as HTMLElement;
-        const rect = target.getBoundingClientRect();
-        const tapX = touch.clientX - rect.left;
-        const isLeftSide = tapX < rect.width / 2;
-
-        if (isLeftSide) {
-          onTapLeft?.();
-        } else {
-          onTapRight?.();
-        }
-      }
-
-      touchStartRef.current = null;
-    },
-    [onSwipeLeft, onSwipeRight, onSwipeDown, onTapLeft, onTapRight, onLongPressEnd, swipeThreshold, clearLongPressTimer]
-  );
-
-  const handleMouseDown = useCallback(
-    (e: React.MouseEvent) => {
-      touchStartRef.current = {
-        x: e.clientX,
-        y: e.clientY,
-        time: Date.now(),
-      };
-
-      isLongPressRef.current = false;
-
-      clearLongPressTimer();
-      longPressTimerRef.current = window.setTimeout(() => {
-        isLongPressRef.current = true;
-        onLongPressStart?.();
-      }, longPressDelay);
-    },
-    [onLongPressStart, longPressDelay, clearLongPressTimer]
-  );
-
-  const handleMouseUp = useCallback(
-    (e: React.MouseEvent) => {
-      clearLongPressTimer();
-
-      if (isLongPressRef.current) {
-        isLongPressRef.current = false;
-        onLongPressEnd?.();
-        touchStartRef.current = null;
-        return;
-      }
-
-      if (!touchStartRef.current) return;
-
-      const deltaTime = Date.now() - touchStartRef.current.time;
-
-      if (deltaTime < 300) {
-        const target = e.currentTarget as HTMLElement;
-        const rect = target.getBoundingClientRect();
-        const tapX = e.clientX - rect.left;
-        const isLeftSide = tapX < rect.width / 2;
-
-        if (isLeftSide) {
-          onTapLeft?.();
-        } else {
-          onTapRight?.();
-        }
-      }
-
-      touchStartRef.current = null;
-    },
-    [onTapLeft, onTapRight, onLongPressEnd, clearLongPressTimer]
-  );
+    touchStartRef.current = null;
+    resetDragState();
+  }, [onSwipeDown, dismissThreshold, dragState.deltaY, resetDragState]);
 
   return {
-    onTouchStart: handleTouchStart,
-    onTouchMove: handleTouchMove,
-    onTouchEnd: handleTouchEnd,
-    onMouseDown: handleMouseDown,
-    onMouseUp: handleMouseUp,
+    dragState,
+    handlers: {
+      onTouchStart: handleTouchStart,
+      onTouchMove: handleTouchMove,
+      onTouchEnd: handleTouchEnd,
+    },
   };
 };

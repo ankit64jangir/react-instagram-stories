@@ -12,6 +12,7 @@ import { useKeyboard } from "../hooks/useKeyboard";
 import { useFocusTrap } from "../hooks/useFocusTrap";
 import { usePageVisibility } from "../hooks/usePageVisibility";
 import { usePreloader } from "../hooks/usePreloader";
+import { useGestures } from "../hooks/useGestures";
 import { StoryProgressBars } from "./StoryProgressBars";
 import { StoryItem } from "./StoryItem";
 
@@ -191,22 +192,22 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       onClose();
     }, [onClose]);
 
-    // Update the ref when handleNext changes
-    useEffect(() => {
-      handleNextRef.current = handleNext;
-    }, [handleNext]);
+    // State for close animation
+    const [isClosing, setIsClosing] = useState(false);
 
-    // Story controls for custom components
-    const storyControls: StoryItemControls = useMemo(
-      () => ({
-        pause: handlePause,
-        resume: handleResume,
-        next: handleNext,
-        prev: handlePrevious,
-        setDuration: (ms: number) => timerRef.current?.setDuration(ms),
-      }),
-      [handlePause, handleResume, handleNext, handlePrevious]
-    );
+    // Animated close handler for swipe-down gesture
+    const handleAnimatedClose = useCallback(() => {
+      setIsClosing(true);
+      setTimeout(() => {
+        setIsClosing(false);
+        handleClose();
+      }, 200);
+    }, [handleClose]);
+
+    // Gesture handler for swipe-down-to-close only
+    const { dragState, handlers: gestureHandlers } = useGestures({
+      onSwipeDown: handleAnimatedClose,
+    });
 
     // Handle taps for story navigation
     const handleTap = useCallback(
@@ -239,14 +240,14 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       [handlePrevious, handleNext]
     );
 
-    // Touch/mouse gesture handling
-    const touchStartRef = useRef<{ x: number; y: number } | null>(null);
+    // Touch/mouse gesture handling for pause on hold
+    const pointerStartRef = useRef<{ x: number; y: number } | null>(null);
     const isDraggingRef = useRef(false);
 
     const handlePointerDown = useCallback(
       (event: React.PointerEvent) => {
         isDraggingRef.current = false;
-        touchStartRef.current = {
+        pointerStartRef.current = {
           x: event.clientX,
           y: event.clientY,
         };
@@ -256,16 +257,33 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
     );
 
     const handlePointerMove = useCallback((event: React.PointerEvent) => {
-      if (!touchStartRef.current) return;
+      if (!pointerStartRef.current) return;
 
-      const deltaX = event.clientX - touchStartRef.current.x;
-      const deltaY = event.clientY - touchStartRef.current.y;
+      const deltaX = event.clientX - pointerStartRef.current.x;
+      const deltaY = event.clientY - pointerStartRef.current.y;
 
       // Check if this is a drag (moved more than 10px)
       if (Math.abs(deltaX) > 10 || Math.abs(deltaY) > 10) {
         isDraggingRef.current = true;
       }
     }, []);
+
+    // Update the ref when handleNext changes
+    useEffect(() => {
+      handleNextRef.current = handleNext;
+    }, [handleNext]);
+
+    // Story controls for custom components
+    const storyControls: StoryItemControls = useMemo(
+      () => ({
+        pause: handlePause,
+        resume: handleResume,
+        next: handleNext,
+        prev: handlePrevious,
+        setDuration: (ms: number) => timerRef.current?.setDuration(ms),
+      }),
+      [handlePause, handleResume, handleNext, handlePrevious]
+    );
 
     // Keyboard support
     useKeyboard({
@@ -403,10 +421,21 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
           className={`story-viewer-content ${isTransitioning
             ? `story-viewer-transitioning story-viewer-transition-${transitionDirection}`
             : ""
-            }`}
+            } ${isClosing ? "story-viewer-closing" : ""} ${dragState.isDragging ? "story-viewer-dragging" : ""}`}
+          style={
+            dragState.isDragging
+              ? {
+                  transform: `translateY(${dragState.deltaY}px) scale(${1 - dragState.progress * 0.1})`,
+                  opacity: 1 - dragState.progress * 0.3,
+                }
+              : undefined
+          }
           onClick={handleTap}
           onPointerDown={handlePointerDown}
           onPointerMove={handlePointerMove}
+          onTouchStart={gestureHandlers.onTouchStart}
+          onTouchMove={gestureHandlers.onTouchMove}
+          onTouchEnd={gestureHandlers.onTouchEnd}
           onMouseEnter={handlePause}
           onMouseLeave={handleResume}
         >

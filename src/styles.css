@@ -264,6 +264,25 @@
   transform: translateX(100%);
 }
 
+/* Swipe down to close - dragging state */
+.story-viewer-dragging {
+  transition: none !important;
+  border-radius: 16px;
+  overflow: hidden;
+}
+
+/* Swipe down to close - closing animation */
+.story-viewer-closing {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out !important;
+  transform: translateY(100vh) scale(0.8) !important;
+  opacity: 0 !important;
+}
+
+/* Snap back animation when not closing */
+.story-viewer-content:not(.story-viewer-dragging):not(.story-viewer-closing) {
+  transition: transform 0.2s ease-out, opacity 0.2s ease-out;
+}
+
 /* Header */
 .story-viewer-header {
   position: absolute;
@@ -586,7 +605,7 @@
 }
 
 .story-viewer-content {
-  touch-action: manipulation;
+  touch-action: none;
 }
 
 /* ========================================
