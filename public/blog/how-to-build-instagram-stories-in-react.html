@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#E1306C" />
+
+    <!-- Primary Meta Tags -->
+    <title>How to Build Instagram Stories in React.js - Complete Guide 2026</title>
+    <meta name="title" content="How to Build Instagram Stories in React.js - Complete Guide 2026" />
+    <meta name="description" content="Learn how to build Instagram-style stories in React.js with this comprehensive guide. Discover the best practices, implementation steps, and a powerful react-instagram-stories component library." />
+    <meta name="keywords" content="instagram stories react, react stories component, build instagram stories, react story viewer, instagram clone react, react social media stories, react typescript stories, instagram story feature, react-instagram-stories tutorial" />
+    <meta name="author" content="Ankit Jangir" />
+    <meta name="robots" content="index, follow" />
+    <meta name="language" content="English" />
+    <meta name="revisit-after" content="7 days" />
+    <link rel="canonical" href="https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article" />
+    <meta property="og:url" content="https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html" />
+    <meta property="og:title" content="How to Build Instagram Stories in React.js - Complete Guide 2026" />
+    <meta property="og:description" content="Master Instagram-style stories in React with our step-by-step guide. Learn to implement images, videos, polls, quizzes, and custom interactive components." />
+    <meta property="og:image" content="https://reactstories.vercel.app/favicon.svg" />
+    <meta property="og:site_name" content="React Instagram Stories" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="article:published_time" content="2026-01-25T00:00:00+00:00" />
+    <meta property="article:modified_time" content="2026-01-25T00:00:00+00:00" />
+    <meta property="article:author" content="Ankit Jangir" />
+    <meta property="article:section" content="Technology" />
+    <meta property="article:tag" content="React" />
+    <meta property="article:tag" content="JavaScript" />
+    <meta property="article:tag" content="Web Development" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:site" content="@ankitjangir" />
+    <meta name="twitter:creator" content="@ankitjangir" />
+    <meta name="twitter:url" content="https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html" />
+    <meta name="twitter:title" content="How to Build Instagram Stories in React.js - Complete Guide 2026" />
+    <meta name="twitter:description" content="Master Instagram-style stories in React with our step-by-step guide. Learn to implement images, videos, polls, quizzes, and custom interactive components." />
+    <meta name="twitter:image" content="https://reactstories.vercel.app/favicon.svg" />
+
+    <!-- Additional SEO Meta Tags -->
+    <meta name="rating" content="general" />
+    <meta name="distribution" content="global" />
+    <meta name="coverage" content="Worldwide" />
+    <meta name="target" content="all" />
+    <meta name="HandheldFriendly" content="True" />
+    <meta name="MobileOptimized" content="320" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+    <!-- Structured Data (JSON-LD) - Article Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "TechArticle",
+      "headline": "How to Build Instagram Stories in React.js - Complete Guide 2026",
+      "description": "Learn how to build Instagram-style stories in React.js with this comprehensive guide. Discover the best practices, implementation steps, and a powerful react-instagram-stories component library.",
+      "image": "https://reactstories.vercel.app/favicon.svg",
+      "author": {
+        "@type": "Person",
+        "name": "Ankit Jangir",
+        "url": "https://github.com/ankit64jangir"
+      },
+      "publisher": {
+        "@type": "Organization",
+        "name": "React Instagram Stories",
+        "logo": {
+          "@type": "ImageObject",
+          "url": "https://reactstories.vercel.app/favicon.svg"
+        }
+      },
+      "datePublished": "2026-01-25",
+      "dateModified": "2026-01-25",
+      "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html"
+      },
+      "articleSection": "Web Development",
+      "keywords": "instagram stories, react, react component, story viewer, social media, web development, typescript",
+      "about": {
+        "@type": "SoftwareApplication",
+        "name": "react-instagram-stories",
+        "applicationCategory": "DeveloperApplication",
+        "operatingSystem": "Cross-platform"
+      }
+    }
+    </script>
+
+    <!-- Breadcrumb Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [{
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://reactstories.vercel.app/"
+      },{
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Blog",
+        "item": "https://reactstories.vercel.app/blog"
+      },{
+        "@type": "ListItem",
+        "position": 3,
+        "name": "How to Build Instagram Stories in React.js",
+        "item": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html"
+      }]
+    }
+    </script>
+
+    <!-- FAQ Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [{
+        "@type": "Question",
+        "name": "What is the best way to implement Instagram stories in React?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "The best way to implement Instagram stories in React is to use the react-instagram-stories npm package, which provides a high-performance, fully customizable component with TypeScript support, video/image handling, interactive features, and only 74KB gzipped size."
+        }
+      },{
+        "@type": "Question",
+        "name": "How do I add Instagram-like stories to my React app?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Install react-instagram-stories via npm, import the Stories component and styles, set up React Router, and pass an array of users with their stories. The component handles navigation, gestures, keyboard controls, and progress tracking automatically."
+        }
+      },{
+        "@type": "Question",
+        "name": "Can I create custom interactive stories in React?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes, react-instagram-stories supports custom component stories where you can add polls, quizzes, countdowns, sliders, or any React component. The component receives control methods like pause, resume, next, and prev for full interactivity."
+        }
+      }]
+    }
+    </script>
+
+    <!-- HowTo Schema -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "HowTo",
+      "name": "How to Build Instagram Stories in React.js",
+      "description": "Step-by-step guide to implementing Instagram-style stories in React applications",
+      "image": "https://reactstories.vercel.app/favicon.svg",
+      "step": [{
+        "@type": "HowToStep",
+        "position": 1,
+        "name": "Install Dependencies",
+        "text": "Install react-instagram-stories and react-router-dom using npm, yarn, or pnpm",
+        "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#installation"
+      },{
+        "@type": "HowToStep",
+        "position": 2,
+        "name": "Import Components",
+        "text": "Import the Stories component and CSS styles into your React application",
+        "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#import"
+      },{
+        "@type": "HowToStep",
+        "position": 3,
+        "name": "Define Story Data",
+        "text": "Create an array of users with their stories including images, videos, text, or custom components",
+        "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#data-structure"
+      },{
+        "@type": "HowToStep",
+        "position": 4,
+        "name": "Set Up Routing",
+        "text": "Configure React Router with routes for story navigation and viewer",
+        "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#routing"
+      },{
+        "@type": "HowToStep",
+        "position": 5,
+        "name": "Render Stories Component",
+        "text": "Use the Stories component with your user data and customize as needed",
+        "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#implementation"
+      }]
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.8;
+            color: #2d3748;
+            background: #ffffff;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 50%, #f093fb 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            font-weight: 800;
+            margin-bottom: 15px;
+            line-height: 1.2;
+        }
+
+        .meta-info {
+            font-size: 0.95rem;
+            opacity: 0.95;
+            margin-top: 15px;
+        }
+
+        .meta-info span {
+            margin: 0 10px;
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin: 40px 0 20px;
+            color: #1a202c;
+            border-left: 4px solid #667eea;
+            padding-left: 15px;
+        }
+
+        h3 {
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin: 30px 0 15px;
+            color: #2d3748;
+        }
+
+        h4 {
+            font-size: 1.2rem;
+            font-weight: 600;
+            margin: 25px 0 12px;
+            color: #4a5568;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+            line-height: 1.8;
+        }
+
+        code {
+            background: #f7fafc;
+            padding: 3px 8px;
+            border-radius: 4px;
+            font-family: 'Monaco', 'Courier New', monospace;
+            font-size: 0.9em;
+            color: #e53e3e;
+            border: 1px solid #e2e8f0;
+        }
+
+        pre {
+            background: #2d3748;
+            color: #e2e8f0;
+            padding: 20px;
+            border-radius: 8px;
+            overflow-x: auto;
+            margin: 20px 0;
+            border-left: 4px solid #667eea;
+        }
+
+        pre code {
+            background: transparent;
+            border: none;
+            color: #e2e8f0;
+            padding: 0;
+        }
+
+        .highlight {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(102, 126, 234, 0.2);
+        }
+
+        .highlight h3 {
+            color: white;
+            margin-top: 0;
+            border: none;
+        }
+
+        ul, ol {
+            margin: 20px 0 20px 30px;
+        }
+
+        li {
+            margin: 10px 0;
+            font-size: 1.05rem;
+        }
+
+        strong {
+            font-weight: 600;
+            color: #1a202c;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 30px 0;
+        }
+
+        .feature-card {
+            background: #f7fafc;
+            padding: 20px;
+            border-radius: 8px;
+            border-left: 3px solid #667eea;
+            transition: transform 0.2s, box-shadow 0.2s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .feature-card h4 {
+            margin-top: 0;
+            color: #667eea;
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin: 20px 0;
+            transition: transform 0.2s, box-shadow 0.2s;
+            box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(102, 126, 234, 0.4);
+        }
+
+        .toc {
+            background: #f7fafc;
+            padding: 25px;
+            border-radius: 10px;
+            margin: 30px 0;
+            border: 1px solid #e2e8f0;
+        }
+
+        .toc h3 {
+            margin-top: 0;
+            color: #2d3748;
+        }
+
+        .toc ul {
+            margin: 15px 0 0 20px;
+        }
+
+        .toc a {
+            color: #667eea;
+            text-decoration: none;
+            font-weight: 500;
+        }
+
+        .toc a:hover {
+            text-decoration: underline;
+        }
+
+        footer {
+            background: #2d3748;
+            color: white;
+            padding: 40px 20px;
+            margin-top: 60px;
+            text-align: center;
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+            opacity: 0.9;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 1.8rem;
+            }
+
+            h2 {
+                font-size: 1.4rem;
+            }
+
+            .container {
+                padding: 15px;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="back-link">← Back to Home</a>
+        <h1>How to Build Instagram Stories in React.js</h1>
+        <p style="font-size: 1.2rem; margin-top: 10px;">A Complete Guide to Creating Engaging Story Experiences</p>
+        <div class="meta-info">
+            <span>By Ankit Jangir</span>
+            <span>|</span>
+            <span>January 25, 2026</span>
+            <span>|</span>
+            <span>10 min read</span>
+        </div>
+    </header>
+
+    <article class="container">
+        <div class="toc">
+            <h3>Table of Contents</h3>
+            <ul>
+                <li><a href="#introduction">Introduction</a></li>
+                <li><a href="#why-stories">Why Instagram Stories?</a></li>
+                <li><a href="#challenges">Challenges in Building Stories</a></li>
+                <li><a href="#solution">The Solution: react-instagram-stories</a></li>
+                <li><a href="#installation">Installation</a></li>
+                <li><a href="#quick-start">Quick Start Guide</a></li>
+                <li><a href="#data-structure">Understanding the Data Structure</a></li>
+                <li><a href="#story-types">Four Core Story Types</a></li>
+                <li><a href="#custom-components">Building Custom Interactive Stories</a></li>
+                <li><a href="#advanced-features">Advanced Features</a></li>
+                <li><a href="#performance">Performance Optimization</a></li>
+                <li><a href="#best-practices">Best Practices</a></li>
+                <li><a href="#conclusion">Conclusion</a></li>
+            </ul>
+        </div>
+
+        <section id="introduction">
+            <h2>Introduction</h2>
+            <p>
+                Instagram Stories revolutionized how we share and consume content on social media. The ephemeral, full-screen, and engaging format has become a staple in modern web applications. Whether you're building a social network, a content platform, or an e-commerce site, implementing story features can significantly boost user engagement.
+            </p>
+            <p>
+                In this comprehensive guide, we'll explore how to build Instagram-style stories in React.js, covering everything from basic implementation to advanced interactive features like polls, quizzes, and custom components.
+            </p>
+        </section>
+
+        <section id="why-stories">
+            <h2>Why Instagram Stories?</h2>
+            <p>
+                Stories have proven to be incredibly effective for user engagement:
+            </p>
+            <ul>
+                <li><strong>Higher Engagement Rates</strong>: Full-screen immersive experiences capture attention better than traditional feeds</li>
+                <li><strong>Time-Sensitive Content</strong>: The ephemeral nature creates urgency and FOMO (Fear of Missing Out)</li>
+                <li><strong>Interactive Features</strong>: Polls, quizzes, and custom components drive user interaction</li>
+                <li><strong>Mobile-First Design</strong>: Perfect for modern mobile-centric applications</li>
+                <li><strong>Content Discovery</strong>: Easy navigation through multiple pieces of content with simple taps and swipes</li>
+            </ul>
+        </section>
+
+        <section id="challenges">
+            <h2>Challenges in Building Stories</h2>
+            <p>
+                Building a production-ready story feature from scratch involves several complex challenges:
+            </p>
+
+            <h3>1. Media Handling</h3>
+            <ul>
+                <li>Managing video playback with audio support</li>
+                <li>Handling video buffering and loading states</li>
+                <li>Image preloading for smooth transitions</li>
+                <li>Memory management for large media files</li>
+            </ul>
+
+            <h3>2. User Interactions</h3>
+            <ul>
+                <li>Touch gestures (tap, swipe, hold)</li>
+                <li>Keyboard navigation for accessibility</li>
+                <li>Progress bar synchronization</li>
+                <li>Pausing/resuming on user actions</li>
+            </ul>
+
+            <h3>3. Performance Optimization</h3>
+            <ul>
+                <li>Efficient rendering for hundreds of stories</li>
+                <li>Smart preloading strategies</li>
+                <li>Bundle size optimization</li>
+                <li>Smooth animations and transitions</li>
+            </ul>
+
+            <h3>4. State Management</h3>
+            <ul>
+                <li>Tracking current story and user</li>
+                <li>URL synchronization for sharing</li>
+                <li>Read/unread story status</li>
+                <li>Timer management across different story types</li>
+            </ul>
+        </section>
+
+        <section id="solution">
+            <h2>The Solution: react-instagram-stories</h2>
+            <p>
+                The <code>react-instagram-stories</code> package provides a complete, production-ready solution that handles all these complexities for you. Built with TypeScript and modern React patterns, it offers:
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>Multiple Content Types</h4>
+                    <p>Support for images, videos with audio, text stories, and fully custom React components</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>High Performance</h4>
+                    <p>Only 74.8KB (20KB gzipped) with zero runtime dependencies and intelligent preloading</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Full Customization</h4>
+                    <p>Style every aspect with CSS, create custom components, and control behavior</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>TypeScript Support</h4>
+                    <p>Complete type definitions included for type-safe development</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Accessibility</h4>
+                    <p>ARIA labels, keyboard navigation, and screen reader support</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Interactive Features</h4>
+                    <p>Built-in support for polls, quizzes, countdowns, sliders, and more</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="installation">
+            <h2>Installation</h2>
+            <p>
+                Getting started is simple. Install the package using your preferred package manager:
+            </p>
+            <pre><code>npm install react-instagram-stories react-router-dom
+# or
+yarn add react-instagram-stories react-router-dom
+# or
+pnpm add react-instagram-stories react-router-dom</code></pre>
+
+            <p>
+                <strong>Note</strong>: <code>react-router-dom</code> is required for URL-based story navigation, which allows users to share specific stories and maintain browser history.
+            </p>
+        </section>
+
+        <section id="quick-start">
+            <h2>Quick Start Guide</h2>
+            <p>
+                Here's the minimal setup to get Instagram stories running in your React app:
+            </p>
+
+            <h3 id="import">Step 1: Import Components and Styles</h3>
+            <pre><code>import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Stories, demoUsers } from 'react-instagram-stories';
+import 'react-instagram-stories/styles.css';</code></pre>
+
+            <h3 id="routing">Step 2: Set Up Routing</h3>
+            <pre><code>function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Stories users={demoUsers} /&gt;} /&gt;
+        &lt;Route path="/story/:storyId" element={&lt;Stories users={demoUsers} /&gt;} /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+
+export default App;</code></pre>
+
+            <p>
+                That's it! You now have a fully functional Instagram stories feature with:
+            </p>
+            <ul>
+                <li>Avatar list with unread indicators</li>
+                <li>Full-screen story viewer</li>
+                <li>Automatic progress tracking</li>
+                <li>Touch gestures and keyboard navigation</li>
+                <li>Video playback with audio</li>
+                <li>URL-based navigation</li>
+            </ul>
+        </section>
+
+        <section id="data-structure">
+            <h2>Understanding the Data Structure</h2>
+            <p>
+                The component uses a simple, intuitive data structure. Here's the TypeScript interface:
+            </p>
+
+            <pre><code>interface User {
+  id: string;
+  username: string;
+  avatarUrl: string;
+  stories: StoryItem[];
+  hasUnreadStories?: boolean; // Shows ring around avatar
+}
+
+type StoryItemType = 'image' | 'video' | 'text' | 'custom_component';
+
+interface BaseStoryItem {
+  id: string;
+  type: StoryItemType;
+  duration?: number; // Duration in milliseconds
+}</code></pre>
+
+            <p>
+                Each user has an array of stories, and each story can be one of four types: image, video, text, or custom component.
+            </p>
+        </section>
+
+        <section id="story-types">
+            <h2>Four Core Story Types</h2>
+
+            <h3>1. Image Stories</h3>
+            <p>
+                The most common story type. Perfect for photos, graphics, and static visual content:
+            </p>
+            <pre><code>{
+  id: 'image-story-1',
+  type: 'image',
+  src: 'https://example.com/beautiful-sunset.jpg',
+  alt: 'Beautiful sunset over the ocean', // Accessibility
+  duration: 5000, // Optional, defaults to 5 seconds
+}</code></pre>
+
+            <h3>2. Video Stories</h3>
+            <p>
+                Video stories with full audio support and intelligent buffering detection:
+            </p>
+            <pre><code>{
+  id: 'video-story-1',
+  type: 'video',
+  src: 'https://example.com/travel-video.mp4',
+  duration: 15000, // Optional, auto-detected from video
+}</code></pre>
+            <p>
+                <strong>Key Features</strong>:
+            </p>
+            <ul>
+                <li>Audio enabled by default</li>
+                <li>Progress bar automatically pauses during buffering</li>
+                <li>Duration auto-detected from video metadata</li>
+                <li>Smooth playback with preloading</li>
+            </ul>
+
+            <h3>3. Text Stories</h3>
+            <p>
+                Minimalist stories with text and customizable colors:
+            </p>
+            <pre><code>{
+  id: 'text-story-1',
+  type: 'text',
+  text: 'Just launched our new feature! 🚀',
+  backgroundColor: '#FF6B6B',
+  textColor: '#FFFFFF',
+  duration: 5000,
+}</code></pre>
+
+            <h3>4. Custom Component Stories</h3>
+            <p>
+                The most powerful feature - add <strong>any React component</strong> as a story! This opens up unlimited possibilities:
+            </p>
+            <pre><code>const MyCustomStory: React.FC&lt;StoryItemControls&gt; = ({
+  pause,
+  resume,
+  next,
+  prev,
+  setDuration
+}) => {
+  return (
+    &lt;div style={{ height: '100%', background: '#667eea', padding: '20px' }}&gt;
+      &lt;h1&gt;Custom Interactive Content&lt;/h1&gt;
+      &lt;button onClick={next}&gt;Next Story&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};
+
+// Use it in your stories array:
+{
+  id: 'custom-story-1',
+  type: 'custom_component',
+  component: MyCustomStory,
+  duration: 10000,
+}</code></pre>
+        </section>
+
+        <section id="custom-components">
+            <h2>Building Custom Interactive Stories</h2>
+            <p>
+                Custom components receive five control methods, giving you complete control over the story experience:
+            </p>
+            <ul>
+                <li><code>pause()</code> - Pause the story timer</li>
+                <li><code>resume()</code> - Resume the story timer</li>
+                <li><code>next()</code> - Navigate to next story</li>
+                <li><code>prev()</code> - Navigate to previous story</li>
+                <li><code>setDuration(ms: number)</code> - Dynamically update story duration</li>
+            </ul>
+
+            <h3>Example: Interactive Poll Story</h3>
+            <p>
+                Here's a complete example of building an interactive poll that pauses the timer during interaction:
+            </p>
+            <pre><code>const PollComponent: React.FC&lt;StoryItemControls&gt; = ({ pause, resume, next }) => {
+  const [selected, setSelected] = React.useState&lt;number | null&gt;(null);
+  const [votes, setVotes] = React.useState([42, 28, 18, 12]);
+  const options = ['React', 'Vue', 'Angular', 'Svelte'];
+
+  // Pause timer when component loads
+  React.useEffect(() => {
+    pause();
+    return () => resume();
+  }, [pause, resume]);
+
+  const handleVote = (index: number) => {
+    setSelected(index);
+    const newVotes = [...votes];
+    newVotes[index] += 1;
+    setVotes(newVotes);
+
+    // Auto-advance after showing results
+    setTimeout(() => {
+      resume();
+      next();
+    }, 2000);
+  };
+
+  const total = votes.reduce((a, b) => a + b, 0);
+
+  return (
+    &lt;div style={{
+      display: 'flex',
+      flexDirection: 'column',
+      height: '100%',
+      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
+      padding: '20px'
+    }}&gt;
+      &lt;h2 style={{ color: 'white', marginBottom: '20px' }}&gt;
+        What's your favorite framework?
+      &lt;/h2&gt;
+      {options.map((option, index) => (
+        &lt;button
+          key={index}
+          onClick={() => handleVote(index)}
+          disabled={selected !== null}
+          style={{
+            margin: '8px 0',
+            padding: '15px',
+            background: selected === index ? '#4CAF50' : 'rgba(255,255,255,0.2)',
+            border: 'none',
+            borderRadius: '12px',
+          }}
+        &gt;
+          &lt;div style={{ display: 'flex', justifyContent: 'space-between' }}&gt;
+            &lt;span&gt;{option}&lt;/span&gt;
+            {selected !== null && (
+              &lt;span&gt;{((votes[index] / total) * 100).toFixed(0)}%&lt;/span&gt;
+            )}
+          &lt;/div&gt;
+        &lt;/button&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};</code></pre>
+
+            <h3>Example: Quiz Story</h3>
+            <p>
+                Create engaging quiz experiences with instant feedback:
+            </p>
+            <pre><code>const QuizComponent: React.FC&lt;StoryItemControls&gt; = ({ pause, resume, next }) => {
+  const [selected, setSelected] = React.useState&lt;number | null&gt;(null);
+  const correctAnswer = 2;
+  const options = ['Mars', 'Saturn', 'Jupiter', 'Neptune'];
+
+  React.useEffect(() => {
+    pause();
+    return () => resume();
+  }, [pause, resume]);
+
+  const handleAnswer = (index: number) => {
+    setSelected(index);
+    setTimeout(() => {
+      resume();
+      next();
+    }, 2500);
+  };
+
+  return (
+    &lt;div style={{
+      height: '100%',
+      background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
+      padding: '20px'
+    }}&gt;
+      &lt;h2&gt;Which planet is the largest in our solar system?&lt;/h2&gt;
+      {options.map((option, index) => (
+        &lt;button
+          key={index}
+          onClick={() => handleAnswer(index)}
+          disabled={selected !== null}
+          style={{
+            background: selected === index
+              ? (index === correctAnswer ? '#4CAF50' : '#f44336')
+              : 'rgba(255,255,255,0.2)'
+          }}
+        &gt;
+          {option}
+          {selected !== null && index === correctAnswer && ' ✓'}
+        &lt;/button&gt;
+      ))}
+      {selected !== null && (
+        &lt;p style={{ marginTop: '20px', fontWeight: 'bold' }}&gt;
+          {selected === correctAnswer ? '🎉 Correct!' : '❌ Wrong!'}
+        &lt;/p&gt;
+      )}
+    &lt;/div&gt;
+  );
+};</code></pre>
+        </section>
+
+        <section id="advanced-features">
+            <h2>Advanced Features</h2>
+
+            <h3>URL-Based Navigation</h3>
+            <p>
+                Stories are URL-aware, allowing users to share specific stories and maintain browser history. When a user opens a story, the URL updates to <code>/story/:storyId</code>, making it easy to share and bookmark.
+            </p>
+
+            <h3>Keyboard Controls</h3>
+            <ul>
+                <li><strong>Left/Right Arrow Keys</strong>: Navigate between stories</li>
+                <li><strong>Spacebar</strong>: Pause and resume playback</li>
+                <li><strong>Escape</strong>: Close the story viewer</li>
+            </ul>
+
+            <h3>Touch & Mouse Gestures</h3>
+            <ul>
+                <li><strong>Tap Left/Right</strong>: Navigate stories within a user</li>
+                <li><strong>Swipe Left/Right</strong>: Switch between different users</li>
+                <li><strong>Swipe Down</strong>: Close the story viewer</li>
+                <li><strong>Hold/Hover</strong>: Pause the current story</li>
+            </ul>
+
+            <h3>Smart Progress Management</h3>
+            <p>
+                The component intelligently manages progress bars:
+            </p>
+            <ul>
+                <li>Automatically pauses during video buffering</li>
+                <li>Syncs with video playback</li>
+                <li>Pauses when user interacts with custom components</li>
+                <li>Smooth animations and transitions</li>
+            </ul>
+        </section>
+
+        <section id="performance">
+            <h2>Performance Optimization</h2>
+            <p>
+                The package is built with performance as a top priority:
+            </p>
+
+            <div class="highlight">
+                <h3>Bundle Size</h3>
+                <ul style="margin-left: 20px;">
+                    <li><strong>Total</strong>: 74.8 KB minified</li>
+                    <li><strong>Gzipped</strong>: ~20 KB</li>
+                    <li><strong>ESM</strong>: 28.77 KB</li>
+                    <li><strong>CJS</strong>: 30.44 KB</li>
+                    <li><strong>Runtime Dependencies</strong>: 0 (React is peer dependency)</li>
+                </ul>
+            </div>
+
+            <h3>Optimization Techniques</h3>
+            <ul>
+                <li><strong>Smart Preloading</strong>: Adjacent stories are preloaded for instant transitions</li>
+                <li><strong>React.memo</strong>: Components are memoized to prevent unnecessary re-renders</li>
+                <li><strong>Lazy Loading</strong>: Media is loaded on-demand</li>
+                <li><strong>Efficient State Updates</strong>: Minimized state changes for smooth performance</li>
+                <li><strong>Video Buffering Detection</strong>: Progress pauses automatically during buffering</li>
+            </ul>
+
+            <p>
+                The package can smoothly handle <strong>200+ users with 1000+ stories</strong> without performance degradation.
+            </p>
+        </section>
+
+        <section id="best-practices">
+            <h2>Best Practices</h2>
+
+            <h3>1. Optimize Media Assets</h3>
+            <ul>
+                <li>Compress images to reduce load times (WebP format recommended)</li>
+                <li>Use appropriate video codecs (H.264 for best compatibility)</li>
+                <li>Consider using a CDN for media delivery</li>
+                <li>Provide appropriate dimensions (9:16 aspect ratio for mobile)</li>
+            </ul>
+
+            <h3>2. Set Appropriate Durations</h3>
+            <ul>
+                <li><strong>Images</strong>: 3-5 seconds is ideal</li>
+                <li><strong>Text</strong>: Base on reading time (rule of thumb: 1 second per 3 words)</li>
+                <li><strong>Videos</strong>: Auto-detected, but consider user attention span</li>
+                <li><strong>Interactive Components</strong>: Longer durations (10-15 seconds) or pause until interaction</li>
+            </ul>
+
+            <h3>3. Accessibility Considerations</h3>
+            <ul>
+                <li>Always provide <code>alt</code> text for images</li>
+                <li>Ensure sufficient color contrast for text stories</li>
+                <li>Test keyboard navigation thoroughly</li>
+                <li>Consider users with motion sensitivity (provide pause option)</li>
+            </ul>
+
+            <h3>4. User Experience</h3>
+            <ul>
+                <li>Keep story sequences focused (5-7 stories per user is ideal)</li>
+                <li>Use the unread indicator (<code>hasUnreadStories</code>) to guide users</li>
+                <li>Provide clear visual feedback for interactions</li>
+                <li>Test on various devices and screen sizes</li>
+            </ul>
+
+            <h3>5. Customization</h3>
+            <p>
+                Override default styles with your brand colors:
+            </p>
+            <pre><code>/* Custom CSS */
+.story-viewer {
+  background: rgba(0, 0, 0, 0.95);
+}
+
+.story-progress-bar-fill {
+  background: linear-gradient(to right, #ff6b6b, #ee5a6f);
+}
+
+.avatar {
+  width: 80px;
+  height: 80px;
+  border: 3px solid #E1306C; /* Instagram brand color */
+}</code></pre>
+        </section>
+
+        <div class="highlight">
+            <h3>Try It Live!</h3>
+            <p>
+                Experience the full demo with all features including polls, quizzes, countdowns, and more.
+            </p>
+            <a href="/" class="cta-button" style="color: white; display: inline-block;">View Live Demo</a>
+            <br><br>
+            <a href="https://github.com/ankit64jangir/react-instagram-stories" class="cta-button" style="color: white; display: inline-block;">View on GitHub</a>
+        </div>
+
+        <section id="implementation">
+            <h2>Complete Implementation Example</h2>
+            <p>
+                Here's a complete example showing all story types together:
+            </p>
+            <pre><code>import React from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+import { Stories } from 'react-instagram-stories';
+import type { User } from 'react-instagram-stories';
+import 'react-instagram-stories/styles.css';
+
+const myUsers: User[] = [
+  {
+    id: 'user-1',
+    username: 'techexplorer',
+    avatarUrl: 'https://i.pravatar.cc/150?img=1',
+    hasUnreadStories: true,
+    stories: [
+      // Image Story
+      {
+        id: 'story-1',
+        type: 'image',
+        src: 'https://picsum.photos/1080/1920?random=1',
+        alt: 'Beautiful landscape',
+        duration: 5000,
+      },
+      // Video Story
+      {
+        id: 'story-2',
+        type: 'video',
+        src: 'https://example.com/video.mp4',
+      },
+      // Text Story
+      {
+        id: 'story-3',
+        type: 'text',
+        text: 'Hello World! 👋',
+        backgroundColor: '#FF6B6B',
+        textColor: '#FFFFFF',
+        duration: 5000,
+      },
+      // Custom Component Story
+      {
+        id: 'story-4',
+        type: 'custom_component',
+        component: PollComponent,
+        duration: 15000,
+      },
+    ],
+  },
+];
+
+function App() {
+  return (
+    &lt;BrowserRouter&gt;
+      &lt;Routes&gt;
+        &lt;Route path="/" element={&lt;Stories users={myUsers} /&gt;} /&gt;
+        &lt;Route
+          path="/story/:storyId"
+          element={&lt;Stories users={myUsers} closeNavigateTo="/" /&gt;}
+        /&gt;
+      &lt;/Routes&gt;
+    &lt;/BrowserRouter&gt;
+  );
+}
+
+export default App;</code></pre>
+        </section>
+
+        <section>
+            <h2>Use Cases</h2>
+            <p>
+                Instagram-style stories aren't just for social media apps. Here are some creative use cases:
+            </p>
+
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>E-commerce</h4>
+                    <p>Showcase products, flash sales, and customer testimonials in engaging story format</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Education</h4>
+                    <p>Create interactive lessons, quizzes, and micro-learning experiences</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>News & Media</h4>
+                    <p>Deliver breaking news, photo essays, and multimedia journalism</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Marketing</h4>
+                    <p>Build campaigns, collect feedback through polls, and drive engagement</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>SaaS Onboarding</h4>
+                    <p>Guide new users through features with interactive walkthroughs</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>Content Publishing</h4>
+                    <p>Share blog highlights, tutorials, and visual content in bite-sized format</p>
+                </div>
+            </div>
+        </section>
+
+        <section>
+            <h2>API Reference</h2>
+
+            <h3>Stories Component Props</h3>
+            <table style="width: 100%; border-collapse: collapse; margin: 20px 0;">
+                <thead>
+                    <tr style="background: #f7fafc;">
+                        <th style="padding: 12px; text-align: left; border: 1px solid #e2e8f0;">Prop</th>
+                        <th style="padding: 12px; text-align: left; border: 1px solid #e2e8f0;">Type</th>
+                        <th style="padding: 12px; text-align: left; border: 1px solid #e2e8f0;">Required</th>
+                        <th style="padding: 12px; text-align: left; border: 1px solid #e2e8f0;">Description</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;"><code>users</code></td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">User[]</td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">Yes</td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">Array of user objects with their stories</td>
+                    </tr>
+                    <tr style="background: #f7fafc;">
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;"><code>closeNavigateTo</code></td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">string</td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">No</td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">Navigation path when viewer closes (default: '/')</td>
+                    </tr>
+                </tbody>
+            </table>
+
+            <h3>Available Exports</h3>
+            <pre><code>// Main component
+export { Stories } from 'react-instagram-stories';
+
+// Individual components (for advanced usage)
+export { AvatarList, StoryViewer } from 'react-instagram-stories';
+
+// TypeScript types
+export type {
+  User,
+  StoryItem,
+  StoryItemControls,
+  StoryItemType,
+  ImageStoryItem,
+  VideoStoryItem,
+  TextStoryItem,
+  CustomComponentStoryItem
+} from 'react-instagram-stories';
+
+// Demo utilities
+export { generateDemoUsers, demoUsers } from 'react-instagram-stories';
+
+// Styles
+import 'react-instagram-stories/styles.css';</code></pre>
+        </section>
+
+        <section>
+            <h2>TypeScript Support</h2>
+            <p>
+                The package is built with TypeScript and provides comprehensive type definitions:
+            </p>
+            <pre><code>import type {
+  User,
+  StoryItem,
+  StoryItemControls,
+  ImageStoryItem,
+  VideoStoryItem,
+  TextStoryItem,
+  CustomComponentStoryItem
+} from 'react-instagram-stories';
+
+// Type-safe story creation
+const myStory: ImageStoryItem = {
+  id: 'story-1',
+  type: 'image',
+  src: '/photo.jpg',
+  alt: 'My photo',
+  duration: 5000,
+};</code></pre>
+        </section>
+
+        <section>
+            <h2>Without React Router</h2>
+            <p>
+                If you don't need URL navigation, you can use the components directly with local state:
+            </p>
+            <pre><code>import { useState } from 'react';
+import { AvatarList, StoryViewer } from 'react-instagram-stories';
+
+function App() {
+  const [viewerState, setViewerState] = useState({
+    isOpen: false,
+    userIndex: 0,
+  });
+
+  return (
+    &lt;&gt;
+      &lt;AvatarList
+        users={myUsers}
+        onAvatarClick={(index) => setViewerState({
+          isOpen: true,
+          userIndex: index
+        })}
+      /&gt;
+      &lt;StoryViewer
+        users={myUsers}
+        initialUserIndex={viewerState.userIndex}
+        isOpen={viewerState.isOpen}
+        onClose={() => setViewerState({
+          isOpen: false,
+          userIndex: 0
+        })}
+      /&gt;
+    &lt;/&gt;
+  );
+}</code></pre>
+        </section>
+
+        <section id="conclusion">
+            <h2>Conclusion</h2>
+            <p>
+                Building Instagram-style stories in React doesn't have to be complicated. With the <code>react-instagram-stories</code> package, you get a production-ready solution that handles all the complex aspects like media playback, gestures, keyboard navigation, and performance optimization.
+            </p>
+            <p>
+                The package's support for custom components means you're not limited to simple image and video stories. You can create interactive polls, quizzes, product showcases, tutorials, and any other creative content you can imagine.
+            </p>
+            <p>
+                Whether you're building a social network, an e-commerce platform, or an educational app, stories are a proven way to increase engagement and create memorable user experiences.
+            </p>
+
+            <div style="text-align: center; margin: 40px 0;">
+                <h3>Ready to Get Started?</h3>
+                <a href="https://www.npmjs.com/package/react-instagram-stories" class="cta-button" target="_blank" rel="noopener noreferrer">Install react-instagram-stories</a>
+                <br><br>
+                <a href="https://github.com/ankit64jangir/react-instagram-stories" class="cta-button" target="_blank" rel="noopener noreferrer" style="background: linear-gradient(135deg, #24292e 0%, #1a1e22 100%);">Star on GitHub ⭐</a>
+            </div>
+        </section>
+
+        <section>
+            <h2>Additional Resources</h2>
+            <ul>
+                <li><a href="https://www.npmjs.com/package/react-instagram-stories" target="_blank" rel="noopener noreferrer">NPM Package</a></li>
+                <li><a href="https://github.com/ankit64jangir/react-instagram-stories" target="_blank" rel="noopener noreferrer">GitHub Repository</a></li>
+                <li><a href="https://github.com/ankit64jangir/react-instagram-stories#readme" target="_blank" rel="noopener noreferrer">Full Documentation</a></li>
+                <li><a href="https://github.com/ankit64jangir/react-instagram-stories/issues" target="_blank" rel="noopener noreferrer">Report Issues</a></li>
+                <li><a href="/" rel="noopener noreferrer">Live Demo</a></li>
+            </ul>
+        </section>
+
+        <section>
+            <h2>About the Author</h2>
+            <p>
+                <strong>Ankit Jangir</strong> is a software developer passionate about building high-performance React components and open-source tools. Connect on <a href="https://github.com/ankit64jangir" target="_blank" rel="noopener noreferrer">GitHub</a> to see more projects.
+            </p>
+        </section>
+    </article>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 10px; font-size: 1.1rem; font-weight: 600;">React Instagram Stories</p>
+            <p style="margin-bottom: 20px;">High-performance, fully customizable Instagram-style Stories component for React</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">
+                <a href="/">Home</a> •
+                <a href="https://github.com/ankit64jangir/react-instagram-stories">GitHub</a> •
+                <a href="https://www.npmjs.com/package/react-instagram-stories">NPM</a> •
+                <a href="https://github.com/ankit64jangir/react-instagram-stories/issues">Support</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7;">
+                MIT License © 2026 Ankit Jangir
+            </p>
+        </div>
+    </footer>
+</body>
+</html>

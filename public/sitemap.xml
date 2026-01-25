@@ -21,6 +21,22 @@
     <lastmod>2026-01-20</lastmod>
   </url>
 
+  <!-- Blog Index -->
+  <url>
+    <loc>https://reactstories.vercel.app/blog/</loc>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <lastmod>2026-01-25</lastmod>
+  </url>
+
+  <!-- Blog: How to Build Instagram Stories in React -->
+  <url>
+    <loc>https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html</loc>
+    <changefreq>monthly</changefreq>
+    <priority>1.0</priority>
+    <lastmod>2026-01-25</lastmod>
+  </url>
+
   <!-- NPM Package -->
   <url>
     <loc>https://www.npmjs.com/package/react-instagram-stories</loc>

@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="theme-color" content="#667eea" />
+
+    <!-- Primary Meta Tags -->
+    <title>Blog - React Instagram Stories | Tutorials & Guides</title>
+    <meta name="title" content="Blog - React Instagram Stories | Tutorials & Guides" />
+    <meta name="description" content="Learn how to build Instagram-style stories in React with our comprehensive tutorials, guides, and best practices." />
+    <meta name="keywords" content="react stories blog, instagram stories tutorial, react component guides, web development blog" />
+    <meta name="author" content="Ankit Jangir" />
+    <meta name="robots" content="index, follow" />
+    <link rel="canonical" href="https://reactstories.vercel.app/blog/" />
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="website" />
+    <meta property="og:url" content="https://reactstories.vercel.app/blog/" />
+    <meta property="og:title" content="Blog - React Instagram Stories | Tutorials & Guides" />
+    <meta property="og:description" content="Learn how to build Instagram-style stories in React with our comprehensive tutorials, guides, and best practices." />
+    <meta property="og:image" content="https://reactstories.vercel.app/favicon.svg" />
+
+    <!-- Twitter -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:url" content="https://reactstories.vercel.app/blog/" />
+    <meta name="twitter:title" content="Blog - React Instagram Stories | Tutorials & Guides" />
+    <meta name="twitter:description" content="Learn how to build Instagram-style stories in React with our comprehensive tutorials, guides, and best practices." />
+    <meta name="twitter:image" content="https://reactstories.vercel.app/favicon.svg" />
+
+    <!-- Structured Data -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "React Instagram Stories Blog",
+      "description": "Tutorials and guides for building Instagram-style stories in React",
+      "url": "https://reactstories.vercel.app/blog/",
+      "author": {
+        "@type": "Person",
+        "name": "Ankit Jangir",
+        "url": "https://github.com/ankit64jangir"
+      }
+    }
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+            line-height: 1.6;
+            color: #2d3748;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 60px 20px;
+            text-align: center;
+            margin-bottom: 40px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            font-size: 3rem;
+            font-weight: 800;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.95;
+        }
+
+        .back-link {
+            display: inline-block;
+            color: white;
+            text-decoration: none;
+            margin-bottom: 20px;
+            font-weight: 500;
+            opacity: 0.9;
+            transition: opacity 0.2s;
+        }
+
+        .back-link:hover {
+            opacity: 1;
+        }
+
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s, box-shadow 0.3s;
+            text-decoration: none;
+            color: inherit;
+            display: block;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+        }
+
+        .blog-card-header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            height: 200px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+
+        .blog-card-icon {
+            font-size: 4rem;
+        }
+
+        .blog-card-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background: rgba(255, 255, 255, 0.25);
+            backdrop-filter: blur(10px);
+            color: white;
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            font-weight: 600;
+        }
+
+        .blog-card-content {
+            padding: 25px;
+        }
+
+        .blog-card-title {
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+            color: #1a202c;
+        }
+
+        .blog-card-description {
+            font-size: 1rem;
+            color: #4a5568;
+            margin-bottom: 15px;
+            line-height: 1.6;
+        }
+
+        .blog-card-meta {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            font-size: 0.875rem;
+            color: #718096;
+            padding-top: 15px;
+            border-top: 1px solid #e2e8f0;
+        }
+
+        .read-time {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        footer {
+            background: white;
+            color: #2d3748;
+            padding: 40px 20px;
+            margin-top: 80px;
+            text-align: center;
+            box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.05);
+        }
+
+        footer a {
+            color: #667eea;
+            text-decoration: none;
+        }
+
+        footer a:hover {
+            text-decoration: underline;
+        }
+
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .blog-grid {
+                grid-template-columns: 1fr;
+            }
+
+            header {
+                padding: 40px 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="back-link">← Back to Home</a>
+        <h1>Blog</h1>
+        <p class="subtitle">Tutorials, guides, and best practices for React Instagram Stories</p>
+    </header>
+
+    <div class="container">
+        <div class="blog-grid">
+            <!-- Blog Post 1 -->
+            <a href="/blog/how-to-build-instagram-stories-in-react.html" class="blog-card">
+                <div class="blog-card-header">
+                    <div class="blog-card-icon">📱</div>
+                    <div class="blog-card-badge">Tutorial</div>
+                </div>
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">How to Build Instagram Stories in React.js</h2>
+                    <p class="blog-card-description">
+                        Learn how to build Instagram-style stories in React.js with this comprehensive guide. Discover the best practices, implementation steps, and a powerful react-instagram-stories component library.
+                    </p>
+                    <div class="blog-card-meta">
+                        <span>January 25, 2026</span>
+                        <span class="read-time">
+                            <span>📖</span>
+                            <span>10 min read</span>
+                        </span>
+                    </div>
+                </div>
+            </a>
+
+            <!-- Placeholder for future posts -->
+            <div class="blog-card" style="opacity: 0.6; pointer-events: none; border: 2px dashed #e2e8f0;">
+                <div class="blog-card-header" style="background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);">
+                    <div class="blog-card-icon">🚀</div>
+                    <div class="blog-card-badge">Coming Soon</div>
+                </div>
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">Advanced Story Customization Techniques</h2>
+                    <p class="blog-card-description">
+                        Deep dive into advanced customization options, theming, and creating unique story experiences tailored to your brand.
+                    </p>
+                    <div class="blog-card-meta">
+                        <span>Coming Soon</span>
+                        <span class="read-time">
+                            <span>📖</span>
+                            <span>8 min read</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Placeholder for future posts -->
+            <div class="blog-card" style="opacity: 0.6; pointer-events: none; border: 2px dashed #e2e8f0;">
+                <div class="blog-card-header" style="background: linear-gradient(135deg, #cbd5e0 0%, #a0aec0 100%);">
+                    <div class="blog-card-icon">🎨</div>
+                    <div class="blog-card-badge">Coming Soon</div>
+                </div>
+                <div class="blog-card-content">
+                    <h2 class="blog-card-title">Building Interactive Story Components</h2>
+                    <p class="blog-card-description">
+                        Master custom component creation with step-by-step examples of polls, quizzes, forms, and other interactive elements.
+                    </p>
+                    <div class="blog-card-meta">
+                        <span>Coming Soon</span>
+                        <span class="read-time">
+                            <span>📖</span>
+                            <span>12 min read</span>
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <p style="margin-bottom: 10px; font-size: 1.1rem; font-weight: 600;">React Instagram Stories</p>
+            <p style="margin-bottom: 20px;">High-performance, fully customizable Instagram-style Stories component for React</p>
+            <p style="font-size: 0.9rem; opacity: 0.8;">
+                <a href="/">Home</a> •
+                <a href="https://github.com/ankit64jangir/react-instagram-stories">GitHub</a> •
+                <a href="https://www.npmjs.com/package/react-instagram-stories">NPM</a> •
+                <a href="/blog/">Blog</a>
+            </p>
+            <p style="margin-top: 20px; font-size: 0.85rem; opacity: 0.7;">
+                MIT License © 2026 Ankit Jangir
+            </p>
+        </div>
+    </footer>
+</body>
+</html>
