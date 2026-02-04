@@ -46,7 +46,8 @@
   },
   "peerDependencies": {
     "react": ">=18.0.0",
-    "react-dom": ">=18.0.0"
+    "react-dom": ">=18.0.0",
+    "react-router-dom": ">=6.0.0"
   },
   "devDependencies": {
     "@types/node": "^25.0.9",
@@ -63,7 +64,6 @@
   },
   "dependencies": {
     "framer-motion": "^12.26.2",
-    "react-router-dom": "^7.10.1",
     "tailwindcss-animate": "^1.0.7"
   },
   "sideEffects": [
