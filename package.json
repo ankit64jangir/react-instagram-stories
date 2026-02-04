@@ -1,6 +1,6 @@
 {
   "name": "react-instagram-stories",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "High-performance, fully customizable Instagram-style Stories component for React with TypeScript support",
   "author": "Ankit Jangir",
   "license": "MIT",
