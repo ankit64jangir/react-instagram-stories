@@ -1,7 +1,10 @@
 import React, { useEffect, useRef } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { Play, Hand, Keyboard, Zap, Image, Smartphone, Eye, BarChart, Layers, Code, Users, Clock, Globe } from 'lucide-react';
+
+interface HomeProps {
+  onNavigateToDemo?: () => void;
+}
 
 // Shader Background Component
 function ShaderBackground() {
@@ -157,9 +160,7 @@ function ShaderBackground() {
 }
 
 // Hero Section
-function HeroSection() {
-  const navigate = useNavigate();
-
+function HeroSection({ onNavigateToDemo }: { onNavigateToDemo?: () => void }) {
   const fadeUpVariants = {
     hidden: { opacity: 0, y: 30 },
     visible: (i: number) => ({
@@ -231,7 +232,7 @@ function HeroSection() {
             className="flex flex-row flex-wrap gap-4 justify-center items-center"
           >
             <button
-              onClick={() => navigate('/demo')}
+              onClick={onNavigateToDemo}
               className="inline-flex items-center justify-center gap-2 bg-gradient-to-r from-purple-500 via-pink-500 to-orange-500 hover:from-purple-600 hover:via-pink-600 hover:to-orange-600 text-white border-0 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <Play className="w-5 h-5" />
@@ -680,9 +681,7 @@ function AccessibilitySection() {
 }
 
 // CTA Section
-function CTASection() {
-  const navigate = useNavigate();
-
+function CTASection({ onNavigateToDemo }: { onNavigateToDemo?: () => void }) {
   return (
     <section className="bg-slate-50 py-16 md:py-24">
       <div className="container mx-auto px-4">
@@ -696,7 +695,7 @@ function CTASection() {
               Experience the demo and see how easy it is to integrate
             </p>
             <button
-              onClick={() => navigate('/demo')}
+              onClick={onNavigateToDemo}
               className="inline-flex items-center justify-center gap-2 bg-white text-purple-600 hover:bg-purple-50 px-8 py-4 text-lg font-semibold rounded-full shadow-lg hover:shadow-xl transition-all duration-300 hover:scale-105"
             >
               <Play className="w-5 h-5" />
@@ -724,16 +723,16 @@ function Footer() {
   );
 }
 
-export const Home: React.FC = () => {
+export const Home: React.FC<HomeProps> = ({ onNavigateToDemo }) => {
   return (
     <div className="min-h-screen">
-      <HeroSection />
+      <HeroSection onNavigateToDemo={onNavigateToDemo} />
       <FeaturesSection />
       <PerformanceSection />
       <ContentTypesSection />
       <CustomComponentsSection />
       <AccessibilitySection />
-      <CTASection />
+      <CTASection onNavigateToDemo={onNavigateToDemo} />
       <Footer />
     </div>
   );

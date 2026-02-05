@@ -130,7 +130,7 @@
         "name": "How do I add Instagram-like stories to my React app?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "Install react-instagram-stories via npm, import the Stories component and styles, set up React Router, and pass an array of users with their stories. The component handles navigation, gestures, keyboard controls, and progress tracking automatically."
+          "text": "Install react-instagram-stories via npm, import the Stories component and styles, and pass an array of users with their stories. No router required! The component handles URL navigation via query parameters, gestures, keyboard controls, and progress tracking automatically."
         }
       },{
         "@type": "Question",
@@ -154,8 +154,8 @@
       "step": [{
         "@type": "HowToStep",
         "position": 1,
-        "name": "Install Dependencies",
-        "text": "Install react-instagram-stories and react-router-dom using npm, yarn, or pnpm",
+        "name": "Install Package",
+        "text": "Install react-instagram-stories using npm, yarn, or pnpm - no additional dependencies required",
         "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#installation"
       },{
         "@type": "HowToStep",
@@ -172,14 +172,8 @@
       },{
         "@type": "HowToStep",
         "position": 4,
-        "name": "Set Up Routing",
-        "text": "Configure React Router with routes for story navigation and viewer",
-        "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#routing"
-      },{
-        "@type": "HowToStep",
-        "position": 5,
         "name": "Render Stories Component",
-        "text": "Use the Stories component with your user data and customize as needed",
+        "text": "Use the Stories component with your user data - URL navigation works automatically via query parameters",
         "url": "https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html#implementation"
       }]
     }
@@ -578,14 +572,14 @@
             <p>
                 Getting started is simple. Install the package using your preferred package manager:
             </p>
-            <pre><code>npm install react-instagram-stories react-router-dom
+            <pre><code>npm install react-instagram-stories
 # or
-yarn add react-instagram-stories react-router-dom
+yarn add react-instagram-stories
 # or
-pnpm add react-instagram-stories react-router-dom</code></pre>
+pnpm add react-instagram-stories</code></pre>
 
             <p>
-                <strong>Note</strong>: <code>react-router-dom</code> is required for URL-based story navigation, which allows users to share specific stories and maintain browser history.
+                <strong>Note</strong>: No additional dependencies required! The package uses the native browser History API for URL-based story navigation, allowing users to share specific stories and maintain browser history without needing react-router-dom.
             </p>
         </section>
 
@@ -596,26 +590,21 @@ pnpm add react-instagram-stories react-router-dom</code></pre>
             </p>
 
             <h3 id="import">Step 1: Import Components and Styles</h3>
-            <pre><code>import { BrowserRouter, Routes, Route } from 'react-router-dom';
-import { Stories, demoUsers } from 'react-instagram-stories';
+            <pre><code>import { Stories, demoUsers } from 'react-instagram-stories';
 import 'react-instagram-stories/styles.css';</code></pre>
 
-            <h3 id="routing">Step 2: Set Up Routing</h3>
+            <h3 id="routing">Step 2: Use the Stories Component</h3>
             <pre><code>function App() {
-  return (
-    &lt;BrowserRouter&gt;
-      &lt;Routes&gt;
-        &lt;Route path="/" element={&lt;Stories users={demoUsers} /&gt;} /&gt;
-        &lt;Route path="/story/:storyId" element={&lt;Stories users={demoUsers} /&gt;} /&gt;
-      &lt;/Routes&gt;
-    &lt;/BrowserRouter&gt;
-  );
+  return &lt;Stories users={demoUsers} /&gt;;
 }
 
 export default App;</code></pre>
 
             <p>
-                That's it! You now have a fully functional Instagram stories feature with:
+                That's it! Click on any avatar to open the story viewer. The URL automatically updates to <code>?user=userId&story=storyId</code> format, enabling sharing and browser history navigation.
+            </p>
+            <p>
+                You now have a fully functional Instagram stories feature with:
             </p>
             <ul>
                 <li>Avatar list with unread indicators</li>
@@ -623,7 +612,7 @@ export default App;</code></pre>
                 <li>Automatic progress tracking</li>
                 <li>Touch gestures and keyboard navigation</li>
                 <li>Video playback with audio</li>
-                <li>URL-based navigation</li>
+                <li>URL-based navigation (no router needed!)</li>
             </ul>
         </section>
 
@@ -868,7 +857,7 @@ interface BaseStoryItem {
 
             <h3>URL-Based Navigation</h3>
             <p>
-                Stories are URL-aware, allowing users to share specific stories and maintain browser history. When a user opens a story, the URL updates to <code>/story/:storyId</code>, making it easy to share and bookmark.
+                Stories are URL-aware using query parameters, allowing users to share specific stories and maintain browser history. When a user opens a story, the URL updates to <code>?user=userId&story=storyId</code> format, making it easy to share and bookmark. No react-router-dom required!
             </p>
 
             <h3>Keyboard Controls</h3>
@@ -1000,7 +989,6 @@ interface BaseStoryItem {
                 Here's a complete example showing all story types together:
             </p>
             <pre><code>import React from 'react';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Stories } from 'react-instagram-stories';
 import type { User } from 'react-instagram-stories';
 import 'react-instagram-stories/styles.css';
@@ -1047,20 +1035,13 @@ const myUsers: User[] = [
 ];
 
 function App() {
-  return (
-    &lt;BrowserRouter&gt;
-      &lt;Routes&gt;
-        &lt;Route path="/" element={&lt;Stories users={myUsers} /&gt;} /&gt;
-        &lt;Route
-          path="/story/:storyId"
-          element={&lt;Stories users={myUsers} closeNavigateTo="/" /&gt;}
-        /&gt;
-      &lt;/Routes&gt;
-    &lt;/BrowserRouter&gt;
-  );
+  return &lt;Stories users={myUsers} /&gt;;
 }
 
 export default App;</code></pre>
+            <p>
+                Click on any avatar to open the story viewer. The URL updates to <code>?user=user-1&story=story-1</code> format automatically!
+            </p>
         </section>
 
         <section>
@@ -1133,13 +1114,16 @@ export default App;</code></pre>
 
             <h3>Available Exports</h3>
             <pre><code>// Main component
-export { Stories } from 'react-instagram-stories';
+import { Stories } from 'react-instagram-stories';
 
 // Individual components (for advanced usage)
-export { AvatarList, StoryViewer } from 'react-instagram-stories';
+import { AvatarList, StoryViewer } from 'react-instagram-stories';
+
+// Navigation helpers (no react-router-dom needed!)
+import { navigateWithParams, clearQueryParams } from 'react-instagram-stories';
 
 // TypeScript types
-export type {
+import type {
   User,
   StoryItem,
   StoryItemControls,
@@ -1151,7 +1135,7 @@ export type {
 } from 'react-instagram-stories';
 
 // Demo utilities
-export { generateDemoUsers, demoUsers } from 'react-instagram-stories';
+import { generateDemoUsers, demoUsers } from 'react-instagram-stories';
 
 // Styles
 import 'react-instagram-stories/styles.css';</code></pre>
@@ -1183,9 +1167,9 @@ const myStory: ImageStoryItem = {
         </section>
 
         <section>
-            <h2>Without React Router</h2>
+            <h2>Controlled Mode (Without URL Navigation)</h2>
             <p>
-                If you don't need URL navigation, you can use the components directly with local state:
+                If you don't want URL navigation, you can use controlled mode with local state:
             </p>
             <pre><code>import { useState } from 'react';
 import { AvatarList, StoryViewer } from 'react-instagram-stories';
@@ -1217,6 +1201,9 @@ function App() {
     &lt;/&gt;
   );
 }</code></pre>
+            <p>
+                When the <code>isOpen</code> prop is provided, the StoryViewer enters "controlled mode" and won't read from or update URL query parameters.
+            </p>
         </section>
 
         <section id="conclusion">

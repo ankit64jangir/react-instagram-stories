@@ -12,35 +12,94 @@ import { useKeyboard } from "../hooks/useKeyboard";
 import { useFocusTrap } from "../hooks/useFocusTrap";
 import { usePageVisibility } from "../hooks/usePageVisibility";
 import { usePreloader } from "../hooks/usePreloader";
+import { useQueryParams } from "../hooks/useQueryParams";
+import { resolveUserIndex, resolveStoryIndex } from "../utils/storyHelpers";
 import { StoryProgressBars } from "./StoryProgressBars";
 import { StoryItem } from "./StoryItem";
 
 interface StoryViewerProps {
   users: User[];
-  initialUserIndex: number;
+  /** Required in controlled mode, ignored in query param mode */
+  initialUserIndex?: number;
   initialStoryIndex?: number;
-  isOpen: boolean;
-  onClose: () => void;
+  /** When provided, component is in "controlled mode". When omitted, uses URL query params */
+  isOpen?: boolean;
+  /** Required in controlled mode, ignored in query param mode */
+  onClose?: () => void;
   onStoryChange?: (userIndex: number, storyIndex: number) => void;
 }
 
 const DEFAULT_DURATION = 5000;
 
 export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
-  ({ users, initialUserIndex, initialStoryIndex, isOpen, onClose, onStoryChange }) => {
+  ({ users, initialUserIndex, initialStoryIndex, isOpen: isOpenProp, onClose: onCloseProp, onStoryChange }) => {
+    // Query param mode detection - if isOpen is not provided, use URL query params
+    const isQueryParamMode = isOpenProp === undefined;
+
+    // Native query params hook (no react-router-dom needed)
+    const [searchParams, setSearchParams] = useQueryParams();
+
+    // Parse query params: ?user={index|id}&story={index|id}
+    // Read directly from window.location.search to ensure we get the params on initial load
+    const queryIndices = useMemo(() => {
+      if (!isQueryParamMode || users.length === 0) return null;
+
+      // Use window.location.search directly to avoid timing issues with state
+      const currentParams = new URLSearchParams(window.location.search);
+      const userParam = currentParams.get('user');
+      const storyParam = currentParams.get('story');
+
+      if (!userParam) return null;
+
+      const userIndex = resolveUserIndex(users, userParam);
+      if (userIndex === -1) return null;
+
+      const user = users[userIndex];
+      const storyIndex = storyParam ? resolveStoryIndex(user, storyParam) : 0;
+
+      return {
+        userIndex,
+        storyIndex: storyIndex === -1 ? 0 : storyIndex,
+      };
+    }, [isQueryParamMode, searchParams, users]);
+
+    // Debug logging for query param mode
+    useEffect(() => {
+      if (isQueryParamMode && searchParams.get('user') && users.length > 0 && !queryIndices && process.env.NODE_ENV === 'development') {
+        console.warn(
+          `[react-instagram-stories] User not found: "${searchParams.get('user')}"\n` +
+          `Available user IDs: ${users.map(u => u.id).join(', ')}`
+        );
+      }
+    }, [isQueryParamMode, searchParams, users, queryIndices]);
+
+    // Determine actual values based on mode
+    const effectiveInitialUserIndex = isQueryParamMode ? (queryIndices?.userIndex ?? 0) : (initialUserIndex ?? 0);
+    const effectiveInitialStoryIndex = isQueryParamMode ? (queryIndices?.storyIndex ?? 0) : (initialStoryIndex ?? 0);
+    const isOpen = isQueryParamMode ? (queryIndices !== null) : (isOpenProp ?? false);
+
+    // Close handler - clears query params in query param mode
+    const onClose = useCallback(() => {
+      if (isQueryParamMode) {
+        setSearchParams({}, { replace: true });
+      } else if (onCloseProp) {
+        onCloseProp();
+      }
+    }, [isQueryParamMode, setSearchParams, onCloseProp]);
+
     // State
-    const [currentUserIndex, setCurrentUserIndex] = useState(initialUserIndex);
-    const [currentStoryIndex, setCurrentStoryIndex] = useState(initialStoryIndex ?? 0);
+    const [currentUserIndex, setCurrentUserIndex] = useState(effectiveInitialUserIndex);
+    const [currentStoryIndex, setCurrentStoryIndex] = useState(effectiveInitialStoryIndex);
     const [isPaused, setIsPaused] = useState(false);
 
     // Update indices when initial props change
     useEffect(() => {
-      setCurrentUserIndex(initialUserIndex);
-    }, [initialUserIndex]);
+      setCurrentUserIndex(effectiveInitialUserIndex);
+    }, [effectiveInitialUserIndex]);
 
     useEffect(() => {
-      setCurrentStoryIndex(initialStoryIndex ?? 0);
-    }, [initialStoryIndex]);
+      setCurrentStoryIndex(effectiveInitialStoryIndex);
+    }, [effectiveInitialStoryIndex]);
     const [isTransitioning, setIsTransitioning] = useState(false);
     const [transitionDirection, setTransitionDirection] = useState<
       "left" | "right" | null
@@ -50,10 +109,10 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
 
     // Refs
     const containerRef = useRef<HTMLDivElement>(null);
-    const timerRef = useRef<any>(null);
     const scrollPositionRef = useRef(0);
     const currentDurationRef = useRef(DEFAULT_DURATION);
     const hasStartedLoadingRef = useRef(false);
+    const isInitialMountRef = useRef(true);
 
     // Current data
     const currentUser = users[currentUserIndex];
@@ -203,9 +262,9 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         resume: handleResume,
         next: handleNext,
         prev: handlePrevious,
-        setDuration: (ms: number) => timerRef.current?.setDuration(ms),
+        setDuration: (ms: number) => timer.setDuration(ms),
       }),
-      [handlePause, handleResume, handleNext, handlePrevious]
+      [handlePause, handleResume, handleNext, handlePrevious, timer]
     );
 
     // Handle taps for story navigation
@@ -342,6 +401,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         }, 1500); // Simulate 1.5s loading time
       } else if (!isOpen) {
         hasStartedLoadingRef.current = false;
+        isInitialMountRef.current = true; // Reset for next open
         document.body.style.overflow = "";
         setIsLoading(false);
         setIsUserLoading(false);
@@ -352,12 +412,36 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       };
     }, [isOpen, timer]);
 
-    // Notify parent of story changes
+    // Notify parent of story changes and update URL in query param mode
     useEffect(() => {
-      if (onStoryChange && isOpen) {
-        onStoryChange(currentUserIndex, currentStoryIndex);
+      if (isOpen) {
+        // Skip URL update on initial mount to prevent overwriting URL params
+        if (isInitialMountRef.current) {
+          isInitialMountRef.current = false;
+          // Still notify parent callback on initial mount
+          if (onStoryChange) {
+            onStoryChange(currentUserIndex, currentStoryIndex);
+          }
+          return;
+        }
+
+        // Update URL query params (only after initial mount) - always use IDs
+        if (isQueryParamMode && currentUser && currentStory) {
+          const currentUserParam = searchParams.get('user');
+          const currentStoryParam = searchParams.get('story');
+          const newUserParam = currentUser.id;
+          const newStoryParam = currentStory.id;
+
+          if (currentUserParam !== newUserParam || currentStoryParam !== newStoryParam) {
+            setSearchParams({ user: newUserParam, story: newStoryParam }, { replace: true });
+          }
+        }
+        // Notify parent callback
+        if (onStoryChange) {
+          onStoryChange(currentUserIndex, currentStoryIndex);
+        }
       }
-    }, [currentUserIndex, currentStoryIndex, onStoryChange, isOpen]);
+    }, [currentUserIndex, currentStoryIndex, onStoryChange, isOpen, isQueryParamMode, searchParams, setSearchParams]);
 
     // Handle load errors
     const handleLoadError = useCallback(() => {
@@ -448,9 +532,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
                 item={currentStory}
                 isActive={true}
                 isPaused={isPaused || isDraggingRef.current}
-                onDurationDetected={(duration) =>
-                  timerRef.current?.setDuration(duration)
-                }
+                onDurationDetected={(duration) => timer.setDuration(duration)}
                 onLoadError={handleLoadError}
                 onBufferingChange={handleBufferingChange}
                 controls={storyControls}

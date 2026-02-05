@@ -8,7 +8,7 @@ export default defineConfig({
   clean: true,
   sourcemap: true,
   minify: true,
-  external: ['react', 'react-dom', 'framer-motion', 'react-router-dom', 'lucide-react'],
+  external: ['react', 'react-dom', 'framer-motion', 'lucide-react'],
   treeshake: true,
   splitting: false,
   loader: {

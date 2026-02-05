@@ -1,37 +1,31 @@
 import { User } from '../types';
 
-export interface StoryIndices {
-  userIndex: number;
-  storyIndex: number;
-}
-
 /**
- * Finds the user index and story index for a given story ID
+ * Resolves a user value (index or ID) to an index
  * @param users - Array of users
- * @param storyId - The story ID to find
- * @returns Object with userIndex and storyIndex, or null if not found
+ * @param value - Either a numeric index or user ID string
+ * @returns The user index, or -1 if not found
  */
-export function findStoryIndices(users: User[], storyId: string): StoryIndices | null {
-  for (let userIndex = 0; userIndex < users.length; userIndex++) {
-    const user = users[userIndex];
-    const storyIndex = user.stories.findIndex(story => story.id === storyId);
-    if (storyIndex !== -1) {
-      return { userIndex, storyIndex };
-    }
+export function resolveUserIndex(users: User[], value: string): number {
+  const num = parseInt(value, 10);
+  if (!isNaN(num) && num >= 0 && num < users.length) {
+    return num;
   }
-  return null;
+  // Try to find by user ID
+  return users.findIndex(u => u.id === value);
 }
 
 /**
- * Gets the story ID for given user and story indices
- * @param users - Array of users
- * @param userIndex - Index of the user
- * @param storyIndex - Index of the story
- * @returns The story ID, or null if indices are invalid
+ * Resolves a story value (index or ID) to an index
+ * @param user - The user object
+ * @param value - Either a numeric index or story ID string
+ * @returns The story index, or -1 if not found
  */
-export function getStoryId(users: User[], userIndex: number, storyIndex: number): string | null {
-  const user = users[userIndex];
-  if (!user) return null;
-  const story = user.stories[storyIndex];
-  return story ? story.id : null;
+export function resolveStoryIndex(user: User, value: string): number {
+  const num = parseInt(value, 10);
+  if (!isNaN(num) && num >= 0 && num < user.stories.length) {
+    return num;
+  }
+  // Try to find by story ID
+  return user.stories.findIndex(s => s.id === value);
 }

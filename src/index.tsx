@@ -2,3 +2,4 @@
 export { Stories, StoryViewer, AvatarList } from './components';
 export type { User, StoryItem, StoryItemControls, StoryItemType, ImageStoryItem, VideoStoryItem, TextStoryItem, CustomComponentStoryItem } from './types';
 export { generateDemoUsers, demoUsers } from './utils/demoData';
+export { navigateWithParams, clearQueryParams } from './hooks/useQueryParams';

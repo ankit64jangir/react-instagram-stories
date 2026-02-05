@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import { Routes, Route, useNavigate } from 'react-router-dom';
+import React, { useState, useEffect, useCallback } from 'react';
 import { Check, ArrowLeft } from 'lucide-react';
 import { Stories } from './components';
 import { demoUsers, generateDemoUsers } from './utils/demoData';
 import { Home } from './pages/Home';
 
+type Page = 'home' | 'demo';
+
 const DemoPageHeader: React.FC<{
   userCount: 'small' | 'large';
   setUserCount: (count: 'small' | 'large') => void;
-}> = ({ userCount, setUserCount }) => {
-  const navigate = useNavigate();
-
+  onBack: () => void;
+}> = ({ userCount, setUserCount, onBack }) => {
   const features = [
     { text: 'Tap left/right to navigate stories' },
     { text: 'Swipe left/right to switch users' },
@@ -32,7 +32,7 @@ const DemoPageHeader: React.FC<{
       <div className="relative z-10 max-w-6xl mx-auto px-4 pt-8 pb-6">
         {/* Back Button */}
         <button
-          onClick={() => navigate('/')}
+          onClick={onBack}
           className="inline-flex items-center gap-2 px-4 py-2 mb-6 bg-white/80 backdrop-blur-sm rounded-full shadow-md border border-gray-200 hover:bg-white hover:shadow-lg transition-all duration-300 text-gray-700 hover:text-purple-600"
         >
           <ArrowLeft className="w-4 h-4" />
@@ -108,44 +108,75 @@ const DemoPageHeader: React.FC<{
 
 export const Demo: React.FC = () => {
   const [userCount, setUserCount] = useState<'small' | 'large'>('small');
+  const [currentPage, setCurrentPage] = useState<Page>('home');
   const users = userCount === 'small' ? demoUsers : generateDemoUsers(200);
 
+  // Simple page navigation based on hash or query params
+  useEffect(() => {
+    const handleNavigation = () => {
+      const hash = window.location.hash;
+      const params = new URLSearchParams(window.location.search);
+      const hasStoryParams = params.has('user') || params.has('story');
+
+      // Show demo page if hash is #demo OR if story query params are present
+      if (hash === '#demo' || hasStoryParams) {
+        setCurrentPage('demo');
+      } else {
+        setCurrentPage('home');
+      }
+    };
+
+    // Check initial state
+    handleNavigation();
+
+    // Listen for hash changes and popstate (for query param changes)
+    window.addEventListener('hashchange', handleNavigation);
+    window.addEventListener('popstate', handleNavigation);
+    return () => {
+      window.removeEventListener('hashchange', handleNavigation);
+      window.removeEventListener('popstate', handleNavigation);
+    };
+  }, []);
+
+  const navigateTo = useCallback((page: Page) => {
+    if (page === 'demo') {
+      window.location.hash = '#demo';
+    } else {
+      window.location.hash = '';
+    }
+    setCurrentPage(page);
+  }, []);
+
+  if (currentPage === 'home') {
+    return <Home onNavigateToDemo={() => navigateTo('demo')} />;
+  }
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route
-        path="/demo"
-        element={
-          <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom right, rgb(250, 245, 255), rgb(252, 231, 243), rgb(239, 246, 255))' }}>
-            <DemoPageHeader userCount={userCount} setUserCount={setUserCount} />
-
-            {/* Stories Container with white background for proper avatar display */}
-            <div className="bg-white py-4 border-t border-b border-gray-200">
-              <div className="px-4">
-                <Stories users={users} closeNavigateTo="/demo" />
-              </div>
-            </div>
-
-            <footer className="py-6 bg-white/60 backdrop-blur-md">
-              <div className="container mx-auto px-4 text-center text-gray-600 text-sm">
-                <p>
-                  Built with React, TypeScript, and performance optimizations
-                  <br />
-                  <span className="text-xs">
-                    Supports 200+ users with 1000+ stories smoothly
-                  </span>
-                </p>
-              </div>
-            </footer>
-          </div>
-        }
+    <div className="min-h-screen" style={{ background: 'linear-gradient(to bottom right, rgb(250, 245, 255), rgb(252, 231, 243), rgb(239, 246, 255))' }}>
+      <DemoPageHeader
+        userCount={userCount}
+        setUserCount={setUserCount}
+        onBack={() => navigateTo('home')}
       />
-      <Route
-        path="/story/:storyId"
-        element={
-          <Stories users={users} closeNavigateTo="/demo" />
-        }
-      />
-    </Routes>
+
+      {/* Stories Container with white background for proper avatar display */}
+      <div className="bg-white py-4 border-t border-b border-gray-200">
+        <div className="px-4">
+          <Stories users={users} />
+        </div>
+      </div>
+
+      <footer className="py-6 bg-white/60 backdrop-blur-md">
+        <div className="container mx-auto px-4 text-center text-gray-600 text-sm">
+          <p>
+            Built with React, TypeScript, and performance optimizations
+            <br />
+            <span className="text-xs">
+              Supports 200+ users with 1000+ stories smoothly
+            </span>
+          </p>
+        </div>
+      </footer>
+    </div>
   );
 };

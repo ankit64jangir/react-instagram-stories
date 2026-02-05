@@ -5,71 +5,165 @@ A high-performance, fully customizable Instagram-style Stories component for Rea
 [![NPM Version](https://img.shields.io/npm/v/react-instagram-stories.svg)](https://www.npmjs.com/package/react-instagram-stories)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
-## ✨ Features
+## Features
 
-- 🎬 **Multiple Content Types**: Images, videos (with audio), text, and fully custom components
-- 🎨 **Fully Customizable**: Style every aspect of the stories
-- ⚡ **High Performance**: Optimized rendering with intelligent preloading
-- 📱 **Touch & Gestures**: Tap, swipe, and hold interactions
-- ⌨️ **Keyboard Navigation**: Full keyboard support for accessibility
-- 🎯 **TypeScript**: Complete type definitions included
-- ♿ **Accessible**: ARIA labels and keyboard navigation
-- 📦 **Lightweight**: Only **74.8 KB** with zero runtime dependencies
-- 🔄 **Auto Progress**: Smart progress bar that pauses during video buffering
-- 🎭 **Smooth Transitions**: Beautiful animations between stories and users
-- 🔌 **React Router Integration**: Built-in URL-based navigation support
+- **Multiple Content Types**: Images, videos (with audio), text, and fully custom components
+- **Fully Customizable**: Style every aspect of the stories
+- **High Performance**: Optimized rendering with intelligent preloading
+- **Touch & Gestures**: Tap, swipe, and hold interactions
+- **Keyboard Navigation**: Full keyboard support for accessibility
+- **TypeScript**: Complete type definitions included
+- **Accessible**: ARIA labels and keyboard navigation
+- **Lightweight**: ~30 KB with zero runtime dependencies
+- **No Router Required**: Works with native browser history API
+- **URL Navigation**: Built-in query parameter support (`?user=userId&story=storyId`)
+- **Auto Progress**: Smart progress bar that pauses during video buffering
+- **Smooth Transitions**: Beautiful animations between stories and users
 
-## 📦 Installation
+## Installation
 
 ```bash
-npm install react-instagram-stories react-router-dom
+npm install react-instagram-stories
 # or
-yarn add react-instagram-stories react-router-dom
+yarn add react-instagram-stories
 # or
-pnpm add react-instagram-stories react-router-dom
+pnpm add react-instagram-stories
 ```
 
-**Note**: `react-router-dom` is required for URL-based story navigation.
+**Note**: No additional dependencies required! Works without react-router-dom.
 
-## 🚀 Quick Start
+## Quick Start
+
+### Simple Usage (Recommended)
 
 ```tsx
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { Stories, demoUsers } from 'react-instagram-stories';
 import 'react-instagram-stories/styles.css';
 
 function App() {
-  return (
-    <BrowserRouter>
-      <Routes>
-        <Route path="/" element={<Stories users={demoUsers} />} />
-        <Route path="/story/:storyId" element={<Stories users={demoUsers} />} />
-      </Routes>
-    </BrowserRouter>
-  );
+  return <Stories users={demoUsers} />;
 }
 
 export default App;
 ```
 
-## 📖 API Reference
+That's it! Click on any avatar to open the story viewer. The URL automatically updates to `?user=userId&story=storyId` format.
+
+### Using Separate Components
+
+```tsx
+import { AvatarList, StoryViewer, demoUsers, navigateWithParams } from 'react-instagram-stories';
+import 'react-instagram-stories/styles.css';
+
+function App() {
+  const handleAvatarClick = (userIndex: number) => {
+    const user = demoUsers[userIndex];
+    // Navigate using user ID and story ID
+    navigateWithParams({ user: user.id, story: user.stories[0].id });
+  };
+
+  return (
+    <div>
+      <h1>My App</h1>
+      <AvatarList users={demoUsers} onAvatarClick={handleAvatarClick} />
+      <StoryViewer users={demoUsers} />
+    </div>
+  );
+}
+```
+
+## URL Navigation
+
+The StoryViewer supports URL-based navigation using query parameters with **user ID** and **story ID**:
+
+| URL | Result |
+|-----|--------|
+| `?user=user-travel&story=travel-1` | Opens Travel user's first story |
+| `?user=user-polls&story=poll-1` | Opens Interactive user's poll story |
+| `?user=user-launch&story=launch-2` | Opens Events user's second story |
+| No query params | Viewer stays closed |
+
+### Navigation Helpers
+
+```tsx
+import { navigateWithParams, clearQueryParams } from 'react-instagram-stories';
+
+// Open story viewer with user ID and story ID
+navigateWithParams({ user: 'user-travel', story: 'travel-1' });
+
+// Close story viewer (clear params)
+clearQueryParams();
+```
+
+## API Reference
 
 ### `<Stories />` Component
 
-The main component for displaying stories with avatar list and viewer.
+The all-in-one component with avatar list and story viewer.
 
-#### Props
+```tsx
+import { Stories } from 'react-instagram-stories';
+
+<Stories users={myUsers} />
+```
 
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `users` | `User[]` | **required** | Array of user objects with their stories |
-| `closeNavigateTo` | `string` | `'/'` | Navigation path when stories viewer is closed |
 
-### Story Types
+### `<StoryViewer />` Component
 
-The component supports **4 core story types**:
+The story viewer component. Supports two modes:
 
-#### 1. Image Story
+#### Query Param Mode (Default)
+When `isOpen` is not provided, reads from URL query params:
+
+```tsx
+<StoryViewer users={myUsers} />
+```
+
+#### Controlled Mode
+When `isOpen` is provided, you control the viewer state:
+
+```tsx
+<StoryViewer
+  users={myUsers}
+  isOpen={true}
+  initialUserIndex={0}
+  initialStoryIndex={0}
+  onClose={() => console.log('closed')}
+  onStoryChange={(userIndex, storyIndex) => console.log(userIndex, storyIndex)}
+/>
+```
+
+| Prop | Type | Default | Description |
+|------|------|---------|-------------|
+| `users` | `User[]` | **required** | Array of user objects |
+| `isOpen` | `boolean` | - | Controls viewer visibility (enables controlled mode) |
+| `initialUserIndex` | `number` | `0` | Starting user index |
+| `initialStoryIndex` | `number` | `0` | Starting story index |
+| `onClose` | `() => void` | - | Called when viewer closes |
+| `onStoryChange` | `(userIndex, storyIndex) => void` | - | Called when story changes |
+
+### `<AvatarList />` Component
+
+The horizontal scrollable avatar list.
+
+```tsx
+<AvatarList
+  users={myUsers}
+  onAvatarClick={(userIndex) => console.log(userIndex)}
+/>
+```
+
+| Prop | Type | Description |
+|------|------|-------------|
+| `users` | `User[]` | Array of user objects |
+| `onAvatarClick` | `(userIndex: number) => void` | Called when avatar is clicked |
+
+## Story Types
+
+### 1. Image Story
 
 ```tsx
 {
@@ -81,7 +175,7 @@ The component supports **4 core story types**:
 }
 ```
 
-#### 2. Video Story
+### 2. Video Story
 
 ```tsx
 {
@@ -93,11 +187,11 @@ The component supports **4 core story types**:
 ```
 
 **Features:**
-- ✅ Audio enabled by default
-- ✅ Progress bar pauses during buffering
-- ✅ Auto-detects video duration
+- Audio enabled by default
+- Progress bar pauses during buffering
+- Auto-detects video duration
 
-#### 3. Text Story
+### 3. Text Story
 
 ```tsx
 {
@@ -110,9 +204,9 @@ The component supports **4 core story types**:
 }
 ```
 
-#### 4. Custom Component Story
+### 4. Custom Component Story
 
-The most powerful feature - add ANY custom React component as a story!
+Add ANY custom React component as a story!
 
 ```tsx
 const MyCustomStory: React.FC<StoryItemControls> = ({
@@ -146,11 +240,11 @@ const MyCustomStory: React.FC<StoryItemControls> = ({
 - `prev()` - Go to previous story
 - `setDuration(ms: number)` - Update story duration dynamically
 
-## 💡 Custom Component Examples
+## Custom Component Examples
 
 Build interactive experiences! Here are examples included in `demoUsers`:
 
-### 📊 Poll Component
+### Poll Component
 
 ```tsx
 const PollComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => {
@@ -215,191 +309,11 @@ const PollComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => 
     </div>
   );
 };
-
-// Use it in your stories:
-{
-  id: 'poll-1',
-  type: 'custom_component',
-  component: PollComponent,
-  duration: 15000, // Extended duration for interaction
-}
 ```
 
-### 🧠 Quiz Component
+**Tip**: All these examples are included in `demoUsers`! Import and use them to see how they work.
 
-```tsx
-const QuizComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => {
-  const [selected, setSelected] = React.useState<number | null>(null);
-  const correctAnswer = 2; // Jupiter
-  const options = ['Mars', 'Saturn', 'Jupiter', 'Neptune'];
-
-  React.useEffect(() => {
-    pause();
-    return () => resume();
-  }, [pause, resume]);
-
-  const handleAnswer = (index: number) => {
-    setSelected(index);
-    setTimeout(() => {
-      resume();
-      next();
-    }, 2500);
-  };
-
-  return (
-    <div style={{ /* styles */ }}>
-      <h2>Which planet is the largest in our solar system?</h2>
-      {options.map((option, index) => (
-        <button
-          key={index}
-          onClick={() => handleAnswer(index)}
-          disabled={selected !== null}
-          style={{
-            background: selected === index
-              ? (index === correctAnswer ? '#4CAF50' : '#f44336')
-              : 'rgba(255,255,255,0.2)'
-          }}
-        >
-          {option}
-          {selected !== null && index === correctAnswer && ' ✓'}
-        </button>
-      ))}
-      {selected !== null && (
-        <p style={{ marginTop: '20px', fontWeight: 'bold' }}>
-          {selected === correctAnswer ? '🎉 Correct!' : '❌ Wrong! Jupiter is the largest.'}
-        </p>
-      )}
-    </div>
-  );
-};
-```
-
-### ⏱️ Countdown Component
-
-```tsx
-const CountdownComponent: React.FC<StoryItemControls> = () => {
-  const [timeLeft, setTimeLeft] = React.useState({
-    days: 12,
-    hours: 8,
-    minutes: 45,
-    seconds: 30,
-  });
-
-  React.useEffect(() => {
-    const timer = setInterval(() => {
-      setTimeLeft((prev) => {
-        let { days, hours, minutes, seconds } = prev;
-        seconds--;
-        if (seconds < 0) {
-          seconds = 59;
-          minutes--;
-        }
-        if (minutes < 0) {
-          minutes = 59;
-          hours--;
-        }
-        if (hours < 0) {
-          hours = 23;
-          days--;
-        }
-        return { days, hours, minutes, seconds };
-      });
-    }, 1000);
-
-    return () => clearInterval(timer);
-  }, []);
-
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      background: 'linear-gradient(135deg, #0f0c29 0%, #302b63 50%, #24243e 100%)',
-      padding: '20px'
-    }}>
-      <div style={{ fontSize: '48px', marginBottom: '15px' }}>🚀</div>
-      <h2 style={{ color: 'white', fontSize: '24px' }}>Product Launch</h2>
-      <p style={{ color: 'rgba(255,255,255,0.7)', marginBottom: '30px' }}>
-        Something amazing is coming...
-      </p>
-
-      <div style={{ display: 'flex', gap: '12px' }}>
-        {Object.entries(timeLeft).map(([key, value]) => (
-          <div key={key} style={{ textAlign: 'center' }}>
-            <div style={{
-              background: 'rgba(255,255,255,0.2)',
-              borderRadius: '12px',
-              padding: '15px 20px',
-              minWidth: '70px'
-            }}>
-              <div style={{ fontSize: '32px', fontWeight: 'bold', color: 'white' }}>
-                {String(value).padStart(2, '0')}
-              </div>
-            </div>
-            <div style={{ color: 'rgba(255,255,255,0.8)', fontSize: '12px', marginTop: '8px' }}>
-              {key.toUpperCase()}
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  );
-};
-```
-
-### 🎚️ Slider Component
-
-```tsx
-const SliderComponent: React.FC<StoryItemControls> = ({ pause, resume }) => {
-  const [value, setValue] = React.useState(50);
-
-  React.useEffect(() => {
-    pause();
-    return () => resume();
-  }, [pause, resume]);
-
-  return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      alignItems: 'center',
-      justifyContent: 'center',
-      height: '100%',
-      background: 'linear-gradient(135deg, #f093fb 0%, #f5576c 100%)',
-      padding: '40px'
-    }}>
-      <div style={{ fontSize: '48px', marginBottom: '20px' }}>🔥</div>
-      <h2 style={{ color: 'white', fontSize: '24px', marginBottom: '10px' }}>
-        How excited are you?
-      </h2>
-
-      <div style={{ fontSize: '64px', margin: '30px 0' }}>{value}</div>
-
-      <input
-        type="range"
-        min="0"
-        max="100"
-        value={value}
-        onChange={(e) => setValue(Number(e.target.value))}
-        style={{
-          width: '80%',
-          height: '8px',
-          borderRadius: '4px',
-          appearance: 'none',
-          background: 'rgba(255,255,255,0.3)',
-          outline: 'none'
-        }}
-      />
-    </div>
-  );
-};
-```
-
-**💡 Tip**: All these examples are included in `demoUsers`! Import and use them to see how they work.
-
-## 🎨 Styling
+## Styling
 
 Import the default styles:
 
@@ -425,18 +339,18 @@ Override with custom CSS:
 }
 
 /* Style avatars */
-.avatar-list {
+.story-avatar-list {
   padding: 20px;
   gap: 16px;
 }
 
-.avatar {
+.story-avatar-image-wrapper {
   width: 80px;
   height: 80px;
 }
 ```
 
-## 💡 Advanced Usage
+## Advanced Usage
 
 ### Using Demo Data
 
@@ -503,9 +417,9 @@ const myUsers: User[] = [
 ];
 ```
 
-### Without React Router
+### Controlled Mode (Without URL)
 
-If you don't need URL navigation, use components directly:
+If you don't want URL navigation, use controlled mode:
 
 ```tsx
 import { useState } from 'react';
@@ -534,20 +448,20 @@ function App() {
 }
 ```
 
-## ⌨️ Keyboard Controls
+## Keyboard Controls
 
 - `←` `→` - Navigate stories
 - `Space` - Pause/Resume
 - `Esc` - Close viewer
 
-## 🖱️ Mouse & Touch
+## Mouse & Touch
 
 - **Tap Left/Right** - Navigate stories
 - **Swipe Left/Right** - Change users
 - **Swipe Down** - Close
 - **Hold/Hover** - Pause
 
-## 🎯 TypeScript Types
+## TypeScript Types
 
 ```tsx
 import type {
@@ -581,14 +495,20 @@ interface User {
 }
 ```
 
-## 📦 Package Exports
+## Package Exports
 
 ```tsx
-// Main component
-export { Stories } from 'react-instagram-stories';
+// Components
+import { Stories, StoryViewer, AvatarList } from 'react-instagram-stories';
+
+// Navigation helpers
+import { navigateWithParams, clearQueryParams } from 'react-instagram-stories';
+
+// Demo data
+import { demoUsers, generateDemoUsers } from 'react-instagram-stories';
 
 // Types
-export type {
+import type {
   User,
   StoryItem,
   StoryItemControls,
@@ -599,49 +519,40 @@ export type {
   CustomComponentStoryItem
 } from 'react-instagram-stories';
 
-// Utilities
-export { generateDemoUsers, demoUsers } from 'react-instagram-stories';
-
 // Styles
 import 'react-instagram-stories/styles.css';
 ```
 
-## 🚀 Performance
+## Performance
 
-- **Bundle Size**: 74.8 KB (20 KB gzipped)
+- **Bundle Size**: ~30 KB (minified)
+- **Gzipped**: ~10 KB
 - **Zero Runtime Dependencies**
 - **Smart Preloading**: Preloads adjacent stories
 - **Optimized Rendering**: Uses React.memo
 - **Video Buffering Detection**: Pauses progress during buffering
 
-## 📊 Package Info
-
-- **ESM**: 28.77 KB
-- **CJS**: 30.44 KB
-- **Gzipped**: ~20 KB
-- **Dependencies**: 0 (React is peer dep)
-
-## 🛠️ Tech Stack
+## Tech Stack
 
 - React 18+
 - TypeScript
-- React Router DOM (peer dependency)
+- Native Browser History API (no router needed)
 - tsup (bundler)
 
-## 🤝 Contributing
+## Contributing
 
 Contributions welcome! Open an issue or PR.
 
-## 📄 License
+## License
 
 MIT © [Ankit Jangir](https://github.com/ankit64jangir)
 
-## 📞 Support
+## Support
 
-- 🐛 [Issues](https://github.com/ankit64jangir/react-instagram-stories/issues)
-- 💬 [Discussions](https://github.com/ankit64jangir/react-instagram-stories/discussions)
-- ⭐ [Star](https://github.com/ankit64jangir/react-instagram-stories)
+- [Issues](https://github.com/ankit64jangir/react-instagram-stories/issues)
+- [Discussions](https://github.com/ankit64jangir/react-instagram-stories/discussions)
+- [Star on GitHub](https://github.com/ankit64jangir/react-instagram-stories)
 
 ---
 
-Made with ❤️ by Ankit Jangir
+Made with love by Ankit Jangir
