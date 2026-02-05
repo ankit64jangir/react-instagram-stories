@@ -1,4 +1,5 @@
 import { defineConfig } from 'tsup';
+import { copyFileSync } from 'fs';
 
 export default defineConfig({
   entry: ['src/index.tsx'],
@@ -19,4 +20,9 @@ export default defineConfig({
     };
   },
   outDir: 'dist',
+  onSuccess: async () => {
+    // Copy styles.css to dist folder
+    copyFileSync('src/styles.css', 'dist/styles.css');
+    console.log('✓ Copied styles.css to dist/');
+  },
 });
