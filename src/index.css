@@ -1,5 +1,5 @@
 /* Import custom styles first */
-@import './styles.css';
+@import "./styles.css";
 
 @tailwind base;
 @tailwind components;
@@ -57,7 +57,14 @@
   position: relative !important;
   padding: 3px !important;
   border-radius: 50% !important;
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%) !important;
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  ) !important;
 }
 
 .story-avatar-read .story-avatar-ring {
@@ -109,6 +116,5 @@
   width: 100% !important;
   max-width: 500px !important;
   height: 100dvh !important;
-  max-height: 900px !important;
   background: #000 !important;
 }

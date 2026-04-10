@@ -179,10 +179,6 @@
   max-width: 500px;
   height: 100dvh;
   z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  /* perspective set inline via JS when cube is active */
 }
 
 .story-viewer-cube-wrapper {
@@ -191,7 +187,6 @@
   height: 100%;
   /* transform-style and transform set inline via JS only when cube is active */
 }
-
 
 /* Header */
 .story-viewer-header {
@@ -462,7 +457,6 @@
   .story-viewer-cube-viewport {
     max-height: 900px;
   }
-
 }
 
 /* ========================================
@@ -582,5 +576,3 @@
 .story-item-video video {
   transition: opacity 0.3s ease;
 }
-
-
