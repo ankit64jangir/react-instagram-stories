@@ -46,6 +46,7 @@ interface DragInfo {
   currentX: number;
   isDragging: boolean;
   pointerId: number;
+  target: EventTarget | null; // original pointerDown target (for tap detection)
 }
 
 // ── Cube geometry helpers ──
@@ -313,6 +314,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         currentX: event.clientX,
         isDragging: false,
         pointerId: event.pointerId,
+        target: event.target,
       };
 
       containerRef.current?.setPointerCapture(event.pointerId);
@@ -413,7 +415,9 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         // ── Tap — navigate stories ──
         handleResume();
 
-        const target = event.target as HTMLElement;
+        // Use the ORIGINAL pointerDown target, not event.target
+        // (pointer capture retargets pointerUp to the capturing element)
+        const target = (drag.target as HTMLElement) || (event.target as HTMLElement);
         if (
           target.closest(".story-viewer-close") ||
           target.closest("button") ||
