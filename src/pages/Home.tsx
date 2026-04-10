@@ -1,6 +1,6 @@
 import React, { useEffect, useRef } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Play, Hand, Keyboard, Zap, Image, Smartphone, Eye, BarChart, Layers, Code, Users, Clock, Globe } from 'lucide-react';
+import { Play, Hand, Keyboard, Zap, Image, Eye, BarChart, Layers, Code, Users, Clock, Globe } from 'lucide-react';
 
 interface HomeProps {
   onNavigateToDemo?: () => void;
@@ -435,22 +435,22 @@ function AnimatedContainer({
 
 const features: FeatureType[] = [
   {
-    title: 'Touch Gestures',
+    title: '3D Cube Transition',
     icon: Hand,
     description:
-      'Tap left/right to navigate, swipe to switch users, long-press to pause',
+      'Instagram-style 3D cube drag to peek at and switch between users',
   },
   {
-    title: 'Keyboard Support',
-    icon: Keyboard,
+    title: 'Tailwind CSS Support',
+    icon: Layers,
     description:
-      'Full keyboard navigation with arrow keys, space, and escape',
+      'Fully customizable via classNames props — style every sub-element with Tailwind or custom CSS',
   },
   {
     title: 'High Performance',
     icon: Zap,
     description:
-      'Virtualized list, smart preloading, and optimized animations',
+      'Virtualized list, smart preloading, and 60fps hardware-accelerated animations',
   },
   {
     title: 'Media Support',
@@ -458,9 +458,9 @@ const features: FeatureType[] = [
     description: 'Images, videos, text, and custom React components',
   },
   {
-    title: 'Mobile Friendly',
-    icon: Smartphone,
-    description: 'Responsive design optimized for all screen sizes',
+    title: 'Keyboard & Touch',
+    icon: Keyboard,
+    description: 'Full keyboard navigation, tap, drag, and long-press support',
   },
   {
     title: 'Accessible',
@@ -516,7 +516,7 @@ const performanceFeatures: FeatureType[] = [
   {
     title: 'Zero Dependencies',
     icon: Code,
-    description: 'Lightweight bundle with no external runtime dependencies',
+    description: 'Lightweight bundle with zero runtime dependencies',
   },
 ];
 

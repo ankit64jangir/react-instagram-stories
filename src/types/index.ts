@@ -59,24 +59,6 @@ export interface User {
   hasUnreadStories?: boolean;
 }
 
-export interface StoriesData {
-  users: User[];
-}
-
-export interface ViewerState {
-  isOpen: boolean;
-  currentUserIndex: number;
-  currentStoryIndex: number;
-}
-
-export interface GestureHandlers {
-  onTouchStart: (e: React.TouchEvent) => void;
-  onTouchMove: (e: React.TouchEvent) => void;
-  onTouchEnd: (e: React.TouchEvent) => void;
-  onMouseDown: (e: React.MouseEvent) => void;
-  onMouseUp: (e: React.MouseEvent) => void;
-}
-
 // ── ClassNames types for Tailwind / custom CSS support ──
 
 export interface AvatarClassNames {

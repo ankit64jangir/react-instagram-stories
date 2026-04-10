@@ -13,11 +13,13 @@ const DemoPageHeader: React.FC<{
 }> = ({ userCount, setUserCount, onBack }) => {
   const features = [
     { text: 'Tap left/right to navigate stories' },
-    { text: 'Swipe left/right to switch users' },
-    { text: 'Swipe down to close' },
+    { text: '3D cube drag to switch users (Instagram-style)' },
+    { text: 'Resumes where you left off on back-navigation' },
     { text: 'Long-press or hover to pause' },
     { text: 'Keyboard navigation (←/→/Space/Esc)' },
+    { text: 'Fully customizable with Tailwind CSS (classNames)' },
     { text: 'Image, Video, Text, and Custom Components' },
+    { text: 'Zero runtime dependencies' },
   ];
 
   return (

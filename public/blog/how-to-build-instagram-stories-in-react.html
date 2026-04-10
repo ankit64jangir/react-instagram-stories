@@ -123,7 +123,7 @@
         "name": "What is the best way to implement Instagram stories in React?",
         "acceptedAnswer": {
           "@type": "Answer",
-          "text": "The best way to implement Instagram stories in React is to use the react-instagram-stories npm package, which provides a high-performance, fully customizable component with TypeScript support, video/image handling, interactive features, and only 74KB gzipped size."
+          "text": "The best way to implement Instagram stories in React is to use the react-instagram-stories npm package, which provides a high-performance, fully customizable component with TypeScript support, 3D cube drag transitions, Tailwind CSS classNames customization, video/image handling, interactive features, and zero runtime dependencies."
         }
       },{
         "@type": "Question",
@@ -541,13 +541,18 @@
                 </div>
 
                 <div class="feature-card">
-                    <h4>High Performance</h4>
-                    <p>Only 74.8KB (20KB gzipped) with zero runtime dependencies and intelligent preloading</p>
+                    <h4>3D Cube Transitions</h4>
+                    <p>Instagram-style 3D cube drag to peek at and switch between users, with snap-on-release</p>
                 </div>
 
                 <div class="feature-card">
-                    <h4>Full Customization</h4>
-                    <p>Style every aspect with CSS, create custom components, and control behavior</p>
+                    <h4>Tailwind CSS Support</h4>
+                    <p>Fully customizable via classNames props -- style every sub-element with Tailwind or custom CSS</p>
+                </div>
+
+                <div class="feature-card">
+                    <h4>High Performance</h4>
+                    <p>Zero runtime dependencies, intelligent preloading, and 60fps hardware-accelerated animations</p>
                 </div>
 
                 <div class="feature-card">
@@ -609,9 +614,12 @@ export default App;</code></pre>
             <ul>
                 <li>Avatar list with unread indicators</li>
                 <li>Full-screen story viewer</li>
+                <li>3D cube drag transition between users</li>
+                <li>Story resume on back-navigation</li>
                 <li>Automatic progress tracking</li>
                 <li>Touch gestures and keyboard navigation</li>
                 <li>Video playback with audio</li>
+                <li>Tailwind CSS customization via classNames props</li>
                 <li>URL-based navigation (no router needed!)</li>
             </ul>
         </section>
@@ -1104,10 +1112,10 @@ export default App;</code></pre>
                         <td style="padding: 12px; border: 1px solid #e2e8f0;">Array of user objects with their stories</td>
                     </tr>
                     <tr style="background: #f7fafc;">
-                        <td style="padding: 12px; border: 1px solid #e2e8f0;"><code>closeNavigateTo</code></td>
-                        <td style="padding: 12px; border: 1px solid #e2e8f0;">string</td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;"><code>classNames</code></td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">StoriesClassNames</td>
                         <td style="padding: 12px; border: 1px solid #e2e8f0;">No</td>
-                        <td style="padding: 12px; border: 1px solid #e2e8f0;">Navigation path when viewer closes (default: '/')</td>
+                        <td style="padding: 12px; border: 1px solid #e2e8f0;">Custom CSS classes for styling sub-elements (Tailwind, CSS modules, etc.)</td>
                     </tr>
                 </tbody>
             </table>
@@ -1131,7 +1139,11 @@ import type {
   ImageStoryItem,
   VideoStoryItem,
   TextStoryItem,
-  CustomComponentStoryItem
+  CustomComponentStoryItem,
+  StoriesClassNames,
+  StoryViewerClassNames,
+  AvatarListClassNames,
+  AvatarClassNames,
 } from 'react-instagram-stories';
 
 // Demo utilities
@@ -1153,7 +1165,10 @@ import 'react-instagram-stories/styles.css';</code></pre>
   ImageStoryItem,
   VideoStoryItem,
   TextStoryItem,
-  CustomComponentStoryItem
+  CustomComponentStoryItem,
+  StoriesClassNames,
+  StoryViewerClassNames,
+  AvatarListClassNames,
 } from 'react-instagram-stories';
 
 // Type-safe story creation
@@ -1209,10 +1224,10 @@ function App() {
         <section id="conclusion">
             <h2>Conclusion</h2>
             <p>
-                Building Instagram-style stories in React doesn't have to be complicated. With the <code>react-instagram-stories</code> package, you get a production-ready solution that handles all the complex aspects like media playback, gestures, keyboard navigation, and performance optimization.
+                Building Instagram-style stories in React doesn't have to be complicated. With the <code>react-instagram-stories</code> package, you get a production-ready solution that handles all the complex aspects like media playback, 3D cube transitions, gestures, keyboard navigation, and performance optimization -- all with zero runtime dependencies.
             </p>
             <p>
-                The package's support for custom components means you're not limited to simple image and video stories. You can create interactive polls, quizzes, product showcases, tutorials, and any other creative content you can imagine.
+                The package's support for custom components and Tailwind CSS customization via <code>classNames</code> props means you can build interactive polls, quizzes, product showcases, and fully styled experiences that match your brand.
             </p>
             <p>
                 Whether you're building a social network, an e-commerce platform, or an educational app, stories are a proven way to increase engagement and create memorable user experiences.
@@ -1248,7 +1263,7 @@ function App() {
     <footer>
         <div class="container">
             <p style="margin-bottom: 10px; font-size: 1.1rem; font-weight: 600;">React Instagram Stories</p>
-            <p style="margin-bottom: 20px;">High-performance, fully customizable Instagram-style Stories component for React</p>
+            <p style="margin-bottom: 20px;">High-performance Instagram-style Stories for React with 3D cube transitions, Tailwind CSS support, and zero runtime dependencies</p>
             <p style="font-size: 0.9rem; opacity: 0.8;">
                 <a href="/">Home</a> •
                 <a href="https://github.com/ankit64jangir/react-instagram-stories">GitHub</a> •

@@ -14,11 +14,14 @@ A high-performance, fully customizable Instagram-style Stories component for Rea
 - **Keyboard Navigation**: Full keyboard support for accessibility
 - **TypeScript**: Complete type definitions included
 - **Accessible**: ARIA labels and keyboard navigation
+- **Tailwind CSS Support**: Customize every sub-element via `classNames` prop with Tailwind or custom CSS classes
+- **3D Cube Transition**: Instagram-style 3D cube drag transition when switching between users
+- **Story Resume**: Dragging back to a previous user resumes their story from where you left off
 - **Lightweight**: ~30 KB with zero runtime dependencies
 - **No Router Required**: Works with native browser history API
 - **URL Navigation**: Built-in query parameter support (`?user=userId&story=storyId`)
 - **Auto Progress**: Smart progress bar that pauses during video buffering
-- **Smooth Transitions**: Beautiful animations between stories and users
+- **Smooth Transitions**: 3D cube drag transitions between users, smooth animations between stories
 
 ## Installation
 
@@ -110,6 +113,7 @@ import { Stories } from 'react-instagram-stories';
 | Prop | Type | Default | Description |
 |------|------|---------|-------------|
 | `users` | `User[]` | **required** | Array of user objects with their stories |
+| `classNames` | `StoriesClassNames` | - | Object to customize sub-element CSS classes (Tailwind or custom) |
 
 ### `<StoryViewer />` Component
 
@@ -144,6 +148,7 @@ When `isOpen` is provided, you control the viewer state:
 | `initialStoryIndex` | `number` | `0` | Starting story index |
 | `onClose` | `() => void` | - | Called when viewer closes |
 | `onStoryChange` | `(userIndex, storyIndex) => void` | - | Called when story changes |
+| `classNames` | `StoryViewerClassNames` | - | Object to customize sub-element CSS classes (Tailwind or custom) |
 
 ### `<AvatarList />` Component
 
@@ -160,6 +165,7 @@ The horizontal scrollable avatar list.
 |------|------|-------------|
 | `users` | `User[]` | Array of user objects |
 | `onAvatarClick` | `(userIndex: number) => void` | Called when avatar is clicked |
+| `classNames` | `AvatarListClassNames` | Object to customize sub-element CSS classes (Tailwind or custom) |
 
 ## Story Types
 
@@ -350,6 +356,51 @@ Override with custom CSS:
 }
 ```
 
+## Customization with classNames
+
+Every component accepts a `classNames` prop for fine-grained styling using Tailwind CSS or custom CSS classes. The prop is a typed object that maps to specific sub-elements.
+
+```tsx
+<Stories
+  users={users}
+  classNames={{
+    avatarList: {
+      root: "bg-gray-900 p-4",
+      avatar: { ring: "border-pink-500", username: "text-xs text-gray-400" },
+    },
+    storyViewer: {
+      overlay: "bg-black/90",
+      closeButton: "hover:text-gray-300",
+      progressBars: { bar: { fill: "bg-gradient-to-r from-pink-500 to-purple-500" } },
+    },
+  }}
+/>
+```
+
+You can also pass `classNames` directly to `StoryViewer` or `AvatarList` when using them separately:
+
+```tsx
+<AvatarList
+  users={users}
+  onAvatarClick={handleClick}
+  classNames={{
+    root: "bg-gray-900 p-4",
+    avatar: { ring: "border-pink-500", username: "text-xs text-gray-400" },
+  }}
+/>
+
+<StoryViewer
+  users={users}
+  classNames={{
+    overlay: "bg-black/90",
+    closeButton: "hover:text-gray-300",
+    progressBars: { bar: { fill: "bg-gradient-to-r from-pink-500 to-purple-500" } },
+  }}
+/>
+```
+
+All `classNames` types are exported from the package. See the [TypeScript Types](#typescript-types) section for the full list.
+
 ## Advanced Usage
 
 ### Using Demo Data
@@ -458,6 +509,7 @@ function App() {
 
 - **Tap Left/Right** - Navigate stories
 - **Swipe Left/Right** - Change users
+- **Drag Left/Right** - 3D cube transition between users (peek at next/previous user, snaps on release)
 - **Swipe Down** - Close
 - **Hold/Hover** - Pause
 
@@ -472,7 +524,14 @@ import type {
   ImageStoryItem,
   VideoStoryItem,
   TextStoryItem,
-  CustomComponentStoryItem
+  CustomComponentStoryItem,
+  StoriesClassNames,
+  StoryViewerClassNames,
+  AvatarListClassNames,
+  AvatarClassNames,
+  StoryProgressBarsClassNames,
+  ProgressBarClassNames,
+  StoryItemClassNames
 } from 'react-instagram-stories';
 
 // Core Types
@@ -492,6 +551,45 @@ interface User {
   avatarUrl: string;
   stories: StoryItem[];
   hasUnreadStories?: boolean;
+}
+
+// ClassNames Types (for Tailwind / custom CSS customization)
+interface StoriesClassNames {
+  avatarList?: AvatarListClassNames;
+  storyViewer?: StoryViewerClassNames;
+}
+
+interface AvatarListClassNames {
+  root?: string;
+  avatar?: AvatarClassNames;
+}
+
+interface AvatarClassNames {
+  root?: string;
+  ring?: string;
+  image?: string;
+  username?: string;
+}
+
+interface StoryViewerClassNames {
+  overlay?: string;
+  closeButton?: string;
+  progressBars?: StoryProgressBarsClassNames;
+  storyItem?: StoryItemClassNames;
+}
+
+interface StoryProgressBarsClassNames {
+  root?: string;
+  bar?: ProgressBarClassNames;
+}
+
+interface ProgressBarClassNames {
+  root?: string;
+  fill?: string;
+}
+
+interface StoryItemClassNames {
+  root?: string;
 }
 ```
 
@@ -516,7 +614,14 @@ import type {
   ImageStoryItem,
   VideoStoryItem,
   TextStoryItem,
-  CustomComponentStoryItem
+  CustomComponentStoryItem,
+  StoriesClassNames,
+  StoryViewerClassNames,
+  AvatarListClassNames,
+  AvatarClassNames,
+  StoryProgressBarsClassNames,
+  ProgressBarClassNames,
+  StoryItemClassNames
 } from 'react-instagram-stories';
 
 // Styles
@@ -527,7 +632,7 @@ import 'react-instagram-stories/styles.css';
 
 - **Bundle Size**: ~30 KB (minified)
 - **Gzipped**: ~10 KB
-- **Zero Runtime Dependencies**
+- **Zero Runtime Dependencies**: No production dependencies at all (framer-motion and tailwindcss-animate are dev-only)
 - **Smart Preloading**: Preloads adjacent stories
 - **Optimized Rendering**: Uses React.memo
 - **Video Buffering Detection**: Pauses progress during buffering
@@ -536,6 +641,7 @@ import 'react-instagram-stories/styles.css';
 
 - React 18+
 - TypeScript
+- CSS 3D Transforms (cube transition between users)
 - Native Browser History API (no router needed)
 - tsup (bundler)
 
