@@ -2,7 +2,7 @@ import { useEffect, useRef, useCallback } from 'react';
 import { StoryItem } from '../types';
 
 interface PreloadCache {
-  [key: string]: boolean;
+  [key: string]: 'loaded' | 'failed';
 }
 
 export const usePreloader = () => {
@@ -11,15 +11,19 @@ export const usePreloader = () => {
 
   const preloadImage = useCallback((src: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      if (cacheRef.current[src]) {
+      if (cacheRef.current[src] === 'loaded') {
         resolve();
+        return;
+      }
+      if (cacheRef.current[src] === 'failed') {
+        reject(new Error(`Previously failed to load image: ${src}`));
         return;
       }
 
       if (loadingRef.current.has(src)) {
         // Already loading, wait for it
         const checkInterval = setInterval(() => {
-          if (cacheRef.current[src] || !loadingRef.current.has(src)) {
+          if (cacheRef.current[src] != null || !loadingRef.current.has(src)) {
             clearInterval(checkInterval);
             resolve();
           }
@@ -31,11 +35,12 @@ export const usePreloader = () => {
 
       const img = new Image();
       img.onload = () => {
-        cacheRef.current[src] = true;
+        cacheRef.current[src] = 'loaded';
         loadingRef.current.delete(src);
         resolve();
       };
       img.onerror = () => {
+        cacheRef.current[src] = 'failed';
         loadingRef.current.delete(src);
         reject(new Error(`Failed to load image: ${src}`));
       };
@@ -45,14 +50,18 @@ export const usePreloader = () => {
 
   const preloadVideo = useCallback((src: string): Promise<void> => {
     return new Promise((resolve, reject) => {
-      if (cacheRef.current[src]) {
+      if (cacheRef.current[src] === 'loaded') {
         resolve();
+        return;
+      }
+      if (cacheRef.current[src] === 'failed') {
+        reject(new Error(`Previously failed to load video: ${src}`));
         return;
       }
 
       if (loadingRef.current.has(src)) {
         const checkInterval = setInterval(() => {
-          if (cacheRef.current[src] || !loadingRef.current.has(src)) {
+          if (cacheRef.current[src] != null || !loadingRef.current.has(src)) {
             clearInterval(checkInterval);
             resolve();
           }
@@ -66,13 +75,14 @@ export const usePreloader = () => {
       video.preload = 'auto';
       
       const handleCanPlay = () => {
-        cacheRef.current[src] = true;
+        cacheRef.current[src] = 'loaded';
         loadingRef.current.delete(src);
         cleanup();
         resolve();
       };
 
       const handleError = () => {
+        cacheRef.current[src] = 'failed';
         loadingRef.current.delete(src);
         cleanup();
         reject(new Error(`Failed to load video: ${src}`));
@@ -119,7 +129,7 @@ export const usePreloader = () => {
   }, [preloadStoryItem]);
 
   const isPreloaded = useCallback((src: string): boolean => {
-    return cacheRef.current[src] || false;
+    return cacheRef.current[src] === 'loaded';
   }, []);
 
   const clearCache = useCallback(() => {

@@ -76,3 +76,55 @@ export interface GestureHandlers {
   onMouseDown: (e: React.MouseEvent) => void;
   onMouseUp: (e: React.MouseEvent) => void;
 }
+
+// ── ClassNames types for Tailwind / custom CSS support ──
+
+export interface AvatarClassNames {
+  root?: string;
+  ring?: string;
+  imageWrapper?: string;
+  image?: string;
+  placeholder?: string;
+  username?: string;
+}
+
+export interface AvatarListClassNames {
+  root?: string;
+  avatar?: AvatarClassNames;
+}
+
+export interface ProgressBarClassNames {
+  root?: string;
+  fill?: string;
+}
+
+export interface StoryProgressBarsClassNames {
+  root?: string;
+  bar?: ProgressBarClassNames;
+}
+
+export interface StoryItemClassNames {
+  root?: string;
+  loader?: string;
+  error?: string;
+  textContent?: string;
+}
+
+export interface StoryViewerClassNames {
+  root?: string;
+  overlay?: string;
+  content?: string;
+  header?: string;
+  userInfo?: string;
+  avatar?: string;
+  username?: string;
+  closeButton?: string;
+  items?: string;
+  storyItem?: StoryItemClassNames;
+  progressBars?: StoryProgressBarsClassNames;
+}
+
+export interface StoriesClassNames {
+  avatarList?: AvatarListClassNames;
+  storyViewer?: StoryViewerClassNames;
+}

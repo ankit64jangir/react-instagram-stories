@@ -6,7 +6,9 @@
 
 /* Demo container styles */
 .demo-container {
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+  font-family:
+    -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen, Ubuntu,
+    Cantarell, sans-serif;
   max-width: 100%;
   margin: 0 auto;
   padding: 20px;
@@ -152,7 +154,14 @@
   position: relative;
   padding: 3px;
   border-radius: 50%;
-  background: linear-gradient(45deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+  background: linear-gradient(
+    45deg,
+    #f09433 0%,
+    #e6683c 25%,
+    #dc2743 50%,
+    #cc2366 75%,
+    #bc1888 100%
+  );
 }
 
 .story-avatar-read .story-avatar-ring {
@@ -215,6 +224,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  background: #000;
   animation: fadeIn 0.3s ease;
 }
 
@@ -243,7 +253,6 @@
   width: 100%;
   max-width: 500px;
   height: 100dvh;
-  max-height: 900px;
   z-index: 2;
   display: flex;
   flex-direction: column;
@@ -251,17 +260,47 @@
   will-change: transform;
 }
 
-/* User transitions with native CSS animations */
-.story-viewer-transitioning {
-  transition: transform 0.15s ease-out;
+/* ========================================
+   3D CUBE TRANSITION (user-to-user)
+   Three faces (left / front / right) form a cube.
+   The wrapper rotates around Y; translateZ pulls
+   the cube back so it rotates in-place.
+   Geometry mirrors the proven CodePen approach.
+   ======================================== */
+
+.story-viewer-cube-viewport {
+  position: relative;
+  width: 100%;
+  max-width: 500px;
+  height: 100dvh;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* perspective set inline via JS when cube is active */
 }
 
-.story-viewer-transition-left {
-  transform: translateX(-100%);
+.story-viewer-cube-wrapper {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  /* transform-style and transform set inline via JS only when cube is active */
 }
 
-.story-viewer-transition-right {
-  transform: translateX(100%);
+/* All three cube faces.
+   CRITICAL: will-change MUST be "auto" — "transform" flattens preserve-3d children.
+   Face transforms are set inline via JSX for reliable rendering. */
+.story-viewer-content.story-viewer-cube-face {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  max-height: none;
+  z-index: auto;
+  backface-visibility: hidden;
+  will-change: auto;
 }
 
 /* Header */
@@ -272,7 +311,11 @@
   right: 0;
   z-index: 10;
   padding: 16px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6) 0%, rgba(0, 0, 0, 0) 100%);
+  background: linear-gradient(
+    to bottom,
+    rgba(0, 0, 0, 0.6) 0%,
+    rgba(0, 0, 0, 0) 100%
+  );
 }
 
 .story-viewer-user-info {
@@ -359,7 +402,9 @@
   left: 0;
   width: 100%;
   height: 100%;
-  transition: opacity 0.3s ease, visibility 0.3s ease;
+  transition:
+    opacity 0.3s ease,
+    visibility 0.3s ease;
   will-change: opacity;
 }
 
@@ -473,7 +518,12 @@
 
   .story-viewer-content {
     max-width: 100%;
-    max-height: 100dvh; 
+    max-height: 100dvh;
+  }
+
+  .story-viewer-cube-viewport {
+    max-width: 100%;
+    max-height: 100dvh;
   }
 
   .story-avatar-image-wrapper {
@@ -507,6 +557,10 @@
     max-height: 100dvh;
   }
 
+  .story-viewer-cube-viewport {
+    max-height: 100dvh;
+  }
+
   .story-viewer-header {
     padding: 12px;
   }
@@ -522,6 +576,16 @@
 
 @media (min-width: 769px) {
   .story-viewer-content {
+    max-height: 900px;
+    border-radius: 12px;
+    overflow: hidden;
+  }
+
+  .story-viewer-cube-viewport {
+    max-height: 900px;
+  }
+
+  .story-viewer-cube-face {
     border-radius: 12px;
     overflow: hidden;
   }
@@ -563,12 +627,13 @@
 /* GPU acceleration for animations */
 .story-avatar,
 .story-progress-bar-fill,
-.story-viewer-content,
 .story-viewer-item-wrapper {
   transform: translate3d(0, 0, 0);
   backface-visibility: hidden;
-  perspective: 1000px;
 }
+
+/* story-viewer-content uses will-change:transform for GPU acceleration.
+   Do NOT set transform or perspective here — it breaks the 3D cube faces. */
 
 /* Reduce motion for accessibility */
 @media (prefers-reduced-motion: reduce) {
@@ -580,13 +645,17 @@
 }
 
 /* Touch action optimization */
-.story-viewer,
 .story-avatar-list {
   touch-action: pan-x pan-y;
 }
 
+/* Prevent browser gestures from conflicting with cube drag */
+.story-viewer {
+  touch-action: none;
+}
+
 .story-viewer-content {
-  touch-action: manipulation;
+  touch-action: none;
 }
 
 /* ========================================
@@ -594,7 +663,8 @@
    ======================================== */
 
 @keyframes pulse {
-  0%, 100% {
+  0%,
+  100% {
     opacity: 1;
   }
   50% {
@@ -629,8 +699,6 @@
   animation: spin 0.8s linear infinite;
 }
 
-
-
 @keyframes spin {
   to {
     transform: rotate(360deg);
@@ -642,10 +710,7 @@
   transition: opacity 0.3s ease;
 }
 
-/* ========================================
-    SMOOTH SLIDE TRANSITIONS
-    ======================================== */
-
+/* Slide wrapper (kept for custom story layouts) */
 .story-viewer-slide {
   position: absolute;
   top: 0;
@@ -660,12 +725,6 @@
   z-index: 10;
   will-change: transform, opacity;
 }
-
-.story-viewer-content {
-  will-change: transform;
-}
-
-/* Slide animations are now handled by native CSS transitions in StoryViewer.tsx */
 
 /* ========================================
     PDP STORY STYLES
@@ -778,7 +837,12 @@
   bottom: 0;
   left: 0;
   right: 0;
-  background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0.6) 50%, transparent 100%);
+  background: linear-gradient(
+    to top,
+    rgba(0, 0, 0, 0.9) 0%,
+    rgba(0, 0, 0, 0.6) 50%,
+    transparent 100%
+  );
   padding: 20px;
   color: white;
   z-index: 15;
@@ -904,4 +968,3 @@
     bottom: 100px;
   }
 }
-

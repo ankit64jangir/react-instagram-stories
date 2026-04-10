@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef, useState, useCallback } from "react";
-import { StoryItem as StoryItemType, StoryItemControls } from "../types";
+import { StoryItem as StoryItemType, StoryItemControls, StoryItemClassNames } from "../types";
+import { cn } from "../utils/storyHelpers";
 
 interface StoryItemProps {
   item: StoryItemType;
@@ -9,10 +10,11 @@ interface StoryItemProps {
   onLoadError?: () => void;
   onBufferingChange?: (isBuffering: boolean) => void;
   controls: StoryItemControls;
+  classNames?: StoryItemClassNames;
 }
 
 export const StoryItem = memo<StoryItemProps>(
-  ({ item, isActive, isPaused, onDurationDetected, onLoadError, onBufferingChange, controls }) => {
+  ({ item, isActive, isPaused, onDurationDetected, onLoadError, onBufferingChange, controls, classNames }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [hasError, setHasError] = useState(false);
     const [isLoading, setIsLoading] = useState(true);
@@ -139,7 +141,7 @@ export const StoryItem = memo<StoryItemProps>(
 
     if (hasError) {
       return (
-        <div className="story-item story-item-error">
+        <div className={cn("story-item story-item-error", classNames?.error)}>
           <div className="story-item-error-message">Failed to load content</div>
         </div>
       );
@@ -148,9 +150,9 @@ export const StoryItem = memo<StoryItemProps>(
     switch (item.type) {
       case "image":
         return (
-          <div className="story-item story-item-image">
+          <div className={cn("story-item story-item-image", classNames?.root)}>
             {isLoading && (
-              <div className="story-item-loader">
+              <div className={cn("story-item-loader", classNames?.loader)}>
                 <div className="story-item-spinner"></div>
               </div>
             )}
@@ -167,9 +169,9 @@ export const StoryItem = memo<StoryItemProps>(
 
       case "video":
         return (
-          <div className="story-item story-item-video">
+          <div className={cn("story-item story-item-video", classNames?.root)}>
             {isLoading && (
-              <div className="story-item-loader">
+              <div className={cn("story-item-loader", classNames?.loader)}>
                 <div className="story-item-spinner"></div>
               </div>
             )}
@@ -188,20 +190,20 @@ export const StoryItem = memo<StoryItemProps>(
       case "text":
         return (
           <div
-            className="story-item story-item-text"
+            className={cn("story-item story-item-text", classNames?.root)}
             style={{
               backgroundColor: item.backgroundColor || "#000",
               color: item.textColor || "#fff",
             }}
           >
-            <div className="story-item-text-content">{item.text}</div>
+            <div className={cn("story-item-text-content", classNames?.textContent)}>{item.text}</div>
           </div>
         );
 
       case "custom_component":
         const Component = item.component;
         return (
-          <div className="story-item story-item-component">
+          <div className={cn("story-item story-item-component", classNames?.root)}>
             <Component {...controls} />
           </div>
         );

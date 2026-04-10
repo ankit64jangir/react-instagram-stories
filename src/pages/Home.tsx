@@ -128,6 +128,7 @@ function ShaderBackground() {
     window.addEventListener('resize', resize);
 
     let startTime = Date.now();
+    let rafId: number;
     const animate = () => {
       const time = (Date.now() - startTime) * 0.001;
 
@@ -136,12 +137,13 @@ function ShaderBackground() {
       gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     };
 
-    animate();
+    rafId = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(rafId);
       window.removeEventListener('resize', resize);
       gl.deleteProgram(program);
       gl.deleteShader(vertexShader);
