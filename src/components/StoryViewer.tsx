@@ -257,12 +257,8 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         timer.setDuration(nextStory?.duration || DEFAULT_DURATION);
         timer.reset();
       } else if (currentUserIndex < users.length - 1) {
-        // Last story → auto-advance to next user with loading then cube
-        setIsUserLoading(true);
-        setTimeout(() => {
-          setIsUserLoading(false);
-          animateCubeTo('next');
-        }, 1000);
+        // Last story → auto-advance to next user via cube transition
+        animateCubeTo('next');
       } else {
         onClose();
       }
@@ -278,11 +274,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         timer.setDuration(prevStory?.duration || DEFAULT_DURATION);
         timer.reset();
       } else if (currentUserIndex > 0) {
-        setIsUserLoading(true);
-        setTimeout(() => {
-          setIsUserLoading(false);
-          animateCubeTo('prev');
-        }, 1000);
+        animateCubeTo('prev');
       }
     }, [currentUser, cubeState, currentStoryIndex, currentUserIndex, users, timer, animateCubeTo]);
 
