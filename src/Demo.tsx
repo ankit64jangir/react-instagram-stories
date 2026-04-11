@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useCallback } from 'react';
+import React, { useState, useEffect, useCallback, useMemo } from 'react';
 import { Check, ArrowLeft } from 'lucide-react';
 import { Stories } from './components';
 import { demoUsers, generateDemoUsers } from './utils/demoData';
@@ -111,7 +111,10 @@ const DemoPageHeader: React.FC<{
 export const Demo: React.FC = () => {
   const [userCount, setUserCount] = useState<'small' | 'large'>('small');
   const [currentPage, setCurrentPage] = useState<Page>('home');
-  const users = userCount === 'small' ? demoUsers : generateDemoUsers(200);
+  const users = useMemo(
+    () => (userCount === 'small' ? demoUsers : generateDemoUsers(200)),
+    [userCount]
+  );
 
   // Simple page navigation based on hash or query params
   useEffect(() => {
