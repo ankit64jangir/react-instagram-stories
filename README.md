@@ -40,8 +40,8 @@ pnpm add react-instagram-stories
 ### Simple Usage (Recommended)
 
 ```tsx
-import { Stories, demoUsers } from 'react-instagram-stories';
-import 'react-instagram-stories/styles.css';
+import { Stories, demoUsers } from "react-instagram-stories";
+import "react-instagram-stories/styles.css";
 
 function App() {
   return <Stories users={demoUsers} />;
@@ -55,8 +55,13 @@ That's it! Click on any avatar to open the story viewer. The URL automatically u
 ### Using Separate Components
 
 ```tsx
-import { AvatarList, StoryViewer, demoUsers, navigateWithParams } from 'react-instagram-stories';
-import 'react-instagram-stories/styles.css';
+import {
+  AvatarList,
+  StoryViewer,
+  demoUsers,
+  navigateWithParams,
+} from "react-instagram-stories";
+import "react-instagram-stories/styles.css";
 
 function App() {
   const handleAvatarClick = (userIndex: number) => {
@@ -79,20 +84,20 @@ function App() {
 
 The StoryViewer supports URL-based navigation using query parameters with **user ID** and **story ID**:
 
-| URL | Result |
-|-----|--------|
-| `?user=user-travel&story=travel-1` | Opens Travel user's first story |
-| `?user=user-polls&story=poll-1` | Opens Interactive user's poll story |
-| `?user=user-launch&story=launch-2` | Opens Events user's second story |
-| No query params | Viewer stays closed |
+| URL                                | Result                              |
+| ---------------------------------- | ----------------------------------- |
+| `?user=user-travel&story=travel-1` | Opens Travel user's first story     |
+| `?user=user-polls&story=poll-1`    | Opens Interactive user's poll story |
+| `?user=user-launch&story=launch-2` | Opens Events user's second story    |
+| No query params                    | Viewer stays closed                 |
 
 ### Navigation Helpers
 
 ```tsx
-import { navigateWithParams, clearQueryParams } from 'react-instagram-stories';
+import { navigateWithParams, clearQueryParams } from "react-instagram-stories";
 
 // Open story viewer with user ID and story ID
-navigateWithParams({ user: 'user-travel', story: 'travel-1' });
+navigateWithParams({ user: "user-travel", story: "travel-1" });
 
 // Close story viewer (clear params)
 clearQueryParams();
@@ -105,21 +110,22 @@ clearQueryParams();
 The all-in-one component with avatar list and story viewer.
 
 ```tsx
-import { Stories } from 'react-instagram-stories';
+import { Stories } from "react-instagram-stories";
 
-<Stories users={myUsers} />
+<Stories users={myUsers} />;
 ```
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `users` | `User[]` | **required** | Array of user objects with their stories |
-| `classNames` | `StoriesClassNames` | - | Object to customize sub-element CSS classes (Tailwind or custom) |
+| Prop         | Type                | Default      | Description                                                      |
+| ------------ | ------------------- | ------------ | ---------------------------------------------------------------- |
+| `users`      | `User[]`            | **required** | Array of user objects with their stories                         |
+| `classNames` | `StoriesClassNames` | -            | Object to customize sub-element CSS classes (Tailwind or custom) |
 
 ### `<StoryViewer />` Component
 
 The story viewer component. Supports two modes:
 
 #### Query Param Mode (Default)
+
 When `isOpen` is not provided, reads from URL query params:
 
 ```tsx
@@ -127,6 +133,7 @@ When `isOpen` is not provided, reads from URL query params:
 ```
 
 #### Controlled Mode
+
 When `isOpen` is provided, you control the viewer state:
 
 ```tsx
@@ -135,20 +142,20 @@ When `isOpen` is provided, you control the viewer state:
   isOpen={true}
   initialUserIndex={0}
   initialStoryIndex={0}
-  onClose={() => console.log('closed')}
+  onClose={() => console.log("closed")}
   onStoryChange={(userIndex, storyIndex) => console.log(userIndex, storyIndex)}
 />
 ```
 
-| Prop | Type | Default | Description |
-|------|------|---------|-------------|
-| `users` | `User[]` | **required** | Array of user objects |
-| `isOpen` | `boolean` | - | Controls viewer visibility (enables controlled mode) |
-| `initialUserIndex` | `number` | `0` | Starting user index |
-| `initialStoryIndex` | `number` | `0` | Starting story index |
-| `onClose` | `() => void` | - | Called when viewer closes |
-| `onStoryChange` | `(userIndex, storyIndex) => void` | - | Called when story changes |
-| `classNames` | `StoryViewerClassNames` | - | Object to customize sub-element CSS classes (Tailwind or custom) |
+| Prop                | Type                              | Default      | Description                                                      |
+| ------------------- | --------------------------------- | ------------ | ---------------------------------------------------------------- |
+| `users`             | `User[]`                          | **required** | Array of user objects                                            |
+| `isOpen`            | `boolean`                         | -            | Controls viewer visibility (enables controlled mode)             |
+| `initialUserIndex`  | `number`                          | `0`          | Starting user index                                              |
+| `initialStoryIndex` | `number`                          | `0`          | Starting story index                                             |
+| `onClose`           | `() => void`                      | -            | Called when viewer closes                                        |
+| `onStoryChange`     | `(userIndex, storyIndex) => void` | -            | Called when story changes                                        |
+| `classNames`        | `StoryViewerClassNames`           | -            | Object to customize sub-element CSS classes (Tailwind or custom) |
 
 ### `<AvatarList />` Component
 
@@ -161,11 +168,11 @@ The horizontal scrollable avatar list.
 />
 ```
 
-| Prop | Type | Description |
-|------|------|-------------|
-| `users` | `User[]` | Array of user objects |
-| `onAvatarClick` | `(userIndex: number) => void` | Called when avatar is clicked |
-| `classNames` | `AvatarListClassNames` | Object to customize sub-element CSS classes (Tailwind or custom) |
+| Prop            | Type                          | Description                                                      |
+| --------------- | ----------------------------- | ---------------------------------------------------------------- |
+| `users`         | `User[]`                      | Array of user objects                                            |
+| `onAvatarClick` | `(userIndex: number) => void` | Called when avatar is clicked                                    |
+| `classNames`    | `AvatarListClassNames`        | Object to customize sub-element CSS classes (Tailwind or custom) |
 
 ## Story Types
 
@@ -193,6 +200,7 @@ The horizontal scrollable avatar list.
 ```
 
 **Features:**
+
 - Audio enabled by default
 - Progress bar pauses during buffering
 - Auto-detects video duration
@@ -240,6 +248,7 @@ const MyCustomStory: React.FC<StoryItemControls> = ({
 ```
 
 **Control Methods Available:**
+
 - `pause()` - Pause the story timer
 - `resume()` - Resume the story timer
 - `next()` - Go to next story
@@ -253,10 +262,14 @@ Build interactive experiences! Here are examples included in `demoUsers`:
 ### Poll Component
 
 ```tsx
-const PollComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => {
+const PollComponent: React.FC<StoryItemControls> = ({
+  pause,
+  resume,
+  next,
+}) => {
   const [selected, setSelected] = React.useState<number | null>(null);
   const [votes, setVotes] = React.useState([42, 28, 18, 12]);
-  const options = ['React', 'Vue', 'Angular', 'Svelte'];
+  const options = ["React", "Vue", "Angular", "Svelte"];
 
   React.useEffect(() => {
     pause(); // Pause timer during interaction
@@ -278,14 +291,16 @@ const PollComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => 
   const total = votes.reduce((a, b) => a + b, 0);
 
   return (
-    <div style={{
-      display: 'flex',
-      flexDirection: 'column',
-      height: '100%',
-      background: 'linear-gradient(135deg, #667eea 0%, #764ba2 100%)',
-      padding: '20px'
-    }}>
-      <h2 style={{ color: 'white', marginBottom: '20px' }}>
+    <div
+      style={{
+        display: "flex",
+        flexDirection: "column",
+        height: "100%",
+        background: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
+        padding: "20px",
+      }}
+    >
+      <h2 style={{ color: "white", marginBottom: "20px" }}>
         What's your favorite framework?
       </h2>
       {options.map((option, index) => (
@@ -294,17 +309,18 @@ const PollComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => 
           onClick={() => handleVote(index)}
           disabled={selected !== null}
           style={{
-            margin: '8px 0',
-            padding: '15px',
-            background: selected === index ? '#4CAF50' : 'rgba(255,255,255,0.2)',
-            color: 'white',
-            border: 'none',
-            borderRadius: '12px',
-            fontSize: '16px',
-            cursor: selected !== null ? 'default' : 'pointer'
+            margin: "8px 0",
+            padding: "15px",
+            background:
+              selected === index ? "#4CAF50" : "rgba(255,255,255,0.2)",
+            color: "white",
+            border: "none",
+            borderRadius: "12px",
+            fontSize: "16px",
+            cursor: selected !== null ? "default" : "pointer",
           }}
         >
-          <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <div style={{ display: "flex", justifyContent: "space-between" }}>
             <span>{option}</span>
             {selected !== null && (
               <span>{((votes[index] / total) * 100).toFixed(0)}%</span>
@@ -324,7 +340,26 @@ const PollComponent: React.FC<StoryItemControls> = ({ pause, resume, next }) => 
 Import the default styles:
 
 ```tsx
-import 'react-instagram-stories/styles.css';
+import "react-instagram-stories/styles.css";
+```
+
+**With Tailwind CSS**: Import the library styles **before** your Tailwind CSS so that utility classes can override them:
+
+```css
+/* Your global CSS file */
+@import "react-instagram-stories/styles.css";
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+```
+
+Or in JS, import the library CSS before your app's CSS:
+
+```tsx
+// main.tsx
+import "react-instagram-stories/styles.css"; // first
+import "./index.css"; // your Tailwind CSS — after
 ```
 
 Override with custom CSS:
@@ -371,7 +406,9 @@ Every component accepts a `classNames` prop for fine-grained styling using Tailw
     storyViewer: {
       overlay: "bg-black/90",
       closeButton: "hover:text-gray-300",
-      progressBars: { bar: { fill: "bg-gradient-to-r from-pink-500 to-purple-500" } },
+      progressBars: {
+        bar: { fill: "bg-gradient-to-r from-pink-500 to-purple-500" },
+      },
     },
   }}
 />
@@ -406,8 +443,8 @@ All `classNames` types are exported from the package. See the [TypeScript Types]
 ### Using Demo Data
 
 ```tsx
-import { Stories, demoUsers } from 'react-instagram-stories';
-import 'react-instagram-stories/styles.css';
+import { Stories, demoUsers } from "react-instagram-stories";
+import "react-instagram-stories/styles.css";
 
 function App() {
   return <Stories users={demoUsers} />;
@@ -419,7 +456,7 @@ The `demoUsers` includes examples of all story types including interactive polls
 ### Generate Demo Users
 
 ```tsx
-import { generateDemoUsers } from 'react-instagram-stories';
+import { generateDemoUsers } from "react-instagram-stories";
 
 const users = generateDemoUsers(10); // 10 users with random stories
 ```
@@ -427,39 +464,39 @@ const users = generateDemoUsers(10); // 10 users with random stories
 ### Create Custom Stories
 
 ```tsx
-import type { User } from 'react-instagram-stories';
+import type { User } from "react-instagram-stories";
 
 const myUsers: User[] = [
   {
-    id: '1',
-    username: 'johndoe',
-    avatarUrl: 'https://example.com/avatar.jpg',
+    id: "1",
+    username: "johndoe",
+    avatarUrl: "https://example.com/avatar.jpg",
     hasUnreadStories: true, // Shows ring around avatar
     stories: [
       {
-        id: 'story-1',
-        type: 'image',
-        src: 'https://example.com/photo.jpg',
-        alt: 'Beach sunset',
+        id: "story-1",
+        type: "image",
+        src: "https://example.com/photo.jpg",
+        alt: "Beach sunset",
         duration: 5000,
       },
       {
-        id: 'story-2',
-        type: 'video',
-        src: 'https://example.com/video.mp4',
+        id: "story-2",
+        type: "video",
+        src: "https://example.com/video.mp4",
         // duration auto-detected
       },
       {
-        id: 'story-3',
-        type: 'text',
-        text: 'Hello from my story!',
-        backgroundColor: '#FF6B6B',
-        textColor: '#FFFFFF',
+        id: "story-3",
+        type: "text",
+        text: "Hello from my story!",
+        backgroundColor: "#FF6B6B",
+        textColor: "#FFFFFF",
         duration: 5000,
       },
       {
-        id: 'story-4',
-        type: 'custom_component',
+        id: "story-4",
+        type: "custom_component",
         component: MyPollComponent,
         duration: 10000,
       },
@@ -473,8 +510,8 @@ const myUsers: User[] = [
 If you don't want URL navigation, use controlled mode:
 
 ```tsx
-import { useState } from 'react';
-import { AvatarList, StoryViewer } from 'react-instagram-stories';
+import { useState } from "react";
+import { AvatarList, StoryViewer } from "react-instagram-stories";
 
 function App() {
   const [viewerState, setViewerState] = useState({
@@ -486,7 +523,9 @@ function App() {
     <>
       <AvatarList
         users={myUsers}
-        onAvatarClick={(index) => setViewerState({ isOpen: true, userIndex: index })}
+        onAvatarClick={(index) =>
+          setViewerState({ isOpen: true, userIndex: index })
+        }
       />
       <StoryViewer
         users={myUsers}
@@ -531,11 +570,11 @@ import type {
   AvatarClassNames,
   StoryProgressBarsClassNames,
   ProgressBarClassNames,
-  StoryItemClassNames
-} from 'react-instagram-stories';
+  StoryItemClassNames,
+} from "react-instagram-stories";
 
 // Core Types
-type StoryItemType = 'image' | 'video' | 'text' | 'custom_component';
+type StoryItemType = "image" | "video" | "text" | "custom_component";
 
 interface StoryItemControls {
   pause: () => void;
@@ -597,13 +636,13 @@ interface StoryItemClassNames {
 
 ```tsx
 // Components
-import { Stories, StoryViewer, AvatarList } from 'react-instagram-stories';
+import { Stories, StoryViewer, AvatarList } from "react-instagram-stories";
 
 // Navigation helpers
-import { navigateWithParams, clearQueryParams } from 'react-instagram-stories';
+import { navigateWithParams, clearQueryParams } from "react-instagram-stories";
 
 // Demo data
-import { demoUsers, generateDemoUsers } from 'react-instagram-stories';
+import { demoUsers, generateDemoUsers } from "react-instagram-stories";
 
 // Types
 import type {
@@ -621,11 +660,11 @@ import type {
   AvatarClassNames,
   StoryProgressBarsClassNames,
   ProgressBarClassNames,
-  StoryItemClassNames
-} from 'react-instagram-stories';
+  StoryItemClassNames,
+} from "react-instagram-stories";
 
 // Styles
-import 'react-instagram-stories/styles.css';
+import "react-instagram-stories/styles.css";
 ```
 
 ## Performance
