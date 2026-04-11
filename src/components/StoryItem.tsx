@@ -17,7 +17,22 @@ export const StoryItem = memo<StoryItemProps>(
   ({ item, isActive, isPaused, onDurationDetected, onLoadError, onBufferingChange, controls, classNames }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [hasError, setHasError] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(() => item.type === 'image' || item.type === 'video');
+
+    // Reset state when story changes — smart per-type to avoid flicker
+    useEffect(() => {
+      setHasError(false);
+
+      if (item.type === 'image' && 'src' in item) {
+        const img = new Image();
+        img.src = item.src;
+        setIsLoading(!(img.complete && img.naturalWidth > 0));
+      } else if (item.type === 'video') {
+        setIsLoading(true);
+      } else {
+        setIsLoading(false);
+      }
+    }, [item.id, item.type]);
 
     // Handle video playback
     useEffect(() => {
@@ -40,11 +55,14 @@ export const StoryItem = memo<StoryItemProps>(
       playVideo();
     }, [item.type, isActive, isPaused]);
 
-    // Detect video duration
+    // Reset video currentTime and detect duration when story item changes
     useEffect(() => {
       if (item.type !== "video" || !videoRef.current) return;
 
       const video = videoRef.current;
+
+      // Reset playhead to start for the new video
+      video.currentTime = 0;
 
       const handleLoadedMetadata = () => {
         if (video.duration && isFinite(video.duration)) {
@@ -73,7 +91,7 @@ export const StoryItem = memo<StoryItemProps>(
         video.removeEventListener("loadedmetadata", handleLoadedMetadata);
         video.removeEventListener("canplay", handleCanPlay);
       };
-    }, [item.type, onDurationDetected]);
+    }, [item.id, item.type, onDurationDetected]);
 
     // Handle video buffering states
     useEffect(() => {
@@ -82,17 +100,14 @@ export const StoryItem = memo<StoryItemProps>(
       const video = videoRef.current;
 
       const handleWaiting = () => {
-        // Video is buffering
         onBufferingChange?.(true);
       };
 
       const handlePlaying = () => {
-        // Video resumed after buffering
         onBufferingChange?.(false);
       };
 
       const handleStalled = () => {
-        // Video stalled due to network issues
         onBufferingChange?.(true);
       };
 
@@ -107,27 +122,17 @@ export const StoryItem = memo<StoryItemProps>(
       };
     }, [item.type, isActive, onBufferingChange]);
 
-    // Sync video progress with timer for more accurate progress bar
+    // Cleanup video on unmount or when story changes
     useEffect(() => {
-      if (item.type !== "video" || !videoRef.current || !isActive) return;
-
       const video = videoRef.current;
-      let rafId: number;
-
-      const syncProgress = () => {
-        if (video.duration && isFinite(video.duration)) {
-          // This allows the progress bar to sync with video playhead
-          // The timer in StoryViewer will handle the actual progress
-        }
-        rafId = requestAnimationFrame(syncProgress);
-      };
-
-      rafId = requestAnimationFrame(syncProgress);
+      if (item.type !== "video" || !video) return;
 
       return () => {
-        cancelAnimationFrame(rafId);
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
       };
-    }, [item.type, isActive]);
+    }, [item.id, item.type]);
 
     const handleError = useCallback(() => {
       setHasError(true);
@@ -178,6 +183,7 @@ export const StoryItem = memo<StoryItemProps>(
             <video
               ref={videoRef}
               src={item.src}
+              muted
               playsInline
               loop={false}
               onError={handleError}
