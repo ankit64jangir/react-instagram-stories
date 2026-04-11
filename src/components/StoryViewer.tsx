@@ -44,7 +44,8 @@ interface DragInfo {
   startX: number;
   startY: number;
   currentX: number;
-  isDragging: boolean;
+  isDragging: boolean;   // horizontal cube drag
+  isDismissing: boolean; // vertical drag-down-to-close
   pointerId: number;
   target: EventTarget | null; // original pointerDown target (for tap detection)
 }
@@ -305,6 +306,7 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
         startY: event.clientY,
         currentX: event.clientX,
         isDragging: false,
+        isDismissing: false,
         pointerId: event.pointerId,
         target: event.target,
       };
@@ -321,16 +323,40 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       const deltaX = event.clientX - drag.startX;
       const deltaY = event.clientY - drag.startY;
 
-      // ── Detect drag start ──
-      if (!drag.isDragging) {
+      // ── Detect drag direction (once) ──
+      if (!drag.isDragging && !drag.isDismissing) {
+        // Horizontal → cube transition
         if (Math.abs(deltaX) > DRAG_THRESHOLD_PX && Math.abs(deltaX) > Math.abs(deltaY) * 1.2) {
           drag.isDragging = true;
           setCubeState(buildCubeState());
         }
+        // Vertical downward → dismiss
+        else if (deltaY > DRAG_THRESHOLD_PX && deltaY > Math.abs(deltaX) * 1.5) {
+          drag.isDismissing = true;
+        }
         return;
       }
 
-      // ── Real-time cube rotation (imperative for 60 fps) ──
+      // ── Dismiss drag: translate down + scale + fade ──
+      if (drag.isDismissing) {
+        const viewportEl = containerRef.current?.querySelector('.story-viewer-cube-viewport') as HTMLElement;
+        if (!viewportEl) return;
+
+        const dismissY = Math.max(0, deltaY);
+        const scale = Math.max(0.85, 1 - dismissY / 1500);
+        const opacity = Math.max(0.2, 1 - dismissY / 600);
+
+        viewportEl.style.transition = 'none';
+        viewportEl.style.transform = `translateY(${dismissY}px) scale(${scale})`;
+        viewportEl.style.borderRadius = `${Math.min(24, dismissY / 5)}px`;
+        viewportEl.style.overflow = 'hidden';
+
+        const overlayEl = containerRef.current?.querySelector('.story-viewer-overlay') as HTMLElement;
+        if (overlayEl) overlayEl.style.opacity = String(opacity);
+        return;
+      }
+
+      // ── Cube drag: real-time rotation (imperative for 60 fps) ──
       const wrapper = cubeWrapperRef.current;
       if (!wrapper) return;
 
@@ -343,7 +369,6 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
       let pct = deltaX / fw;
       pct = Math.max(-0.95, Math.min(0.95, pct));
 
-      // Prevent dragging past first / last user
       if (currentUserIndex === 0 && pct > 0) pct = 0;
       if (currentUserIndex === users.length - 1 && pct < 0) pct = 0;
 
@@ -358,6 +383,45 @@ export const StoryViewer: React.FC<StoryViewerProps> = React.memo(
 
       try { containerRef.current?.releasePointerCapture(drag.pointerId); } catch { /* ok */ }
 
+      // ── Dismiss release ──
+      if (drag.isDismissing) {
+        const deltaY = event.clientY - drag.startY;
+        const viewportEl = containerRef.current?.querySelector('.story-viewer-cube-viewport') as HTMLElement;
+        const overlayEl = containerRef.current?.querySelector('.story-viewer-overlay') as HTMLElement;
+
+        if (deltaY > 120) {
+          // Past threshold → close with slide-down animation
+          if (viewportEl) {
+            viewportEl.style.transition = 'transform 250ms ease-in, opacity 250ms ease-in';
+            viewportEl.style.transform = `translateY(${window.innerHeight}px) scale(0.85)`;
+            viewportEl.style.opacity = '0';
+          }
+          if (overlayEl) {
+            overlayEl.style.transition = 'opacity 250ms ease-in';
+            overlayEl.style.opacity = '0';
+          }
+          setTimeout(handleClose, 250);
+        } else {
+          // Under threshold → snap back
+          if (viewportEl) {
+            viewportEl.style.transition = 'transform 300ms ease-out, border-radius 300ms ease-out';
+            viewportEl.style.transform = '';
+            viewportEl.style.borderRadius = '';
+          }
+          if (overlayEl) {
+            overlayEl.style.transition = 'opacity 300ms ease-out';
+            overlayEl.style.opacity = '';
+          }
+          // Clean up overflow after transition
+          setTimeout(() => {
+            if (viewportEl) viewportEl.style.overflow = '';
+          }, 300);
+          handleResume();
+        }
+        return;
+      }
+
+      // ── Cube drag release ──
       if (drag.isDragging && cubeState) {
         const fw = faceWidthRef.current || 400;
         const depth = fw / 2;
