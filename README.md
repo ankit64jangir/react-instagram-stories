@@ -5,6 +5,22 @@ A high-performance, fully customizable Instagram-style Stories component for Rea
 [![NPM Version](https://img.shields.io/npm/v/react-instagram-stories.svg)](https://www.npmjs.com/package/react-instagram-stories)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://opensource.org/licenses/MIT)
 
+## Preview
+
+<p align="center">
+  <img src="public/screenshots/demo.gif" alt="React Instagram Stories — live demo" width="320" />
+</p>
+
+<p align="center">
+  <img src="public/screenshots/avatar-list.png" alt="Avatar list with story rings" width="100%" />
+</p>
+
+<p align="center">
+  <img src="public/screenshots/story-viewer.png" alt="Story viewer — image story" width="32%" />
+  &nbsp;&nbsp;
+  <img src="public/screenshots/story-poll.png" alt="Story viewer — interactive poll" width="32%" />
+</p>
+
 ## Features
 
 - **Multiple Content Types**: Images, videos (with audio), text, and fully custom components
