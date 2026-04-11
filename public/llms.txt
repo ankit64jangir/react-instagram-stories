@@ -1,0 +1,66 @@
+# react-instagram-stories
+
+> A high-performance, fully customizable Instagram-style Stories component for React with TypeScript support.
+
+## About
+
+react-instagram-stories is an open-source npm package that lets developers add Instagram-style story experiences to React applications. It supports images, videos, text, and custom React components as story content. The component features 3D cube drag transitions between users, smart preloading, virtualized rendering for 1000+ users, and zero runtime dependencies.
+
+- **Package**: https://www.npmjs.com/package/react-instagram-stories
+- **Repository**: https://github.com/ankit64jangir/react-instagram-stories
+- **Demo**: https://reactstories.vercel.app/
+- **Author**: Ankit Jangir
+- **License**: MIT
+- **Bundle Size**: ~30 KB with zero runtime dependencies
+- **Requirements**: React 18+, TypeScript supported
+
+## Key Features
+
+- Multiple content types: images, videos (with audio), text, custom React components
+- 3D cube drag transition when switching between users (Instagram-style)
+- Fully customizable via Tailwind CSS classNames prop
+- Keyboard navigation (arrow keys, space, escape)
+- Touch gestures (tap, swipe, long-press to pause)
+- URL-based navigation via query parameters (?user=userId&story=storyId)
+- Smart progress bar that pauses during video buffering
+- Story resume: dragging back to a previous user resumes from where you left off
+- ARIA labels and screen reader support
+- Virtualized rendering for large datasets (200+ users, 1000+ stories)
+
+## Installation
+
+```bash
+npm install react-instagram-stories
+```
+
+No additional dependencies required. Works without react-router-dom.
+
+## Quick Start
+
+```tsx
+import { Stories, demoUsers } from 'react-instagram-stories';
+import 'react-instagram-stories/styles.css';
+
+function App() {
+  return <Stories users={demoUsers} />;
+}
+```
+
+## Components
+
+- `<Stories />` — All-in-one component with avatar list and story viewer
+- `<StoryViewer />` — Story viewer only, supports query param mode and controlled mode
+- `<AvatarList />` — Horizontal scrollable avatar list
+
+## Story Types
+
+1. **Image** — Any image format with automatic aspect ratio handling
+2. **Video** — Auto-playing with audio support and buffering detection
+3. **Text** — Customizable text with colors and backgrounds
+4. **Custom Component** — Any React component with pause/resume/next/prev controls
+
+## Pages
+
+- Homepage: https://reactstories.vercel.app/
+- Blog: https://reactstories.vercel.app/blog/
+- Tutorial: https://reactstories.vercel.app/blog/how-to-build-instagram-stories-in-react.html

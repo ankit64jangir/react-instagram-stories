@@ -1,19 +1,45 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useMemo } from 'react';
 import { motion, useReducedMotion } from 'framer-motion';
-import { Play, Hand, Keyboard, Zap, Image, Smartphone, Eye, BarChart, Layers, Code, Users, Clock, Globe } from 'lucide-react';
+import { Play, Hand, Keyboard, Zap, Image, Eye, BarChart, Layers, Code, Users, Clock, Globe } from 'lucide-react';
 
 interface HomeProps {
   onNavigateToDemo?: () => void;
 }
 
-// Shader Background Component
+// Shader Background Component - deferred to avoid blocking LCP
 function ShaderBackground() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
+  const cleanupRef = useRef<(() => void) | null>(null);
+  const shouldReduceMotion = useReducedMotion();
 
   useEffect(() => {
+    if (shouldReduceMotion) return;
+
     const canvas = canvasRef.current;
     if (!canvas) return;
 
+    // Defer WebGL init until after LCP element has painted
+    const timerId = setTimeout(() => {
+      cleanupRef.current = initShader(canvas) ?? null;
+    }, 0);
+
+    return () => {
+      clearTimeout(timerId);
+      cleanupRef.current?.();
+      cleanupRef.current = null;
+    };
+  }, [shouldReduceMotion]);
+
+  return (
+    <canvas
+      ref={canvasRef}
+      className="absolute inset-0 w-full h-full"
+      style={{ background: '#1a0a2e' }}
+    />
+  );
+}
+
+function initShader(canvas: HTMLCanvasElement) {
     const gl = canvas.getContext('webgl2');
     if (!gl) return;
 
@@ -117,17 +143,27 @@ function ShaderBackground() {
     const timeLocation = gl.getUniformLocation(program, 'u_time');
     const resolutionLocation = gl.getUniformLocation(program, 'u_resolution');
 
+    let resizeTimer: ReturnType<typeof setTimeout>;
     const resize = () => {
-      const dpr = window.devicePixelRatio || 1;
-      canvas.width = window.innerWidth * dpr;
-      canvas.height = window.innerHeight * dpr;
-      gl.viewport(0, 0, canvas.width, canvas.height);
+      clearTimeout(resizeTimer);
+      resizeTimer = setTimeout(() => {
+        const dpr = window.devicePixelRatio || 1;
+        canvas.width = window.innerWidth * dpr;
+        canvas.height = window.innerHeight * dpr;
+        gl.viewport(0, 0, canvas.width, canvas.height);
+      }, 150);
     };
 
-    resize();
+    // Initial size without debounce
+    const dpr = window.devicePixelRatio || 1;
+    canvas.width = window.innerWidth * dpr;
+    canvas.height = window.innerHeight * dpr;
+    gl.viewport(0, 0, canvas.width, canvas.height);
+
     window.addEventListener('resize', resize);
 
     let startTime = Date.now();
+    let rafId: number;
     const animate = () => {
       const time = (Date.now() - startTime) * 0.001;
 
@@ -136,39 +172,32 @@ function ShaderBackground() {
       gl.uniform2f(resolutionLocation, canvas.width, canvas.height);
       gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
 
-      requestAnimationFrame(animate);
+      rafId = requestAnimationFrame(animate);
     };
 
-    animate();
+    rafId = requestAnimationFrame(animate);
 
     return () => {
+      cancelAnimationFrame(rafId);
+      clearTimeout(resizeTimer);
       window.removeEventListener('resize', resize);
       gl.deleteProgram(program);
       gl.deleteShader(vertexShader);
       gl.deleteShader(fragmentShader);
       gl.deleteBuffer(buffer);
     };
-  }, []);
-
-  return (
-    <canvas
-      ref={canvasRef}
-      className="absolute inset-0 w-full h-full"
-      style={{ background: '#1a0a2e' }}
-    />
-  );
 }
 
 // Hero Section
 function HeroSection({ onNavigateToDemo }: { onNavigateToDemo?: () => void }) {
   const fadeUpVariants = {
-    hidden: { opacity: 0, y: 30 },
+    hidden: { opacity: 0, y: 20 },
     visible: (i: number) => ({
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.8,
-        delay: 0.2 + i * 0.15,
+        duration: 0.4,
+        delay: i * 0.1,
         ease: [0.25, 0.4, 0.25, 1] as const,
       },
     }),
@@ -218,9 +247,10 @@ function HeroSection({ onNavigateToDemo }: { onNavigateToDemo?: () => void }) {
             animate="visible"
           >
             <p className="text-lg sm:text-xl md:text-2xl text-white/60 mb-10 md:mb-12 leading-relaxed font-light max-w-2xl mx-auto px-4">
-              Build beautiful, performant Instagram-style stories with our React
-              component. Smooth animations, touch gestures, and fully
-              customizable.
+              Build beautiful, performant Instagram-style stories with{' '}
+              <strong className="text-white/80">react-instagram-stories</strong>.
+              Smooth 3D cube transitions, touch gestures, and fully
+              customizable via Tailwind CSS classNames.
             </p>
           </motion.div>
 
@@ -353,11 +383,11 @@ function GridPattern({
   );
 }
 
-function genRandomPattern(length?: number): number[][] {
-  length = length ?? 5;
-  return Array.from({ length }, () => [
-    Math.floor(Math.random() * 4) + 7,
-    Math.floor(Math.random() * 6) + 1,
+function genRandomPattern(seed: number, length: number = 5): number[][] {
+  // Deterministic pattern based on seed to avoid re-renders causing visual jitter
+  return Array.from({ length }, (_, i) => [
+    ((seed * 7 + i * 13) % 4) + 7,
+    ((seed * 11 + i * 17) % 6) + 1,
   ]);
 }
 
@@ -370,11 +400,13 @@ type FeatureType = {
 function FeatureCard({
   feature,
   className,
+  index = 0,
 }: {
   feature: FeatureType;
   className?: string;
+  index?: number;
 }) {
-  const p = genRandomPattern();
+  const p = useMemo(() => genRandomPattern(index), [index]);
 
   return (
     <div className={`relative overflow-hidden p-6 bg-white ${className}`}>
@@ -433,22 +465,22 @@ function AnimatedContainer({
 
 const features: FeatureType[] = [
   {
-    title: 'Touch Gestures',
+    title: '3D Cube Transition',
     icon: Hand,
     description:
-      'Tap left/right to navigate, swipe to switch users, long-press to pause',
+      'Instagram-style 3D cube drag to peek at and switch between users',
   },
   {
-    title: 'Keyboard Support',
-    icon: Keyboard,
+    title: 'Tailwind CSS Support',
+    icon: Layers,
     description:
-      'Full keyboard navigation with arrow keys, space, and escape',
+      'Fully customizable via classNames props — style every sub-element with Tailwind or custom CSS',
   },
   {
     title: 'High Performance',
     icon: Zap,
     description:
-      'Virtualized list, smart preloading, and optimized animations',
+      'Virtualized list, smart preloading, and 60fps hardware-accelerated animations',
   },
   {
     title: 'Media Support',
@@ -456,9 +488,9 @@ const features: FeatureType[] = [
     description: 'Images, videos, text, and custom React components',
   },
   {
-    title: 'Mobile Friendly',
-    icon: Smartphone,
-    description: 'Responsive design optimized for all screen sizes',
+    title: 'Keyboard & Touch',
+    icon: Keyboard,
+    description: 'Full keyboard navigation, tap, drag, and long-press support',
   },
   {
     title: 'Accessible',
@@ -487,7 +519,7 @@ function FeaturesSection() {
           className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-3"
         >
           {features.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} />
+            <FeatureCard key={i} feature={feature} index={i} />
           ))}
         </AnimatedContainer>
       </div>
@@ -514,7 +546,7 @@ const performanceFeatures: FeatureType[] = [
   {
     title: 'Zero Dependencies',
     icon: Code,
-    description: 'Lightweight bundle with no external runtime dependencies',
+    description: 'Lightweight bundle with zero runtime dependencies',
   },
 ];
 
@@ -537,7 +569,7 @@ function PerformanceSection() {
           className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
         >
           {performanceFeatures.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} className="bg-slate-50" />
+            <FeatureCard key={i} feature={feature} index={i + 100} className="bg-slate-50" />
           ))}
         </AnimatedContainer>
       </div>
@@ -587,7 +619,7 @@ function ContentTypesSection() {
           className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
         >
           {contentTypes.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} className="bg-white" />
+            <FeatureCard key={i} feature={feature} index={i + 200} className="bg-white" />
           ))}
         </AnimatedContainer>
       </div>
@@ -637,7 +669,7 @@ function CustomComponentsSection() {
           className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
         >
           {customComponentFeatures.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} className="bg-white" />
+            <FeatureCard key={i} feature={feature} index={i + 300} className="bg-white" />
           ))}
         </AnimatedContainer>
       </div>
@@ -687,7 +719,7 @@ function AccessibilitySection() {
           className="grid grid-cols-1 divide-x divide-y divide-dashed border border-dashed sm:grid-cols-2 md:grid-cols-4"
         >
           {accessibilityFeatures.map((feature, i) => (
-            <FeatureCard key={i} feature={feature} className="bg-white" />
+            <FeatureCard key={i} feature={feature} index={i + 400} className="bg-white" />
           ))}
         </AnimatedContainer>
       </div>
@@ -728,10 +760,40 @@ function Footer() {
   return (
     <footer className="border-t border-slate-200 py-8 bg-white">
       <div className="container mx-auto px-4 text-center text-slate-600">
-        <p>
-          Built with React, TypeScript, and Tailwind CSS
+        <p className="font-semibold text-slate-800 mb-2">react-instagram-stories</p>
+        <p className="text-sm mb-3">
+          High-performance Instagram-style Stories component for React.
           <br />
-          High-performance Instagram-style Stories component
+          Built with TypeScript, Tailwind CSS, and zero runtime dependencies.
+        </p>
+        <p className="text-xs text-slate-500">
+          MIT License &copy; {new Date().getFullYear()}{' '}
+          <a
+            href="https://github.com/ankit64jangir"
+            className="text-purple-600 hover:text-purple-800 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Ankit Jangir
+          </a>
+          {' | '}
+          <a
+            href="https://github.com/ankit64jangir/react-instagram-stories"
+            className="text-purple-600 hover:text-purple-800 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            GitHub
+          </a>
+          {' | '}
+          <a
+            href="https://www.npmjs.com/package/react-instagram-stories"
+            className="text-purple-600 hover:text-purple-800 transition-colors"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            NPM
+          </a>
         </p>
       </div>
     </footer>

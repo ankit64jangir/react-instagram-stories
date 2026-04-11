@@ -1,5 +1,6 @@
 import { memo, useEffect, useRef, useState, useCallback } from "react";
-import { StoryItem as StoryItemType, StoryItemControls } from "../types";
+import { StoryItem as StoryItemType, StoryItemControls, StoryItemClassNames } from "../types";
+import { cn } from "../utils/storyHelpers";
 
 interface StoryItemProps {
   item: StoryItemType;
@@ -9,13 +10,29 @@ interface StoryItemProps {
   onLoadError?: () => void;
   onBufferingChange?: (isBuffering: boolean) => void;
   controls: StoryItemControls;
+  classNames?: StoryItemClassNames;
 }
 
 export const StoryItem = memo<StoryItemProps>(
-  ({ item, isActive, isPaused, onDurationDetected, onLoadError, onBufferingChange, controls }) => {
+  ({ item, isActive, isPaused, onDurationDetected, onLoadError, onBufferingChange, controls, classNames }) => {
     const videoRef = useRef<HTMLVideoElement>(null);
     const [hasError, setHasError] = useState(false);
-    const [isLoading, setIsLoading] = useState(true);
+    const [isLoading, setIsLoading] = useState(() => item.type === 'image' || item.type === 'video');
+
+    // Reset state when story changes — smart per-type to avoid flicker
+    useEffect(() => {
+      setHasError(false);
+
+      if (item.type === 'image' && 'src' in item) {
+        const img = new Image();
+        img.src = item.src;
+        setIsLoading(!(img.complete && img.naturalWidth > 0));
+      } else if (item.type === 'video') {
+        setIsLoading(true);
+      } else {
+        setIsLoading(false);
+      }
+    }, [item.id, item.type]);
 
     // Handle video playback
     useEffect(() => {
@@ -38,11 +55,14 @@ export const StoryItem = memo<StoryItemProps>(
       playVideo();
     }, [item.type, isActive, isPaused]);
 
-    // Detect video duration
+    // Reset video currentTime and detect duration when story item changes
     useEffect(() => {
       if (item.type !== "video" || !videoRef.current) return;
 
       const video = videoRef.current;
+
+      // Reset playhead to start for the new video
+      video.currentTime = 0;
 
       const handleLoadedMetadata = () => {
         if (video.duration && isFinite(video.duration)) {
@@ -71,7 +91,7 @@ export const StoryItem = memo<StoryItemProps>(
         video.removeEventListener("loadedmetadata", handleLoadedMetadata);
         video.removeEventListener("canplay", handleCanPlay);
       };
-    }, [item.type, onDurationDetected]);
+    }, [item.id, item.type, onDurationDetected]);
 
     // Handle video buffering states
     useEffect(() => {
@@ -80,17 +100,14 @@ export const StoryItem = memo<StoryItemProps>(
       const video = videoRef.current;
 
       const handleWaiting = () => {
-        // Video is buffering
         onBufferingChange?.(true);
       };
 
       const handlePlaying = () => {
-        // Video resumed after buffering
         onBufferingChange?.(false);
       };
 
       const handleStalled = () => {
-        // Video stalled due to network issues
         onBufferingChange?.(true);
       };
 
@@ -105,27 +122,17 @@ export const StoryItem = memo<StoryItemProps>(
       };
     }, [item.type, isActive, onBufferingChange]);
 
-    // Sync video progress with timer for more accurate progress bar
+    // Cleanup video on unmount or when story changes
     useEffect(() => {
-      if (item.type !== "video" || !videoRef.current || !isActive) return;
-
       const video = videoRef.current;
-      let rafId: number;
-
-      const syncProgress = () => {
-        if (video.duration && isFinite(video.duration)) {
-          // This allows the progress bar to sync with video playhead
-          // The timer in StoryViewer will handle the actual progress
-        }
-        rafId = requestAnimationFrame(syncProgress);
-      };
-
-      rafId = requestAnimationFrame(syncProgress);
+      if (item.type !== "video" || !video) return;
 
       return () => {
-        cancelAnimationFrame(rafId);
+        video.pause();
+        video.removeAttribute('src');
+        video.load();
       };
-    }, [item.type, isActive]);
+    }, [item.id, item.type]);
 
     const handleError = useCallback(() => {
       setHasError(true);
@@ -139,7 +146,7 @@ export const StoryItem = memo<StoryItemProps>(
 
     if (hasError) {
       return (
-        <div className="story-item story-item-error">
+        <div className={cn("story-item story-item-error", classNames?.error)}>
           <div className="story-item-error-message">Failed to load content</div>
         </div>
       );
@@ -148,9 +155,9 @@ export const StoryItem = memo<StoryItemProps>(
     switch (item.type) {
       case "image":
         return (
-          <div className="story-item story-item-image">
+          <div className={cn("story-item story-item-image", classNames?.root)}>
             {isLoading && (
-              <div className="story-item-loader">
+              <div className={cn("story-item-loader", classNames?.loader)}>
                 <div className="story-item-spinner"></div>
               </div>
             )}
@@ -167,15 +174,16 @@ export const StoryItem = memo<StoryItemProps>(
 
       case "video":
         return (
-          <div className="story-item story-item-video">
+          <div className={cn("story-item story-item-video", classNames?.root)}>
             {isLoading && (
-              <div className="story-item-loader">
+              <div className={cn("story-item-loader", classNames?.loader)}>
                 <div className="story-item-spinner"></div>
               </div>
             )}
             <video
               ref={videoRef}
               src={item.src}
+              muted
               playsInline
               loop={false}
               onError={handleError}
@@ -188,20 +196,20 @@ export const StoryItem = memo<StoryItemProps>(
       case "text":
         return (
           <div
-            className="story-item story-item-text"
+            className={cn("story-item story-item-text", classNames?.root)}
             style={{
               backgroundColor: item.backgroundColor || "#000",
               color: item.textColor || "#fff",
             }}
           >
-            <div className="story-item-text-content">{item.text}</div>
+            <div className={cn("story-item-text-content", classNames?.textContent)}>{item.text}</div>
           </div>
         );
 
       case "custom_component":
         const Component = item.component;
         return (
-          <div className="story-item story-item-component">
+          <div className={cn("story-item story-item-component", classNames?.root)}>
             <Component {...controls} />
           </div>
         );

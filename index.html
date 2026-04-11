@@ -1,83 +1,315 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta name="theme-color" content="#000000" />
-    <meta name="google-site-verification" content="hvkM4S87CkyqNDq2fdINg2hWIbYFuR2ccDnup5t2ib8" />
-    
+    <meta
+      name="google-site-verification"
+      content="hvkM4S87CkyqNDq2fdINg2hWIbYFuR2ccDnup5t2ib8"
+    />
+
     <!-- Primary Meta Tags -->
-    <title>React Instagram Stories - High-Performance Story Component for React</title>
-    <meta name="title" content="React Instagram Stories - High-Performance Story Component for React" />
-    <meta name="description" content="Build Instagram-style Stories experiences with React. High-performance, fully customizable component with TypeScript support, video/image/text stories, polls, quizzes, and custom components. Only 74KB gzipped." />
-    <meta name="keywords" content="react, instagram stories, stories component, react stories, instagram story viewer, react component, typescript, react-native stories, social media stories, story player" />
+    <title>React Instagram Stories - 3D Stories Component for React</title>
+    <meta
+      name="title"
+      content="React Instagram Stories - 3D Stories Component for React"
+    />
+    <meta
+      name="description"
+      content="Build Instagram-style Stories in React. 3D cube transitions, Tailwind CSS customization, video/image/text stories, and zero runtime dependencies."
+    />
+    <meta
+      name="keywords"
+      content="react, instagram stories, stories component, react stories, instagram story viewer, react component, typescript, react-native stories, social media stories, story player, react-instagram-stories"
+    />
     <meta name="author" content="Ankit Jangir" />
     <meta name="robots" content="index, follow" />
-    <link rel="canonical" href="https://reactstories.vercel.app" />
-    
+    <link rel="canonical" href="https://reactstories.vercel.app/" />
+
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="website" />
     <meta property="og:url" content="https://reactstories.vercel.app/" />
-    <meta property="og:title" content="React Instagram Stories - High-Performance Story Component" />
-    <meta property="og:description" content="Build Instagram-style Stories experiences with React. High-performance, fully customizable component with TypeScript support. Features video, image, text stories, polls, quizzes, and custom components." />
-    <meta property="og:image" content="https://reactstories.vercel.app/favicon.svg" />
+    <meta
+      property="og:title"
+      content="React Instagram Stories - 3D Stories Component for React"
+    />
+    <meta
+      property="og:description"
+      content="Build Instagram-style Stories in React. 3D cube transitions, Tailwind CSS customization, video/image/text stories, and zero runtime dependencies."
+    />
+    <meta
+      property="og:image"
+      content="https://reactstories.vercel.app/favicon.svg"
+    />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
     <meta property="og:site_name" content="React Instagram Stories" />
     <meta property="og:locale" content="en_US" />
-    
+
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:site" content="@ankitjangir" />
     <meta name="twitter:creator" content="@ankitjangir" />
     <meta name="twitter:url" content="https://reactstories.vercel.app/" />
-    <meta name="twitter:title" content="React Instagram Stories - High-Performance Story Component" />
-    <meta name="twitter:description" content="Build Instagram-style Stories experiences with React. High-performance component with TypeScript, video/image/text stories, polls, quizzes, custom components." />
-    <meta name="twitter:image" content="https://reactstories.vercel.app/favicon.svg" />
-    
-    <!-- Structured Data (JSON-LD) -->
+    <meta
+      name="twitter:title"
+      content="React Instagram Stories - 3D Stories Component for React"
+    />
+    <meta
+      name="twitter:description"
+      content="Build Instagram-style Stories in React. 3D cube transitions, Tailwind CSS customization, video/image/text stories, and zero runtime dependencies."
+    />
+    <meta
+      name="twitter:image"
+      content="https://reactstories.vercel.app/favicon.svg"
+    />
+
+    <!-- Structured Data: SoftwareApplication -->
     <script type="application/ld+json">
-    {
-      "@context": "https://schema.org",
-      "@type": "SoftwareApplication",
-      "name": "React Instagram Stories",
-      "description": "A high-performance, fully customizable Instagram-style Stories component for React with TypeScript support",
-      "url": "https://reactstories.vercel.app",
-      "image": "https://reactstories.vercel.app/favicon.svg",
-      "author": {
-        "@type": "Person",
-        "name": "Ankit Jangir",
-        "url": "https://github.com/ankit64jangir"
-      },
-      "publisher": {
-        "@type": "Person",
-        "name": "Ankit Jangir"
-      },
-      "programmingLanguage": {
-        "@type": "ComputerLanguage",
-        "name": "TypeScript"
-      },
-      "softwareRequirements": "React 18+",
-      "applicationCategory": "DeveloperApplication",
-      "genre": "React Component Library",
-      "offers": {
-        "@type": "Offer",
-        "price": "0",
-        "priceCurrency": "USD",
-        "availability": "https://schema.org/InStock"
-      },
-      "downloadUrl": "https://www.npmjs.com/package/react-instagram-stories",
-      "releaseNotes": "https://github.com/ankit64jangir/react-instagram-stories/releases",
-      "softwareVersion": "1.0.3"
-    }
+      {
+        "@context": "https://schema.org",
+        "@type": "SoftwareApplication",
+        "name": "React Instagram Stories",
+        "description": "A high-performance, fully customizable Instagram-style Stories component for React with TypeScript support",
+        "url": "https://reactstories.vercel.app/",
+        "image": "https://reactstories.vercel.app/favicon.svg",
+        "operatingSystem": "Web",
+        "applicationCategory": "DeveloperApplication",
+        "applicationSubCategory": "React Component Library",
+        "softwareVersion": "1.0.5",
+        "softwareRequirements": "React 18+",
+        "programmingLanguage": {
+          "@type": "ComputerLanguage",
+          "name": "TypeScript"
+        },
+        "featureList": [
+          "Instagram-style story viewer",
+          "3D cube drag transitions",
+          "Video and image story support",
+          "TypeScript support",
+          "Tailwind CSS customization via classNames",
+          "Zero runtime dependencies",
+          "Keyboard and touch navigation",
+          "ARIA accessibility labels"
+        ],
+        "author": {
+          "@type": "Person",
+          "name": "Ankit Jangir",
+          "url": "https://github.com/ankit64jangir"
+        },
+        "publisher": {
+          "@type": "Organization",
+          "name": "React Instagram Stories",
+          "url": "https://reactstories.vercel.app/"
+        },
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD",
+          "availability": "https://schema.org/InStock",
+          "url": "https://www.npmjs.com/package/react-instagram-stories"
+        },
+        "downloadUrl": "https://www.npmjs.com/package/react-instagram-stories",
+        "releaseNotes": "https://github.com/ankit64jangir/react-instagram-stories/releases"
+      }
     </script>
-    
+
+    <!-- Structured Data: WebSite -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "React Instagram Stories",
+        "url": "https://reactstories.vercel.app/",
+        "description": "High-performance Instagram-style Stories component for React with TypeScript support",
+        "publisher": {
+          "@type": "Organization",
+          "name": "React Instagram Stories",
+          "url": "https://reactstories.vercel.app/",
+          "logo": {
+            "@type": "ImageObject",
+            "url": "https://reactstories.vercel.app/favicon.svg"
+          },
+          "sameAs": [
+            "https://github.com/ankit64jangir/react-instagram-stories",
+            "https://www.npmjs.com/package/react-instagram-stories"
+          ]
+        }
+      }
+    </script>
+
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-    
+    <link rel="apple-touch-icon" href="/favicon.svg" />
+
     <!-- Sitemap -->
-    <link rel="sitemap" type="application/xml" title="Sitemap" href="/sitemap.xml" />
+    <link
+      rel="sitemap"
+      type="application/xml"
+      title="Sitemap"
+      href="/sitemap.xml"
+    />
   </head>
   <body>
     <div id="root"></div>
+
+    <!-- Static HTML fallback for search engines and AI crawlers that don't execute JavaScript -->
+    <noscript>
+      <main>
+        <section aria-label="Hero">
+          <h1>Instagram Stories Component Library</h1>
+          <p>
+            Build beautiful, performant Instagram-style stories with
+            <strong>react-instagram-stories</strong> — a high-performance React
+            component. Smooth 3D cube drag transitions, touch gestures, and
+            fully customizable with Tailwind CSS via classNames. Zero runtime
+            dependencies, TypeScript support, and React 18+ compatible.
+          </p>
+          <p>
+            <a href="https://github.com/ankit64jangir/react-instagram-stories"
+              >View on GitHub</a
+            >
+            |
+            <a href="https://www.npmjs.com/package/react-instagram-stories"
+              >Install from NPM</a
+            >
+          </p>
+        </section>
+
+        <section aria-label="Features">
+          <h2>Built for Modern Experiences</h2>
+          <p>
+            Everything you need for a fast, accessible, and delightful user
+            experience.
+          </p>
+          <ul>
+            <li>
+              <strong>3D Cube Transition</strong> — Instagram-style 3D cube drag
+              to peek at and switch between users
+            </li>
+            <li>
+              <strong>Tailwind CSS Support</strong> — Fully customizable via
+              classNames props, style every sub-element with Tailwind or custom
+              CSS
+            </li>
+            <li>
+              <strong>High Performance</strong> — Virtualized list, smart
+              preloading, and 60fps hardware-accelerated animations
+            </li>
+            <li>
+              <strong>Media Support</strong> — Images, videos, text, and custom
+              React components
+            </li>
+            <li>
+              <strong>Keyboard and Touch</strong> — Full keyboard navigation,
+              tap, drag, and long-press support
+            </li>
+            <li>
+              <strong>Accessible</strong> — ARIA labels, keyboard support, and
+              screen reader friendly
+            </li>
+          </ul>
+        </section>
+
+        <section aria-label="Performance">
+          <h2>Performance Optimized</h2>
+          <p>
+            Built from the ground up for speed and efficiency. Handle thousands
+            of stories without breaking a sweat.
+          </p>
+          <ul>
+            <li>
+              <strong>Virtualized Rendering</strong> — Only renders visible
+              stories, supporting 1000+ users smoothly
+            </li>
+            <li>
+              <strong>Smart Preloading</strong> — Automatically preloads next
+              stories for seamless transitions
+            </li>
+            <li>
+              <strong>Optimized Animations</strong> — 60fps smooth animations
+              using hardware acceleration
+            </li>
+            <li>
+              <strong>Zero Dependencies</strong> — Lightweight ~30 KB bundle
+              with zero runtime dependencies
+            </li>
+          </ul>
+        </section>
+
+        <section aria-label="Content Types">
+          <h2>Rich Content Types</h2>
+          <p>
+            Support for any content type you can imagine. From simple images to
+            interactive experiences.
+          </p>
+          <ul>
+            <li>
+              <strong>Images</strong> — Support for any image format with
+              automatic aspect ratio handling
+            </li>
+            <li>
+              <strong>Videos</strong> — Auto-playing videos with audio support
+              and buffering detection
+            </li>
+            <li>
+              <strong>Text</strong> — Beautiful text overlays with customizable
+              colors and backgrounds
+            </li>
+            <li>
+              <strong>Custom Components</strong> — Embed any React component for
+              polls, quizzes, products, and more
+            </li>
+          </ul>
+        </section>
+
+        <section aria-label="Installation">
+          <h2>Quick Start</h2>
+          <p>Install react-instagram-stories with npm:</p>
+          <pre><code>npm install react-instagram-stories</code></pre>
+        </section>
+
+        <section aria-label="Accessibility">
+          <h2>Accessible by Default</h2>
+          <p>
+            Built with accessibility in mind. Everyone can enjoy your stories,
+            regardless of how they interact.
+          </p>
+          <ul>
+            <li>
+              <strong>Keyboard Navigation</strong> — Complete keyboard support
+              with arrow keys, space, and escape
+            </li>
+            <li>
+              <strong>Screen Reader Ready</strong> — ARIA labels and semantic
+              HTML for accessibility tools
+            </li>
+            <li>
+              <strong>Reduced Motion</strong> — Respects user preferences for
+              reduced motion animations
+            </li>
+            <li>
+              <strong>Focus Management</strong> — Proper focus handling for
+              keyboard and screen reader users
+            </li>
+          </ul>
+        </section>
+
+        <footer>
+          <p>
+            react-instagram-stories — Built by
+            <a href="https://github.com/ankit64jangir">Ankit Jangir</a>. MIT
+            License.
+          </p>
+          <p>
+            Built with React, TypeScript, and Tailwind CSS. High-performance
+            Instagram-style Stories component.
+          </p>
+        </footer>
+      </main>
+    </noscript>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

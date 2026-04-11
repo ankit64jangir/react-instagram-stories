@@ -1,5 +1,10 @@
 import { User } from '../types';
 
+/** Merge CSS class names, filtering out falsy values */
+export function cn(...classes: (string | undefined | false | null)[]): string {
+  return classes.filter(Boolean).join(' ');
+}
+
 /**
  * Resolves a user value (index or ID) to an index
  * @param users - Array of users

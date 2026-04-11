@@ -5,13 +5,7 @@ Allow: /
 # Sitemap location
 Sitemap: https://reactstories.vercel.app/sitemap.xml
 
-# Crawl-delay (optional)
-Crawl-delay: 10
-
-# Disallow private/admin areas (if any)
+# Disallow private/admin areas
 Disallow: /api/
 Disallow: /dist/
 Disallow: /node_modules/
-
-# Host directive
-Host: https://reactstories.vercel.app

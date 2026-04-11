@@ -1,16 +1,18 @@
 import React, { useRef, useEffect, useState, useCallback, memo } from 'react';
-import { User } from '../types';
+import { User, AvatarListClassNames } from '../types';
+import { cn } from '../utils/storyHelpers';
 import { Avatar } from './Avatar';
 
 interface AvatarListProps {
   users: User[];
   onAvatarClick: (userIndex: number) => void;
+  classNames?: AvatarListClassNames;
 }
 
 const AVATAR_WIDTH = 90; // Approximate width including margin
 const OVERSCAN_COUNT = 3; // Render extra items outside viewport
 
-export const AvatarList = memo<AvatarListProps>(({ users, onAvatarClick }) => {
+export const AvatarList = memo<AvatarListProps>(({ users, onAvatarClick, classNames }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const [scrollLeft, setScrollLeft] = useState(0);
   const [containerWidth, setContainerWidth] = useState(0);
@@ -61,7 +63,7 @@ export const AvatarList = memo<AvatarListProps>(({ users, onAvatarClick }) => {
   return (
     <div
       ref={containerRef}
-      className="story-avatar-list"
+      className={cn('story-avatar-list', classNames?.root)}
       onScroll={handleScroll}
       role="list"
       aria-label="Stories"
@@ -89,6 +91,7 @@ export const AvatarList = memo<AvatarListProps>(({ users, onAvatarClick }) => {
               username={user.username}
               hasUnreadStories={user.hasUnreadStories}
               onClick={() => onAvatarClick(index)}
+              classNames={classNames?.avatar}
             />
           </div>
         ))}
